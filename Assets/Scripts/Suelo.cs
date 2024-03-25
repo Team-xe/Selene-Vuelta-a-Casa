@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/**
+** Script para que cada Suelo aparezca con Obstaculos y sea Destruido cuando el Jugador ya deje de tocarlo creando otro al final en su lugar
+**/
 public class Suelo : MonoBehaviour
 {
     SuelosGenerador sueloGenerador; // Variable para guardar el Script que genera Suelos

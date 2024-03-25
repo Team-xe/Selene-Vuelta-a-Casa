@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /**
-* Clase para generar suelos y mantener 15 suelos permanentemente en Juego
+** Script para Generar Suelos y mantener 15 suelos permanentementes en Juego
 **/
 public class SuelosGenerador : MonoBehaviour
 {
