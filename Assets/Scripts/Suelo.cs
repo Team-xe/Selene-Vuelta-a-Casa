@@ -13,6 +13,7 @@ public class Suelo : MonoBehaviour
     {
         sueloGenerador = GameObject.FindObjectOfType<SuelosGenerador>(); // Guarda el Script SuelosGenerador (buscandolo)
         GenerarObstaculo(); // Suelo nace con 1 Obstaculo
+        GenerarMoneda(); // Suelo nace con 1 Moneda
     }
 
     /**
@@ -28,6 +29,7 @@ public class Suelo : MonoBehaviour
     public GameObject obstaculo1Prefab;
     public GameObject obstaculo2Prefab;
     public GameObject obstaculo3Prefab;
+    public GameObject monedaPrefab;
     
 
     /**
@@ -37,6 +39,7 @@ public class Suelo : MonoBehaviour
 
         //* Escoger un punto random (1,2,3) para generar el obstaculo
 
+        // Numero random de posicion en carril (1,2,3)
         int obstaculoGenIndex = Random.Range(2,5); // numero random
         // Guarda la posicion 1, 2 o 3 en "puntoGen"
         Transform puntoGen = transform.GetChild(obstaculoGenIndex).transform; // regresa el componente transform de uno de los 3 GameObjects obstaculoGen izq, medio, der
@@ -51,7 +54,7 @@ public class Suelo : MonoBehaviour
             Instantiate(obstaculo1Prefab,puntoGen.position,Quaternion.identity,transform);
         }
 
-        // Obstaculo 3
+        // Obstaculo 3 (En el aire)
         if (probabilidad < 0.1f){
             Transform puntoAire = puntoGen;
             puntoAire.position = new Vector3(puntoGen.position.x,puntoGen.position.y + 2f,puntoGen.position.z);
@@ -61,6 +64,21 @@ public class Suelo : MonoBehaviour
         if (probabilidad > 0.7){
             Instantiate(obstaculo2Prefab,puntoGen.position,Quaternion.identity,transform);
         }
-    
+    }
+    void GenerarMoneda(){
+
+        //* Escoger un punto random (1,2,3) para generar la Moneda
+
+        // Numero random de posicion en carril (1,2,3)
+        int monedaGenIndex = Random.Range(2,5);
+
+        // Guarda la posicion 1,2 O 3 en "puntoGen"
+        Transform puntoGen = transform.GetChild(monedaGenIndex).transform;
+
+        // Probabilidad para generar (opcinal con un if (probabildiad < 0.3) por ejemplo)
+        float probabilidad = Random.Range(0f,1f);
+
+        // Generar Moneda
+        Instantiate(monedaPrefab,puntoGen.position,monedaPrefab.transform.rotation,transform);
     }
 }

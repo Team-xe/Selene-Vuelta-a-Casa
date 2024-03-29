@@ -457,6 +457,7 @@ MonoBehaviour:
   obstaculo1Prefab: {fileID: 931294252330337158, guid: 93842ec4658260d45bd209a6c065f467, type: 3}
   obstaculo2Prefab: {fileID: 931294252330337158, guid: 93842ec4658260d45bd209a6c065f467, type: 3}
   obstaculo3Prefab: {fileID: 931294252330337158, guid: 93842ec4658260d45bd209a6c065f467, type: 3}
+  monedaPrefab: {fileID: 7731624958306471252, guid: 2dd111bd3eccf494f93cf8ed0cc46284, type: 3}
 --- !u!1 &6188455340680081353
 GameObject:
   m_ObjectHideFlags: 0

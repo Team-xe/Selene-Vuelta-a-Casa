@@ -84,10 +84,16 @@ public class JugadorMovimiento : MonoBehaviour
             Morir();
         }
 
-        //* Saltar con la E y solo 1 vez
-        if (Input.GetKeyDown(KeyCode.Space) && enSuelo == true){
+        //* Saltar con la W y solo 1 vez
+        if (Input.GetKeyDown(KeyCode.W) && enSuelo == true){
+            Debug.Log("Saltaste");
             enSuelo = false;
             Saltar();
+        }
+
+        //* Bajar rapido con la S
+        if (Input.GetKeyDown(KeyCode.S) && enSuelo == false){
+            Bajar();
         }
         
     }
@@ -99,6 +105,12 @@ public class JugadorMovimiento : MonoBehaviour
     void Saltar(){
         if (rb != null){
             rb.AddForce(Vector3.up * fuerzaSalto, ForceMode.Impulse); // Aplica una fuerza Vertical hacia arriba para simular un Salto (en un espacio 3D)
+        }
+    }
+
+    void Bajar(){
+        if (rb != null){
+            rb.AddForce(Vector3.down * (fuerzaSalto-10f), ForceMode.Impulse);
         }
     }
 
