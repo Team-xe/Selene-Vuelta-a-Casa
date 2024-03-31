@@ -14,6 +14,7 @@ public class Suelo : MonoBehaviour
         sueloGenerador = GameObject.FindObjectOfType<SuelosGenerador>(); // Guarda el Script SuelosGenerador (buscandolo)
         GenerarObstaculo(); // Suelo nace con 1 Obstaculo
         GenerarMoneda(); // Suelo nace con 1 Moneda
+        //GenerarEnemigo();
     }
 
     /**
@@ -30,6 +31,7 @@ public class Suelo : MonoBehaviour
     public GameObject obstaculo2Prefab;
     public GameObject obstaculo3Prefab;
     public GameObject monedaPrefab;
+    public GameObject Enemigo1Prefab;
     
 
     /**
@@ -80,5 +82,17 @@ public class Suelo : MonoBehaviour
 
         // Generar Moneda
         Instantiate(monedaPrefab,puntoGen.position,monedaPrefab.transform.rotation,transform);
+    }
+
+    void GenerarEnemigo(){
+        int enemigoGenIndex = Random.Range(2,5); 
+
+        Transform puntoGen = transform.GetChild(enemigoGenIndex).transform;
+
+        float probabilidad = Random.Range(0f,1f);
+
+        if(probabilidad > 0.8) {
+        Instantiate(Enemigo1Prefab,puntoGen.position,Quaternion.identity,transform);
+        }
     }
 }
