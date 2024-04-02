@@ -21,4 +21,8 @@ public class MenuInicial : MonoBehaviour
       Debug.Log("Saliendo..");
       Application.Quit();
   }
+
+  public void Volver(){
+    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+  }
 }
