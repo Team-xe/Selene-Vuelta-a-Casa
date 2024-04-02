@@ -6,23 +6,24 @@ using UnityEngine.SceneManagement;
 public class MenuInicial : MonoBehaviour
 {
   public void Jugar(){
-    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
+    SceneManager.LoadScene("Partida");
   }
 
   public void Tienda(){
-    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    SceneManager.LoadScene("Menu Tienda");
   }
 
+/*
   public void Multijugador(){
     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
   }
-
+  */
   public void Salir(){
       Debug.Log("Saliendo..");
       Application.Quit();
   }
 
   public void Volver(){
-    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    SceneManager.LoadScene("Menu Inicial");
   }
 }
