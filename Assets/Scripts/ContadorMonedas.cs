@@ -27,6 +27,6 @@ public class ContadorMonedas : MonoBehaviour
     public void ActualizarTexto(){
 
          // Actualizar el texto del contador de monedas
-        textoContador.text = "Monedas: " + contador.ToString();
+        textoContador.text = contador.ToString();
     }
 }

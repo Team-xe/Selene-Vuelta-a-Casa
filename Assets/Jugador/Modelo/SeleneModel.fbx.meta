@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 2f483cb734cddcb4fbfbc614133feb7d
+guid: e23e9ea3515af324e887d08329c9b10c
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Selene.png
+    second: {fileID: 2100000, guid: 280dbf039600f5647b730071e0eb1f70, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

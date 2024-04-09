@@ -7,13 +7,14 @@ using UnityEngine;
 public class SuelosGenerador : MonoBehaviour
 {
     public GameObject suelo;
-    Vector3 puntoGeneracion;
+    public Vector3 puntoGeneracion;
 
 
     /**
     ** Metodo que Genera 1 Suelo instanciandolo en el Punto del Suelo Anterior (tomado por el Suelo que ya esta creado)
     **/
     public void GenerarSuelo(){
+
 
         // Creo 1 Suelo en el puntoGeneracion que tiene el Suelo Anterior
         GameObject temp = Instantiate(suelo,puntoGeneracion,Quaternion.identity); 

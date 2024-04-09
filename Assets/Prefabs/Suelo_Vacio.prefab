@@ -393,7 +393,7 @@ GameObject:
   - component: {fileID: 4485047515202875502}
   - component: {fileID: 5903526396752454125}
   m_Layer: 3
-  m_Name: Suelo
+  m_Name: Suelo_Vacio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -454,11 +454,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8cccc356a746c44be5df1dc0ec161d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstaculo1Prefab: {fileID: 931294252330337158, guid: 93842ec4658260d45bd209a6c065f467, type: 3}
-  obstaculo2Prefab: {fileID: 931294252330337158, guid: adf88a4a477041b41925c0f92e99b445, type: 3}
-  obstaculo3Prefab: {fileID: 931294252330337158, guid: b5f3307512c5f8e439926cd8f56e09d5, type: 3}
-  monedaPrefab: {fileID: 7731624958306471252, guid: 2dd111bd3eccf494f93cf8ed0cc46284, type: 3}
-  Enemigo1Prefab: {fileID: 8129112931791707202, guid: 4b349637018367c438c1fb67e199e1d0, type: 3}
+  obstaculo1Prefab: {fileID: 0}
+  obstaculo2Prefab: {fileID: 0}
+  obstaculo3Prefab: {fileID: 0}
+  monedaPrefab: {fileID: 0}
+  Enemigo1Prefab: {fileID: 0}
 --- !u!1 &6188455340680081353
 GameObject:
   m_ObjectHideFlags: 0
