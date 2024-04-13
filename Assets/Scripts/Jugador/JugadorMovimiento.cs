@@ -17,7 +17,7 @@ public class JugadorMovimiento : MonoBehaviour
 
     [SerializeField] Rigidbody rb; // Cuerpo sometido a fisicas
 
-    public float velocidad = 20; // Que tan rapido avanza el Jugador
+    public float velocidad = 80f; // Que tan rapido avanza el Jugador
     [SerializeField] float fuerzaSalto = 30f; // fuerza con la que salta el jugador
 
 

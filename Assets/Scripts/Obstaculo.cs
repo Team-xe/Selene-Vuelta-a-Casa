@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Obstaculo : MonoBehaviour
 {
-    JugadorMovimiento jugadorMovimiento;
+    public JugadorMovimiento jugadorMovimiento;
 
     void Start()
     {

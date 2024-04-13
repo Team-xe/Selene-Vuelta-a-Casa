@@ -14,7 +14,7 @@ public class Suelo : MonoBehaviour
         sueloGenerador = GameObject.FindObjectOfType<SuelosGenerador>(); // Guarda el Script SuelosGenerador (buscandolo)
         GenerarObstaculo(); // Suelo nace con 1 Obstaculo
         GenerarMoneda(); // Suelo nace con 1 Moneda
-        GenerarEnemigo();
+        GenerarEnemigo(); //
     }
 
     /**
@@ -30,8 +30,9 @@ public class Suelo : MonoBehaviour
     public GameObject obstaculo1Prefab;
     public GameObject obstaculo2Prefab;
     public GameObject obstaculo3Prefab;
+    public GameObject obstaculo4Prefab;
     public GameObject monedaPrefab;
-    public GameObject Enemigo1Prefab;
+    public GameObject Enemigo1Prefab; // Ranita que salte
 
     int obstaculoGenIndex;
     int monedaGenIndex;
@@ -54,24 +55,33 @@ public class Suelo : MonoBehaviour
 
         float probabilidad = Random.Range (0f,1f); // probabilidad de uno u otro
     
-        // Obstaculo 1 
+
+        //* OPCIONES DE OBSTACULOS (solo se genera 1)
+
+        // Obstaculo 1  50% (0.7 a 0.2)
         if (probabilidad < 0.7f && probabilidad > 0.2){
             
-            Instantiate(obstaculo1Prefab,puntoGen.position,Quaternion.identity,transform);
+            Instantiate(obstaculo1Prefab,puntoGen.position,obstaculo1Prefab.transform.rotation,transform);
         }
 
-        // Obstaculo 3 (En el aire)
+        // Obstaculo 3 (En el aire) 20% [0.3 a 0.1)
         if (probabilidad <= 0.3f && probabilidad > 0.1f){
             Transform puntoAire = puntoGen;
-            puntoAire.position = new Vector3(puntoGen.position.x,puntoGen.position.y + 3f,puntoGen.position.z);
+            puntoAire.position = new Vector3(puntoGen.position.x,puntoGen.position.y + 2.5f,puntoGen.position.z);
             Instantiate(obstaculo3Prefab,puntoAire.position,obstaculo3Prefab.transform.rotation,transform);
         }
-        // Obstaculo 2 (Alto)
+        // Obstaculo 2 (Alto) 30% [1.0 a 0.7]
         if (probabilidad >= 0.7){
             Transform puntoAlto = puntoGen;
             puntoAlto.position = new Vector3(puntoGen.position.x, puntoGen.position.y + 1.5f,puntoGen.position.z);
-            Instantiate(obstaculo2Prefab,puntoAlto.position,Quaternion.identity,transform);
+            Instantiate(obstaculo2Prefab,puntoAlto.position,obstaculo2Prefab.transform.rotation,transform);
         }
+        // Obstaculo 4 (Rebote) 10% [0.1 a 0.0]
+        if (probabilidad <= 0.1f && probabilidad >= 0.0f){
+
+            Instantiate(obstaculo4Prefab,puntoGen.position,obstaculo4Prefab.transform.rotation,transform);
+        }
+        
     }
     void GenerarMoneda(){
 
@@ -79,6 +89,8 @@ public class Suelo : MonoBehaviour
 
         // Numero random de posicion en carril (1,2,3)
         monedaGenIndex = Random.Range(2,5);
+
+        // La posicion debe ser distinta a los obstaculos
         while (monedaGenIndex == obstaculoGenIndex){
             monedaGenIndex = Random.Range(2,5);
         }
@@ -95,20 +107,31 @@ public class Suelo : MonoBehaviour
 
     void GenerarEnemigo(){
 
-        enemigoGenIndex = Random.Range(2,5); 
+        // Numero random de posicion en carril (1,2,3)
+        enemigoGenIndex = Random.Range(2,5);
+
         while (enemigoGenIndex == obstaculoGenIndex || enemigoGenIndex == monedaGenIndex){
             enemigoGenIndex = Random.Range(2,5);
         }
 
+        // Guarda la posicion 1, 2 o 3 en "puntoGen"
         Transform puntoGen = transform.GetChild(enemigoGenIndex).transform;
 
         Transform puntoAlto = puntoGen;
         puntoAlto.position = new Vector3(puntoGen.position.x,puntoGen.position.y + 1f,puntoGen.position.z);
 
+
+        // Probabilidad para generar (opcional con un if (probabildiad < 0.3) por ejemplo)
         float probabilidad = Random.Range(0f,1f);
 
+        // Generar Enemigo 10% [0.1 a 0.0]
         if(probabilidad <= 0.1) {
             Instantiate(Enemigo1Prefab,puntoAlto.position,Quaternion.identity,transform);
+        }
+
+        // Generar Obstaculo si no se genera enemigo (20%) [0.3 a 0.1)
+        if (probabilidad <= 0.3 && probabilidad > 0.1 ){
+            Instantiate(obstaculo1Prefab,puntoGen.position,Quaternion.identity,transform);
         }
     }
 }
