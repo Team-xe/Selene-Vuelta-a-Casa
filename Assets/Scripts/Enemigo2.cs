@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemigo1 : MonoBehaviour
+public class Enemigo2 : MonoBehaviour
 {
-    public float tiemposaltar = 3f; 
-    private float tiempo = 0f;
+    public float tiempomin = 1f; 
+    private float tiempomax = 5f;
+    private float tiempoSalto;
     private JugadorMovimiento jugadorMovimiento;
     private Rigidbody rb;
     // Start is called before the first frame update
@@ -13,6 +14,7 @@ public class Enemigo1 : MonoBehaviour
     {
         jugadorMovimiento = GameObject.FindObjectOfType<JugadorMovimiento>();
         rb = GetComponent<Rigidbody>();
+        calcularTiempo();
     }
     
     public void Salto()
@@ -27,16 +29,20 @@ public class Enemigo1 : MonoBehaviour
         }
     }
 
+    private void calcularTiempo()
+    {
+        tiempoSalto = Time.time + Random.Range(tiempomin, tiempomax);
+    }
+
 
     // Update is called once per frame
     void Update()
     {
-        tiempo += Time.deltaTime;
     
-        if (tiempo >= tiemposaltar)
+        if (Time.time >= tiempoSalto)
         {
             Salto();
-            tiempo = 0f;
+            calcularTiempo();
         }
     }
 }

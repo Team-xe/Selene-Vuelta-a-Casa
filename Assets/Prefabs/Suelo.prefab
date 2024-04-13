@@ -459,7 +459,7 @@ MonoBehaviour:
   obstaculo3Prefab: {fileID: 4654909990581677235, guid: c5a0c37d1513eb843a0cde9a108543c5, type: 3}
   obstaculo4Prefab: {fileID: 931294252330337158, guid: 93842ec4658260d45bd209a6c065f467, type: 3}
   monedaPrefab: {fileID: 7731624958306471252, guid: 2dd111bd3eccf494f93cf8ed0cc46284, type: 3}
-  Enemigo1Prefab: {fileID: 8129112931791707202, guid: 4b349637018367c438c1fb67e199e1d0, type: 3}
+  Enemigo1Prefab: {fileID: 1644373995442134, guid: 0187bdd962557471faee34c9b592135c, type: 3}
 --- !u!1 &6188455340680081353
 GameObject:
   m_ObjectHideFlags: 0
