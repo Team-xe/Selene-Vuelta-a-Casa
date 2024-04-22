@@ -21,16 +21,20 @@ public class Suelo : MonoBehaviour
     ** Metodo que Genera 1 Suelo y Destruye este Suelo actual de este Script al salir de la Colision con algo 
     **/
     private void OnTriggerExit(Collider other){
-        sueloGenerador.GenerarSuelo(); // Accede al Script SuelosGenerador y Genera otro Suelo en alguna posicion
-        Destroy(gameObject,2); // Destruye 1 Suelo despues de 2 segundos
+        if (other.gameObject.CompareTag("Jugador")){{
+            sueloGenerador.GenerarSuelo(); // Accede al Script SuelosGenerador y Genera otro Suelo en alguna posicion
+            Destroy(gameObject,2); // Destruye 1 Suelo despues de 2 segundos
+        }}
+        
     }
 
 
     // Obstaculos
-    public GameObject obstaculo1Prefab;
-    public GameObject obstaculo2Prefab;
-    public GameObject obstaculo3Prefab;
-    public GameObject obstaculo4Prefab;
+    public GameObject obstaculo1Prefab; // Caja
+    public GameObject obstaculo2Prefab; // Tronco
+    public GameObject obstaculo3Prefab; // Pajaro (volador)
+    public GameObject obstaculo4Prefab; // Seta
+
     public GameObject monedaPrefab;
     public GameObject Enemigo1Prefab; // Ranita que salte
 
@@ -61,25 +65,25 @@ public class Suelo : MonoBehaviour
         // Obstaculo 1  50% (0.7 a 0.2)
         if (probabilidad < 0.7f && probabilidad > 0.2){
             
-            Instantiate(obstaculo1Prefab,puntoGen.position,obstaculo1Prefab.transform.rotation,transform);
+            Instantiate(obstaculo1Prefab,puntoGen.position,obstaculo1Prefab.transform.rotation,obstaculo1Prefab.transform);
         }
 
         // Obstaculo 3 (En el aire) 20% [0.3 a 0.1)
         if (probabilidad <= 0.3f && probabilidad > 0.1f){
             Transform puntoAire = puntoGen;
             puntoAire.position = new Vector3(puntoGen.position.x,puntoGen.position.y + 2.5f,puntoGen.position.z);
-            Instantiate(obstaculo3Prefab,puntoAire.position,obstaculo3Prefab.transform.rotation,transform);
+            Instantiate(obstaculo3Prefab,puntoAire.position,obstaculo3Prefab.transform.rotation,obstaculo3Prefab.transform);
         }
         // Obstaculo 2 (Alto) 30% [1.0 a 0.7]
         if (probabilidad >= 0.7){
             Transform puntoAlto = puntoGen;
             puntoAlto.position = new Vector3(puntoGen.position.x, puntoGen.position.y + 1.5f,puntoGen.position.z);
-            Instantiate(obstaculo2Prefab,puntoAlto.position,obstaculo2Prefab.transform.rotation,transform);
+            Instantiate(obstaculo2Prefab,puntoAlto.position,obstaculo2Prefab.transform.rotation,obstaculo2Prefab.transform);
         }
         // Obstaculo 4 (Rebote) 10% [0.1 a 0.0]
         if (probabilidad <= 0.1f && probabilidad >= 0.0f){
 
-            Instantiate(obstaculo4Prefab,puntoGen.position,obstaculo4Prefab.transform.rotation,transform);
+            Instantiate(obstaculo4Prefab,puntoGen.position,obstaculo4Prefab.transform.rotation,obstaculo4Prefab.transform);
         }
         
     }
@@ -102,7 +106,7 @@ public class Suelo : MonoBehaviour
         //float probabilidad = Random.Range(0f,1f);
 
         // Generar Moneda
-        Instantiate(monedaPrefab,puntoGen.position,monedaPrefab.transform.rotation,transform);
+        Instantiate(monedaPrefab,puntoGen.position,monedaPrefab.transform.rotation,monedaPrefab.transform);
     }
 
     void GenerarEnemigo(){
@@ -131,7 +135,8 @@ public class Suelo : MonoBehaviour
 
         // Generar Obstaculo si no se genera enemigo (20%) [0.3 a 0.1)
         if (probabilidad <= 0.3 && probabilidad > 0.1 ){
-            Instantiate(obstaculo1Prefab,puntoGen.position,Quaternion.identity,transform);
+            puntoAlto.position = new Vector3(puntoGen.position.x, puntoGen.position.y - 1.0f,puntoGen.position.z);
+            Instantiate(obstaculo1Prefab,puntoAlto.position,obstaculo1Prefab.transform.rotation,transform);
         }
     }
 }

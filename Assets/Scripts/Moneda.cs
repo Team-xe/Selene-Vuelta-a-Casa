@@ -17,5 +17,9 @@ public class Moneda : MonoBehaviour
         }
     }
 
+    void Update(){
+        transform.Rotate(Vector3.right, 50f * Time.deltaTime);
+    }
+
     //TODO: Sonido al recoger
 }

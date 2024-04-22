@@ -10,9 +10,9 @@ public class SuelosGenerador : MonoBehaviour
     public GameObject[] suelos;
     //public GameObject sueloNormal;  // 1
     //public GameObject sueloAgujero; // 2
-    //public GameObject sueloAgua;    // 3
+    //public GameObject sueloEnemigo;    // 3
     public Vector3 puntoGeneracion;
-
+    public Vector3 puntoAgujero;
     public int tipo = 1;
     public int repeticiones = 0;
     public float random;
@@ -22,7 +22,7 @@ public class SuelosGenerador : MonoBehaviour
 
     void Update()
     {
-        if (tiempoTiposSuelos <= 6f){
+        if (tiempoTiposSuelos <= 1f){
             tiempoTiposSuelos += Time.deltaTime;
         }
     }
@@ -34,12 +34,16 @@ public class SuelosGenerador : MonoBehaviour
     public void GenerarSuelo(){
 
         // Creo 1 Suelo en el puntoGeneracion que tiene el Suelo Anterior
-        GameObject temp = Instantiate(suelos[tipo-1],puntoGeneracion,Quaternion.identity); 
-
+        GameObject temp = Instantiate(suelos[tipo-1],puntoGeneracion,Quaternion.identity);
+            
         // Obtengo la posicion del GameObject "PuntoGenProximo" que esta dentro del Suelo (2do gameObject hijo dentro de Prefab Suelo)
         puntoGeneracion = temp.transform.GetChild(1).transform.position;
+
+
+    
+
         // Asi se va actualizando el punto donde se genera el nuevo Suelo en la posicion "puntoGeneracion" de cada ultimo Suelo creado
-        if (tiempoTiposSuelos > 6f){
+        if (tiempoTiposSuelos > 1f){
             // Suelo Normal
             if (tipo == 1){
                 repeticiones++;
@@ -49,7 +53,7 @@ public class SuelosGenerador : MonoBehaviour
                 }
             }
             
-            // Suelo Agua
+            // Suelo Enemigo
             else if (tipo == 3){
                 repeticiones++;
                 if (repeticiones == 1){
@@ -68,13 +72,16 @@ public class SuelosGenerador : MonoBehaviour
 
     public void CambiarTipoSuelo(){
 
-        // Genera un número aleatorio entre 1 y 4 (ambos incluidos)
+        // Genera un número aleatorio entre 1 y 3 (ambos incluidos)
         float random = Random.Range(1, 4); // El límite superior es exclusivo, por eso se usa 4 para incluir 3.
+       
         while (random == tipo){
             random = Random.Range(1, 4); // El límite superior es exclusivo, por eso se usa 4 para incluir 3.
         }
+
         // Convierte el número flotante generado en un entero
         tipo = Mathf.RoundToInt(random);
+
         repeticiones = 0;
     }
 

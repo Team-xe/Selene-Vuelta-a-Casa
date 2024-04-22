@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2128280733}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2965,6 +2965,7 @@ MonoBehaviour:
   - {fileID: 6158993026639862537, guid: 09a9606860a6a4549bc59c39a52f1773, type: 3}
   - {fileID: 6158993026639862537, guid: e62e0253af497614f8639e8ab000c592, type: 3}
   puntoGeneracion: {x: 0, y: 0, z: 29.8}
+  puntoAgujero: {x: 0, y: 0, z: 0}
   tipo: 1
   repeticiones: 0
   random: 0
@@ -5581,7 +5582,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1048520794}
   velocidad: 20
-  fuerzaSalto: 30
+  fuerzaSalto: 32
   carrilesPadre: {fileID: 1221536667}
   carrilesPos: []
   carrilPosActual: {fileID: 0}
@@ -15908,9 +15909,9 @@ SceneRoots:
   m_Roots:
   - {fileID: 388423008}
   - {fileID: 2128280734}
+  - {fileID: 100129716}
   - {fileID: 2144211878}
   - {fileID: 378608277}
   - {fileID: 1677483318}
   - {fileID: 794349023}
   - {fileID: 2103513034}
-  - {fileID: 100129716}
