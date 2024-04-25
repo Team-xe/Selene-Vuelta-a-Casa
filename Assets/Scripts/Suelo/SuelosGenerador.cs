@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /**
-** Script para Generar Suelos y mantener 15 suelos permanentementes en Juego
+** Script para Generar Suelos y mantener 12 suelos permanentementes en Juego
 **/
 public class SuelosGenerador : MonoBehaviour
 {
@@ -10,7 +10,7 @@ public class SuelosGenerador : MonoBehaviour
     public GameObject[] suelos;
     //public GameObject sueloNormal;  // 1
     //public GameObject sueloAgujero; // 2
-    //public GameObject sueloEnemigo;    // 3
+    //public GameObject sueloEnemigo;  // 3
     public Vector3 puntoGeneracion;
     public Vector3 puntoAgujero;
     public int tipo = 1;
@@ -87,8 +87,8 @@ public class SuelosGenerador : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < 15; i++){
-            GenerarSuelo(); // Genero 15 suelos de mapa permanentes (se destruye 1 y se genera 1 en el metodo)
+        for (int i = 0; i < 12; i++){
+            GenerarSuelo(); // Genero 12 suelos de mapa permanentes (se destruye 1 y se genera 1 en el metodo)
         }
     }
 }

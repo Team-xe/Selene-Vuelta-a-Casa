@@ -67,16 +67,11 @@ public class JugadorMovimiento : MonoBehaviour
         //* Movimiento Horizontal por Carriles
 
         if (Input.GetKeyDown(KeyCode.A)){
-
-            if (carrilIndexActual > 0){
-                carrilIndexActual--;
-            }
+            MoverIzquierda();
         }
 
         if (Input.GetKeyDown(KeyCode.D)){
-            if (carrilIndexActual < carrilesPos.Length-1){
-                carrilIndexActual++;
-            }
+            MoverDerecha();
         }
 
         //* Mata al jugador cuando se cae del mapa (cuando esta en la altura y < -5)
@@ -85,14 +80,12 @@ public class JugadorMovimiento : MonoBehaviour
         }
 
         //* Saltar con la W y solo 1 vez
-        if (Input.GetKeyDown(KeyCode.W) && enSuelo == true){
-            Debug.Log("Saltaste");
-            enSuelo = false;
+        if (Input.GetKeyDown(KeyCode.W)){
             Saltar();
         }
 
         //* Bajar rapido con la S
-        if (Input.GetKeyDown(KeyCode.S) && enSuelo == false){
+        if (Input.GetKeyDown(KeyCode.S)){
             Bajar();
         }
         
@@ -100,16 +93,34 @@ public class JugadorMovimiento : MonoBehaviour
 
 
     /**
-    ** Metodo para que el Jugador Salte hacia arriba usando una Fuerza
+    ** Metodo para que el Jugador se mueva entre los 3 carriles hacia la izquierda o derecha
     **/
-    void Saltar(){
-        if (rb != null){
-            rb.AddForce(Vector3.up * fuerzaSalto, ForceMode.Impulse); // Aplica una fuerza Vertical hacia arriba para simular un Salto (en un espacio 3D)
+    public void MoverIzquierda(){
+        if (carrilIndexActual > 0){
+            carrilIndexActual--;
         }
     }
 
-    void Bajar(){
-        if (rb != null){
+    public void MoverDerecha(){
+        if (carrilIndexActual < carrilesPos.Length-1){
+            carrilIndexActual++;
+        }
+    }
+
+
+    /**
+    ** Metodo para que el Jugador Salte hacia arriba usando una Fuerza
+    **/
+    public void Saltar(){
+        if (rb != null && enSuelo == true){
+            rb.AddForce(Vector3.up * fuerzaSalto, ForceMode.Impulse); // Aplica una fuerza Vertical hacia arriba para simular un Salto (en un espacio 3D)
+            enSuelo = false;
+            Debug.Log("Saltaste");
+        }
+    }
+
+    public void Bajar(){
+        if (rb != null && enSuelo == false){
             rb.AddForce(Vector3.down * (fuerzaSalto-5f), ForceMode.Impulse);
         }
     }

@@ -62,8 +62,8 @@ public class Suelo : MonoBehaviour
 
         //* OPCIONES DE OBSTACULOS (solo se genera 1)
 
-        // Obstaculo 1  50% (0.7 a 0.2)
-        if (probabilidad < 0.7f && probabilidad > 0.2){
+        // Obstaculo 1  30% (0.5 a 0.2) // Antes era 0.7 a 0.2 50%
+        if (probabilidad < 0.5f && probabilidad > 0.2){
             
             Instantiate(obstaculo1Prefab,puntoGen.position,obstaculo1Prefab.transform.rotation,obstaculo1Prefab.transform);
         }
