@@ -11,6 +11,9 @@ public class JugadorMovimiento : MonoBehaviour
     //* Variables bool
     bool vivo = true;
     bool enSuelo = true;
+
+    //* Variable para contador puntaje
+    public Puntaje Ptsvivo;
     
 
     //* Variables de movimiento adelante y salto
@@ -34,6 +37,7 @@ public class JugadorMovimiento : MonoBehaviour
 
     void Start()
     {
+
         // Asigno cada transform (posicion) que tengan los Hijos del Padre "carrilesPadre" en una posicion (carrilesPos[])
         carrilesPos = new Transform[carrilesPadre.childCount];
         for (int i = 0; i < carrilesPadre.childCount; i++){
@@ -48,6 +52,7 @@ public class JugadorMovimiento : MonoBehaviour
 
     private void FixedUpdate(){
         if (!vivo) return; // Si no esta vivo detiene el metodo y no permite que se siga moviendo
+        
 
         //* Movimiento Adelante Infinito y Horizontal
         // Vector que mueve al GameObject hacia adelante con una velocidad (en un espacio 3D)
@@ -140,7 +145,7 @@ public class JugadorMovimiento : MonoBehaviour
     public void Morir(){
         vivo = false;
         //Reinicia el juego
-        Debug.Log("Has muerto");
+        Ptsvivo.JugadorMuerto(); //reinicia el puntaje del jugador
         Invoke("Reiniciar",2);
     }
 

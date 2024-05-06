@@ -9,9 +9,7 @@ public class Moneda : MonoBehaviour
    public Rigidbody rb;
 
      void OnTriggerEnter(Collider other){
-        if (other.gameObject.CompareTag("Jugador")) {
-            Debug.Log("Moneda+1");
-            
+        if (other.gameObject.CompareTag("Jugador")) {            
             rb.AddForce(Vector3.up * 30f, ForceMode.Impulse);
             Destroy(gameObject,0.2f);
         }
