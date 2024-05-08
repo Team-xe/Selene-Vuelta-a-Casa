@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+
 public class Puntaje : MonoBehaviour
 {
     private float puntos;
     private TextMeshProUGUI textMesh;
     private bool jugadorVivo = true; //indica si el jugador está vivo
+
+    public MenuDerrota puntajeMenu;
 
 
     void Start()
@@ -30,6 +33,12 @@ public class Puntaje : MonoBehaviour
     public void JugadorMuerto()
     {
         jugadorVivo = false; //  false cuando el jugador muere
+        //puntajeMenu.MostrarPuntaje();
+       
     }
     
+    public float asignarPuntaje(float asignar){
+        asignar = puntos;
+        return asignar;
+    }
 }

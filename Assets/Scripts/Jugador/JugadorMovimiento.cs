@@ -34,10 +34,10 @@ public class JugadorMovimiento : MonoBehaviour
     public int carrilIndexActual = 1; // index de Carriles 0, 1, 2
     public float velocidadHorizontal = 15f;
 
-
+    [SerializeField] private GameObject menuDerrorta;
     void Start()
     {
-
+        menuDerrorta.SetActive(false);
         // Asigno cada transform (posicion) que tengan los Hijos del Padre "carrilesPadre" en una posicion (carrilesPos[])
         carrilesPos = new Transform[carrilesPadre.childCount];
         for (int i = 0; i < carrilesPadre.childCount; i++){
@@ -144,16 +144,8 @@ public class JugadorMovimiento : MonoBehaviour
     **/
     public void Morir(){
         vivo = false;
-        //Reinicia el juego
         Ptsvivo.JugadorMuerto(); //reinicia el puntaje del jugador
-        Invoke("Reiniciar",2);
+        menuDerrorta.SetActive(true);
     }
 
-
-    /**
-    * Metodo para reiniciar la escena actual
-    **/
-    void Reiniciar(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
 }
