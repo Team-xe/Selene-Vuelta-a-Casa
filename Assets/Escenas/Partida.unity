@@ -1004,6 +1004,7 @@ MonoBehaviour:
   obstaculo4Prefab: {fileID: 0}
   monedaPrefab: {fileID: 0}
   Enemigo1Prefab: {fileID: 0}
+  poder1Prefab: {fileID: 0}
 --- !u!65 &194735303
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1533,6 +1534,7 @@ MonoBehaviour:
   obstaculo4Prefab: {fileID: 0}
   monedaPrefab: {fileID: 0}
   Enemigo1Prefab: {fileID: 0}
+  poder1Prefab: {fileID: 0}
 --- !u!65 &289458307
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2791,6 +2793,7 @@ MonoBehaviour:
   obstaculo4Prefab: {fileID: 0}
   monedaPrefab: {fileID: 0}
   Enemigo1Prefab: {fileID: 0}
+  poder1Prefab: {fileID: 0}
 --- !u!65 &397870632
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3393,6 +3396,7 @@ MonoBehaviour:
   obstaculo4Prefab: {fileID: 0}
   monedaPrefab: {fileID: 0}
   Enemigo1Prefab: {fileID: 0}
+  poder1Prefab: {fileID: 0}
 --- !u!65 &517706227
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4094,6 +4098,7 @@ MonoBehaviour:
   obstaculo4Prefab: {fileID: 0}
   monedaPrefab: {fileID: 0}
   Enemigo1Prefab: {fileID: 0}
+  poder1Prefab: {fileID: 0}
 --- !u!65 &649485811
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6653,6 +6658,7 @@ MonoBehaviour:
   obstaculo4Prefab: {fileID: 0}
   monedaPrefab: {fileID: 0}
   Enemigo1Prefab: {fileID: 0}
+  poder1Prefab: {fileID: 0}
 --- !u!65 &1101422518
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6732,6 +6738,7 @@ MonoBehaviour:
   obstaculo4Prefab: {fileID: 0}
   monedaPrefab: {fileID: 0}
   Enemigo1Prefab: {fileID: 0}
+  poder1Prefab: {fileID: 0}
 --- !u!65 &1102239329
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7100,6 +7107,7 @@ MonoBehaviour:
   obstaculo4Prefab: {fileID: 0}
   monedaPrefab: {fileID: 0}
   Enemigo1Prefab: {fileID: 0}
+  poder1Prefab: {fileID: 0}
 --- !u!65 &1170383775
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7232,6 +7240,7 @@ MonoBehaviour:
   obstaculo4Prefab: {fileID: 0}
   monedaPrefab: {fileID: 0}
   Enemigo1Prefab: {fileID: 0}
+  poder1Prefab: {fileID: 0}
 --- !u!65 &1170914608
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8183,6 +8192,7 @@ MonoBehaviour:
   obstaculo4Prefab: {fileID: 0}
   monedaPrefab: {fileID: 0}
   Enemigo1Prefab: {fileID: 0}
+  poder1Prefab: {fileID: 0}
 --- !u!65 &1352276693
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8262,6 +8272,7 @@ MonoBehaviour:
   obstaculo4Prefab: {fileID: 0}
   monedaPrefab: {fileID: 0}
   Enemigo1Prefab: {fileID: 0}
+  poder1Prefab: {fileID: 0}
 --- !u!65 &1357591858
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8346,6 +8357,7 @@ MonoBehaviour:
   obstaculo4Prefab: {fileID: 0}
   monedaPrefab: {fileID: 0}
   Enemigo1Prefab: {fileID: 0}
+  poder1Prefab: {fileID: 0}
 --- !u!65 &1361269598
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8907,6 +8919,7 @@ MonoBehaviour:
   obstaculo4Prefab: {fileID: 0}
   monedaPrefab: {fileID: 0}
   Enemigo1Prefab: {fileID: 0}
+  poder1Prefab: {fileID: 0}
 --- !u!65 &1453178463
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10984,6 +10997,7 @@ MonoBehaviour:
   obstaculo4Prefab: {fileID: 0}
   monedaPrefab: {fileID: 0}
   Enemigo1Prefab: {fileID: 0}
+  poder1Prefab: {fileID: 0}
 --- !u!65 &1774657238
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11178,6 +11192,7 @@ MonoBehaviour:
   obstaculo4Prefab: {fileID: 0}
   monedaPrefab: {fileID: 0}
   Enemigo1Prefab: {fileID: 0}
+  poder1Prefab: {fileID: 0}
 --- !u!65 &1836217937
 BoxCollider:
   m_ObjectHideFlags: 0

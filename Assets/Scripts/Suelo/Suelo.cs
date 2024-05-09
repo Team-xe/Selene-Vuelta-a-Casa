@@ -7,7 +7,7 @@ using UnityEngine;
 public class Suelo : MonoBehaviour
 {
     SuelosGenerador sueloGenerador; // Variable para guardar el Script que genera Suelos
-    
+
 
     void Start()
     {
@@ -15,6 +15,7 @@ public class Suelo : MonoBehaviour
         GenerarObstaculo(); // Suelo nace con 1 Obstaculo
         GenerarMoneda(); // Suelo nace con 1 Moneda
         GenerarEnemigo(); //
+        GenerarPoder();
     }
 
     /**
@@ -37,10 +38,12 @@ public class Suelo : MonoBehaviour
 
     public GameObject monedaPrefab;
     public GameObject Enemigo1Prefab; // Ranita que salte
+    public GameObject poder1Prefab; //EXPLOTA TODO
 
     int obstaculoGenIndex;
     int monedaGenIndex;
     int enemigoGenIndex;
+    int poderGenIndex;
 
     /**
     ** Metodo para generar 1 o mas Obstaculos en un punto random entre los 3 gameobjects que marcan posiciones izq, medio, der de un Suelo
@@ -139,4 +142,32 @@ public class Suelo : MonoBehaviour
             Instantiate(obstaculo1Prefab,puntoAlto.position,obstaculo1Prefab.transform.rotation,transform);
         }
     }
+    
+    void GenerarPoder()
+    {
+
+        //* Escoger un punto random (1,2,3) para generar la Moneda
+
+        // Numero random de posicion en carril (1,2,3)
+        poderGenIndex = Random.Range(2, 5);
+
+        // La posicion debe ser distinta a los obstaculos
+        while (poderGenIndex == obstaculoGenIndex || poderGenIndex == monedaGenIndex)
+        {
+            poderGenIndex = Random.Range(2, 5);
+        }
+
+        // Guarda la posicion 1,2 O 3 en "puntoGen"
+        Transform puntoGen = transform.GetChild(poderGenIndex).transform;
+
+        // Probabilidad para generar (opcinal con un if (probabildiad < 0.3) por ejemplo)
+        float probabilidad = Random.Range(0f,1f);
+
+        // Generar Enemigo 10% [0.1 a 0.0]
+        if(probabilidad <= 0.03) {
+            Instantiate(poder1Prefab, puntoGen.position, poder1Prefab.transform.rotation, poder1Prefab.transform);
+        }
+
+    }
+    
 }

@@ -660,7 +660,7 @@ GameObject:
   - component: {fileID: 1884770353130774736}
   m_Layer: 0
   m_Name: Zorro
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -725,10 +725,10 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 124
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!114 &1884770353130774736
 MonoBehaviour:

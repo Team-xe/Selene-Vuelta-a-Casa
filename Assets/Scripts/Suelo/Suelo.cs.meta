@@ -3,7 +3,14 @@ guid: 4f8cccc356a746c44be5df1dc0ec161d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - obstaculo1Prefab: {instanceID: 0}
+  - obstaculo2Prefab: {instanceID: 0}
+  - obstaculo3Prefab: {instanceID: 0}
+  - obstaculo4Prefab: {instanceID: 0}
+  - monedaPrefab: {instanceID: 0}
+  - Enemigo1Prefab: {instanceID: 0}
+  - poder1Prefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

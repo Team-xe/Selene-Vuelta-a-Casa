@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8678519308930034871}
   m_Layer: 0
   m_Name: Seta
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48d5e9083265f22428463986a4aa3194, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jugadorMovimiento: {fileID: 0}
 --- !u!54 &8678519308930034871
 Rigidbody:
   m_ObjectHideFlags: 0
