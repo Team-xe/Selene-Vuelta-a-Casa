@@ -483,6 +483,7 @@ MonoBehaviour:
   monedaPrefab: {fileID: 7731624958306471252, guid: 2dd111bd3eccf494f93cf8ed0cc46284, type: 3}
   Enemigo1Prefab: {fileID: 1644373995442134, guid: 0187bdd962557471faee34c9b592135c, type: 3}
   poder1Prefab: {fileID: 8641725551838499610, guid: d2a42581a171e0c40b996d42a2601c1f, type: 3}
+  poder2Prefab: {fileID: 8641725551838499610, guid: 6324f64379a1efc4da5e7cb04adb5ca3, type: 3}
 --- !u!1 &6188455340680081353
 GameObject:
   m_ObjectHideFlags: 0

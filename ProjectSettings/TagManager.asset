@@ -9,6 +9,7 @@ TagManager:
   - Jugador
   - Guts
   - Enemigo
+  - Poder2
   layers:
   - Default
   - TransparentFX

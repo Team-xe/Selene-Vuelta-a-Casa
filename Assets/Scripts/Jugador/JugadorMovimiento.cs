@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 **/
 public class JugadorMovimiento : MonoBehaviour
 {
+    public GameObject fuegoFatuo;
     //* Variables bool
     bool vivo = true;
     bool enSuelo = true;
@@ -93,6 +94,13 @@ public class JugadorMovimiento : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S)){
             Bajar();
         }
+
+        if(Poder2.invulnerable)
+        {
+            fuegoFatuo.SetActive(true);
+            Invoke("DesactivarInvulnerable", 3f);
+            Invoke("DesactivarFuegofatuo", 3f);
+        }
         
     }
 
@@ -136,16 +144,39 @@ public class JugadorMovimiento : MonoBehaviour
         if (collision.gameObject.CompareTag("Suelo")){
             enSuelo = true;
         }
+        
     }
 
+
+    private void DesactivarInvulnerable()
+    {
+        Poder2.invulnerable = false;
+
+    }
+    private void DesactivarFuegofatuo()
+    {
+        fuegoFatuo.SetActive(false);
+
+    }
 
     /**
     ** Metodo para matar al Jugador reiniciando la escena actual
     **/
     public void Morir(){
-        vivo = false;
-        Ptsvivo.JugadorMuerto(); //reinicia el puntaje del jugador
-        menuDerrorta.SetActive(true);
+        if (Poder2.invulnerable == true)
+        {
+            GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemigo");
+
+            foreach (GameObject enemigo in enemigos)
+            {
+                Destroy(enemigo);
+            }
+        } else if (Poder2.invulnerable == false)  
+        {
+            vivo = false;
+            Ptsvivo.JugadorMuerto(); //reinicia el puntaje del jugador
+            menuDerrorta.SetActive(true);
+        }
     }
 
 }

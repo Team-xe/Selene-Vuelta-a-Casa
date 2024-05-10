@@ -39,6 +39,7 @@ public class Suelo : MonoBehaviour
     public GameObject monedaPrefab;
     public GameObject Enemigo1Prefab; // Ranita que salte
     public GameObject poder1Prefab; //EXPLOTA TODO
+    public GameObject poder2Prefab; // Invulnerable
 
     int obstaculoGenIndex;
     int monedaGenIndex;
@@ -166,8 +167,14 @@ public class Suelo : MonoBehaviour
         float probabilidad = Random.Range(0f,1f);
 
         // Generar Enemigo 10% [0.1 a 0.0]
-        if(probabilidad <= 0.03) {
+        if(probabilidad <= 0.02) {
             Instantiate(poder1Prefab, puntoGen.position, poder1Prefab.transform.rotation, poder1Prefab.transform);
+        }
+
+        if (probabilidad > 0.5f && probabilidad <= 0.54)
+        {
+
+            Instantiate(poder2Prefab, puntoGen.position, poder2Prefab.transform.rotation, poder2Prefab.transform);
         }
 
     }
