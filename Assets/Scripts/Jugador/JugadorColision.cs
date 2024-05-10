@@ -9,7 +9,11 @@ public class JugadorColision : MonoBehaviour
 
     void OnTriggerEnter(Collider other){
         if (other.gameObject.CompareTag("Moneda")) {
-            puntaje.Sumar();
+            puntaje.Sumar(1);
+        }
+
+        if (other.gameObject.CompareTag("Diamante")){
+            puntaje.Sumar(10);
         }
     }
 }

@@ -23,7 +23,7 @@ public class Puntaje : MonoBehaviour
     {
         if (jugadorVivo)
         {
-            puntos += Time.deltaTime * 5;
+            puntos += Time.deltaTime * 2;
             textMesh.text = " " + puntos.ToString("0");
         }
 

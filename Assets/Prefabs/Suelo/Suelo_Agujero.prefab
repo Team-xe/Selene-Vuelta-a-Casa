@@ -488,7 +488,7 @@ Transform:
   m_GameObject: {fileID: 1683311552472574544}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03, y: 3.91, z: 3.98}
+  m_LocalPosition: {x: -0.03, y: 5.12, z: 3.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1842,6 +1842,7 @@ MonoBehaviour:
   obstaculo4Prefab: {fileID: 0}
   monedaPrefab: {fileID: 7731624958306471252, guid: 2dd111bd3eccf494f93cf8ed0cc46284, type: 3}
   Enemigo1Prefab: {fileID: 0}
+  poder1Prefab: {fileID: 0}
 --- !u!1 &6188455340680081353
 GameObject:
   m_ObjectHideFlags: 0
@@ -2400,7 +2401,7 @@ Transform:
   m_GameObject: {fileID: 7278382798767964465}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.26, y: 3.33, z: 7.14}
+  m_LocalPosition: {x: -0.26, y: 4.3, z: 7.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2817,6 +2818,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TroncoHorizontal
       objectReference: {fileID: 0}
+    - target: {fileID: 931294252330337158, guid: 22ece5e64f12fed4f8bb02c147cf0808, type: 3}
+      propertyPath: m_TagString
+      value: Suelo
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2881,7 +2886,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 931294252330337158, guid: bb726ac12f211d242b3b1c16ff93f10b, type: 3}
       propertyPath: m_Name
-      value: Caja
+      value: CajaEspecial
+      objectReference: {fileID: 0}
+    - target: {fileID: 931294252330337158, guid: bb726ac12f211d242b3b1c16ff93f10b, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

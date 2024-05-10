@@ -126,7 +126,7 @@ public class JugadorMovimiento : MonoBehaviour
 
     public void Bajar(){
         if (rb != null && enSuelo == false){
-            rb.AddForce(Vector3.down * (fuerzaSalto-5f), ForceMode.Impulse);
+            rb.AddForce(Vector3.down * (fuerzaSalto-2f), ForceMode.Impulse);
         }
     }
 

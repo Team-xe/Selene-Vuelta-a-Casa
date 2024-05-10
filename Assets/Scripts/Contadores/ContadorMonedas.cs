@@ -19,8 +19,8 @@ public class ContadorMonedas : MonoBehaviour
 
     }
 
-    public void Sumar(){
-        contador++;
+    public void Sumar(int cantidad){
+        contador = contador + cantidad;
         ActualizarTexto();
     }
 

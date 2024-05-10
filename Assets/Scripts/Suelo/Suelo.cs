@@ -65,25 +65,25 @@ public class Suelo : MonoBehaviour
 
         //* OPCIONES DE OBSTACULOS (solo se genera 1)
 
-        // Obstaculo 1  30% (0.5 a 0.2) // Antes era 0.7 a 0.2 50%
+        // Obstaculo 1  30% (0.5 a 0.2) // Antes era 0.7 a 0.2 50% //* MURO
         if (probabilidad < 0.5f && probabilidad > 0.2){
             
             Instantiate(obstaculo1Prefab,puntoGen.position,obstaculo1Prefab.transform.rotation,obstaculo1Prefab.transform);
         }
 
-        // Obstaculo 3 (En el aire) 20% [0.3 a 0.1)
+        // Obstaculo 3 (En el aire) 20% [0.3 a 0.1) //* PAJARO 0.1 0.2 0.3
         if (probabilidad <= 0.3f && probabilidad > 0.1f){
             Transform puntoAire = puntoGen;
             puntoAire.position = new Vector3(puntoGen.position.x,puntoGen.position.y + 2.5f,puntoGen.position.z);
             Instantiate(obstaculo3Prefab,puntoAire.position,obstaculo3Prefab.transform.rotation,obstaculo3Prefab.transform);
         }
-        // Obstaculo 2 (Alto) 30% [1.0 a 0.7]
+        // Obstaculo 2 (Alto) 30% [1.0 a 0.7] //* TRONCO
         if (probabilidad >= 0.7){
             Transform puntoAlto = puntoGen;
             puntoAlto.position = new Vector3(puntoGen.position.x, puntoGen.position.y + 1.5f,puntoGen.position.z);
             Instantiate(obstaculo2Prefab,puntoAlto.position,obstaculo2Prefab.transform.rotation,obstaculo2Prefab.transform);
         }
-        // Obstaculo 4 (Rebote) 10% [0.1 a 0.0]
+        // Obstaculo 4 (Rebote) 10% [0.1 a 0.0] //* SETA
         if (probabilidad <= 0.1f && probabilidad >= 0.0f){
 
             Instantiate(obstaculo4Prefab,puntoGen.position,obstaculo4Prefab.transform.rotation,obstaculo4Prefab.transform);
@@ -133,13 +133,15 @@ public class Suelo : MonoBehaviour
 
         // Generar Enemigo 10% [0.1 a 0.0]
         if(probabilidad <= 0.1) {
-            Instantiate(Enemigo1Prefab,puntoAlto.position,Quaternion.identity,transform);
+            Instantiate(Enemigo1Prefab,puntoAlto.position,Enemigo1Prefab.transform.rotation,Enemigo1Prefab.transform);
         }
 
-        // Generar Obstaculo si no se genera enemigo (20%) [0.3 a 0.1)
+        //* Generar Obstaculo si no se genera enemigo (20%) [0.3 a 0.1)
         if (probabilidad <= 0.3 && probabilidad > 0.1 ){
+            // Instantiate(obstaculo1Prefab,puntoGen.position,obstaculo1Prefab.transform.rotation,obstaculo1Prefab.transform);
+
             puntoAlto.position = new Vector3(puntoGen.position.x, puntoGen.position.y - 1.0f,puntoGen.position.z);
-            Instantiate(obstaculo1Prefab,puntoAlto.position,obstaculo1Prefab.transform.rotation,transform);
+            Instantiate(obstaculo1Prefab,puntoAlto.position,obstaculo1Prefab.transform.rotation,obstaculo1Prefab.transform);
         }
     }
     
