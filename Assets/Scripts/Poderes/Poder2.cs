@@ -13,7 +13,7 @@ public class Poder2 : MonoBehaviour
             invulnerable = true;
             Destroy(gameObject);
 
-            Invoke("DesactivarInvulnerable", 5f);
+            Invoke("DesactivarInvulnerable", 10f);
         }
     }
 

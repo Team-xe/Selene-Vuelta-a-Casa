@@ -9,6 +9,8 @@ using UnityEngine.SceneManagement;
 public class JugadorMovimiento : MonoBehaviour
 {
     public GameObject fuegoFatuo;
+
+    public Animator animator;
     //* Variables bool
     bool vivo = true;
     bool enSuelo = true;
@@ -21,8 +23,8 @@ public class JugadorMovimiento : MonoBehaviour
 
     [SerializeField] Rigidbody rb; // Cuerpo sometido a fisicas
 
-    public float velocidad = 80f; // Que tan rapido avanza el Jugador
-    [SerializeField] float fuerzaSalto = 30f; // fuerza con la que salta el jugador
+    public float velocidad = 15f; // Que tan rapido avanza el Jugador
+    [SerializeField] float fuerzaSalto = 37f; // fuerza con la que salta el jugador
 
 
     //* Variables de movimiento por Carriles
@@ -38,9 +40,15 @@ public class JugadorMovimiento : MonoBehaviour
     [SerializeField] private GameObject menuDerrorta;
     void Start()
     {
+        velocidad = 15f;
+        Invoke("AumentarVelocidadInicial",3);
+
+        animator.SetBool("Correr",true);
         menuDerrorta.SetActive(false);
+
         // Asigno cada transform (posicion) que tengan los Hijos del Padre "carrilesPadre" en una posicion (carrilesPos[])
         carrilesPos = new Transform[carrilesPadre.childCount];
+
         for (int i = 0; i < carrilesPadre.childCount; i++){
             carrilesPos[i] = carrilesPadre.GetChild(i);
         }
@@ -95,15 +103,19 @@ public class JugadorMovimiento : MonoBehaviour
             Bajar();
         }
 
+
         if(Poder2.invulnerable)
         {
             fuegoFatuo.SetActive(true);
-            Invoke("DesactivarInvulnerable", 3f);
-            Invoke("DesactivarFuegofatuo", 3f);
+            Invoke("DesactivarInvulnerable", 10f);
+            Invoke("DesactivarFuegofatuo", 10f);
         }
         
     }
 
+    public void AumentarVelocidadInicial(){
+        velocidad = 28f;
+    }
 
     /**
     ** Metodo para que el Jugador se mueva entre los 3 carriles hacia la izquierda o derecha
@@ -128,12 +140,17 @@ public class JugadorMovimiento : MonoBehaviour
         if (rb != null && enSuelo == true){
             rb.AddForce(Vector3.up * fuerzaSalto, ForceMode.Impulse); // Aplica una fuerza Vertical hacia arriba para simular un Salto (en un espacio 3D)
             enSuelo = false;
+            animator.SetBool("Saltar",true);
+            animator.SetBool("Correr",false);
             Debug.Log("Saltaste");
         }
     }
 
     public void Bajar(){
         if (rb != null && enSuelo == false){
+            animator.SetBool("Bajar",true);
+            animator.SetBool("Saltar",false);
+            
             rb.AddForce(Vector3.down * (fuerzaSalto-2f), ForceMode.Impulse);
         }
     }
@@ -143,6 +160,10 @@ public class JugadorMovimiento : MonoBehaviour
         // Comprobar si el objeto con el que colisionamos tiene la etiqueta "Suelo"
         if (collision.gameObject.CompareTag("Suelo")){
             enSuelo = true;
+            animator.SetBool("Saltar",false);
+            animator.SetBool("Correr",true);
+            animator.SetBool("Bajar",false);
+            
         }
         
     }
@@ -170,6 +191,7 @@ public class JugadorMovimiento : MonoBehaviour
             foreach (GameObject enemigo in enemigos)
             {
                 Destroy(enemigo);
+                
             }
         } else if (Poder2.invulnerable == false)  
         {

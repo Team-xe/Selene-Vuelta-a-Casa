@@ -10,6 +10,7 @@ TagManager:
   - Guts
   - Enemigo
   - Poder2
+  - Poder1
   layers:
   - Default
   - TransparentFX

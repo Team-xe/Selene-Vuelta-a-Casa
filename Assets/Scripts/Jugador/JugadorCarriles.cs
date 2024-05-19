@@ -6,20 +6,19 @@ using UnityEngine;
 public class Carriles : MonoBehaviour
 {
     [SerializeField] Rigidbody rb; // Cuerpo sometido a fisicas
-    public float velocidad = 7.5f; // Que tan rapido avanza el Jugador
+    public float velocidad = 15f; // Que tan rapido avanza el Jugador
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        velocidad = 15f;
+        Invoke("AumentarVelocidadInicial",3);
+ 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void AumentarVelocidadInicial(){
+        velocidad = 28f;
     }
-
     private void FixedUpdate(){
 
         //* Movimiento Adelante Infinito y Horizontal

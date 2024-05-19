@@ -5,15 +5,44 @@ using UnityEngine;
 public class JugadorColision : MonoBehaviour
 {
     public ContadorMonedas puntaje;
+    public GameObject particulasPoder1;
+    public GameObject particulasPoder2;
 
-
+    public bool poder2 = false;
+    public GameObject fuegoFatuo;
     void OnTriggerEnter(Collider other){
         if (other.gameObject.CompareTag("Moneda")) {
             puntaje.Sumar(1);
         }
 
-        if (other.gameObject.CompareTag("Diamante")){
+        if (other.gameObject.CompareTag("Poder1")) {
+            particulasPoder1.SetActive(true);
+            Invoke("ParticulasPoder1",3);
+        }
+
+        if (other.gameObject.CompareTag("Poder2")){
+            poder2 = true;
+            Invoke("Poder2Desactivar",10);
+        }
+
+        if (other.gameObject.CompareTag("Enemigo") && poder2 == true) {
+            particulasPoder2.SetActive(true);
+            Invoke("ParticulasPoder2",3);
+        }
+        /*if (other.gameObject.CompareTag("Diamante")){
             puntaje.Sumar(10);
         }
+        */
+    }
+
+    private void Poder2Desactivar(){
+        poder2 = false;
+    }
+
+    private void ParticulasPoder1(){
+        particulasPoder1.SetActive(false);
+    }
+    private void ParticulasPoder2(){
+        particulasPoder2.SetActive(false);
     }
 }

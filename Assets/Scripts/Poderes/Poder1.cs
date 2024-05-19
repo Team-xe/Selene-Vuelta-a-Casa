@@ -5,7 +5,6 @@ using UnityEngine;
 public class Poder1 : MonoBehaviour
 {
     
-    
     public void Explotar(GameObject enemigo)
     {
         Rigidbody enemigoRb = enemigo.GetComponent<Rigidbody>();
