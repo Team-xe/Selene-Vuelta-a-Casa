@@ -29,9 +29,9 @@ public class TouchManager : MonoBehaviour
     }
 
     void FixedUpdate(){
-        TouchPhases();
+        //TouchPhases();
     }
-
+    /*
     public void TouchPhases(){
 
         // Validar si se esta tocando la pantalla
@@ -108,7 +108,7 @@ public class TouchManager : MonoBehaviour
             }
         }
     }
-
+    */
 
     /*
     // Para cambiar a Touch y no Mouse

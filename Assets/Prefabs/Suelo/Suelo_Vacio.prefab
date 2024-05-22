@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2357773087199391442}
   - component: {fileID: 6267365058000293151}
   - component: {fileID: 1470351272172574865}
-  - component: {fileID: 2280154545744674788}
+  - component: {fileID: 9070102388411271939}
   m_Layer: 3
   m_Name: Plano
   m_TagString: Suelo
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2280154545744674788
-MeshCollider:
+--- !u!65 &9070102388411271939
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,10 +102,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 3
+  m_Size: {x: 10, y: 1, z: 10}
+  m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!1 &635701245003569821
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +317,7 @@ GameObject:
   - component: {fileID: 8212960668246274000}
   - component: {fileID: 3184355913893076463}
   - component: {fileID: 3295152669797170669}
-  - component: {fileID: 3437348177869976648}
+  - component: {fileID: 6912752138044649074}
   m_Layer: 3
   m_Name: PlanoIzq
   m_TagString: Suelo
@@ -392,8 +391,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3437348177869976648
-MeshCollider:
+--- !u!65 &6912752138044649074
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -410,10 +409,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 3
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6158993026639862537
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,7 +422,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8587738212871926830}
   - component: {fileID: 4485047515202875502}
-  - component: {fileID: 5903526396752454125}
   m_Layer: 3
   m_Name: Suelo_Vacio
   m_TagString: Untagged
@@ -477,26 +474,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10, y: 20, z: 10}
   m_Center: {x: 0, y: 0, z: 5}
---- !u!114 &5903526396752454125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6158993026639862537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f8cccc356a746c44be5df1dc0ec161d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obstaculo1Prefab: {fileID: 0}
-  obstaculo2Prefab: {fileID: 0}
-  obstaculo3Prefab: {fileID: 0}
-  obstaculo4Prefab: {fileID: 0}
-  monedaPrefab: {fileID: 0}
-  Enemigo1Prefab: {fileID: 0}
-  poder1Prefab: {fileID: 0}
-  poder2Prefab: {fileID: 0}
 --- !u!1 &6188455340680081353
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,7 +485,7 @@ GameObject:
   - component: {fileID: 7527095808201555683}
   - component: {fileID: 427825958933602978}
   - component: {fileID: 2824496437361842920}
-  - component: {fileID: 8705765571283079843}
+  - component: {fileID: 2521898209283260687}
   m_Layer: 3
   m_Name: PlanoDer
   m_TagString: Suelo
@@ -582,8 +559,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8705765571283079843
-MeshCollider:
+--- !u!65 &2521898209283260687
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -600,10 +577,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 3
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6645336333751204460
 GameObject:
   m_ObjectHideFlags: 0

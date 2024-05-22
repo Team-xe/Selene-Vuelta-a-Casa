@@ -27,6 +27,12 @@ public class JugadorMovimiento : MonoBehaviour
     [SerializeField] float fuerzaSalto = 37f; // fuerza con la que salta el jugador
 
 
+    //* Variables para Sistema Touch
+    private float distanciaMin = 50f;
+    private Vector2 puntoInicio;
+    private Vector2 puntoFinal;
+
+
     //* Variables de movimiento por Carriles
 
     public Transform carrilesPadre; // GameObject Padre donde estan los carriles como Hijos
@@ -76,8 +82,67 @@ public class JugadorMovimiento : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, carrilPosActual.position, velocidadHorizontal*Time.deltaTime);
     }
 
+    public void SistemaTouch(){
+        // Detecto el inicio del toque
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began){
+            // Guardo la posicion
+            puntoInicio = Input.GetTouch(0).position;
+
+        }
+        //GetTouch(0) = 1 dedo
+
+        // Detecto el final del toque
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended){
+            // Guardo la posicion
+            puntoFinal = Input.GetTouch(0).position;
+
+            // saco dist entre 2 puntos
+            float distanciaPuntos = Vector2.Distance(puntoInicio,puntoFinal);
+
+            // Verifico si el usuario arrastra la distancia suficiente
+            if (distanciaPuntos > distanciaMin){
+
+                // calcular la direccion de desplazamiento del dedo
+                Vector2 direccionDesplazamiento = puntoFinal - puntoInicio; //ej: 7-0
+
+                // normalizar para ver donde se mueve (valores 1 al 0) 0,0  0,1  1,0  1,1
+                direccionDesplazamiento.Normalize();
+                
+
+                MovimientoGeneral(direccionDesplazamiento);
+            }
+        }
+    }
+
+    private void MovimientoGeneral(Vector2 direccion){
+
+        float deltaX = Mathf.Abs(direccion.x);
+        float deltaY = Mathf.Abs(direccion.y);
+
+        if (deltaX > deltaY){
+            if (direccion.x > 0){
+                MoverDerecha();
+            }
+            else if (direccion.x < 0){
+                MoverIzquierda();
+            }
+        }
+
+        else {
+            if (direccion.y > 0){
+                Saltar();
+            }
+            else if (direccion.y < 0){
+                Bajar();
+            }
+        }
+    }
+
     private void Update()
     {
+        // Detectar Touch continuamente
+        SistemaTouch();
+
         //* Movimiento Horizontal por Carriles
 
         if (Input.GetKeyDown(KeyCode.A)){
@@ -140,6 +205,7 @@ public class JugadorMovimiento : MonoBehaviour
         if (rb != null && enSuelo == true){
             rb.AddForce(Vector3.up * fuerzaSalto, ForceMode.Impulse); // Aplica una fuerza Vertical hacia arriba para simular un Salto (en un espacio 3D)
             enSuelo = false;
+
             animator.SetBool("Saltar",true);
             animator.SetBool("Correr",false);
             Debug.Log("Saltaste");

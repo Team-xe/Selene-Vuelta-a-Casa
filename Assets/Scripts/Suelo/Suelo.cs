@@ -6,25 +6,38 @@ using UnityEngine;
 **/
 public class Suelo : MonoBehaviour
 {
-    SuelosGenerador sueloGenerador; // Variable para guardar el Script que genera Suelos
+    //SuelosGenerador sueloGenerador; // Variable para guardar el Script que genera Suelos
 
+    SuelosReciclador suelos; // Script para Object Pool de Suelos
 
     void Start()
     {
-        sueloGenerador = GameObject.FindObjectOfType<SuelosGenerador>(); // Guarda el Script SuelosGenerador (buscandolo)
+        //sueloGenerador = GameObject.FindObjectOfType<SuelosGenerador>(); // Guarda el Script SuelosGenerador (buscandolo)
+        suelos = GameObject.FindObjectOfType<SuelosReciclador>(); // Guarda el Script SuelosGenerador (buscandolo)
+        
         GenerarObstaculo(); // Suelo nace con 1 Obstaculo
         GenerarMoneda(); // Suelo nace con 1 Moneda
         GenerarEnemigo(); //
         GenerarPoder();
     }
 
+    public void MoverSueloRetrasado(){
+        suelos.MoverSuelo();
+        GenerarObstaculo(); // Suelo nace con 1 Obstaculo
+        GenerarMoneda(); // Suelo nace con 1 Moneda
+        GenerarEnemigo(); //
+        GenerarPoder();
+    }
     /**
-    ** Metodo que Genera 1 Suelo y Destruye este Suelo actual de este Script al salir de la Colision con algo 
+    ** Metodo que mueve este Suelo actual de este Script al salir de la Colision con algo 
     **/
     private void OnTriggerExit(Collider other){
         if (other.gameObject.CompareTag("Jugador")){{
-            sueloGenerador.GenerarSuelo(); // Accede al Script SuelosGenerador y Genera otro Suelo en alguna posicion
-            Destroy(gameObject,2); // Destruye 1 Suelo despues de 2 segundos
+            Invoke("MoverSueloRetrasado",2f);
+            //gameObject.SetActive(false);
+            //sueloGenerador.GenerarSuelo(); // Accede al Script SuelosGenerador y Genera otro Suelo en alguna posicion
+            //Destroy(gameObject,2); // Destruye 1 Suelo despues de 2 segundos
+
         }}
         
     }
