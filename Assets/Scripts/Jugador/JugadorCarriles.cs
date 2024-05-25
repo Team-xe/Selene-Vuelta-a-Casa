@@ -12,7 +12,7 @@ public class Carriles : MonoBehaviour
     void Start()
     {
         velocidad = 15f;
-        Invoke("AumentarVelocidadInicial",3);
+        Invoke("AumentarVelocidadInicial",6f);
  
     }
 

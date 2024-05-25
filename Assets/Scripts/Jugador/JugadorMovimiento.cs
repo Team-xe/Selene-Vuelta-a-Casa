@@ -47,7 +47,7 @@ public class JugadorMovimiento : MonoBehaviour
     void Start()
     {
         velocidad = 15f;
-        Invoke("AumentarVelocidadInicial",3);
+        Invoke("AumentarVelocidadInicial",6f);
 
         animator.SetBool("Correr",true);
         menuDerrorta.SetActive(false);
