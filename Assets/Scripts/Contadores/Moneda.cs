@@ -5,7 +5,6 @@ using TMPro;
 
 public class Moneda : MonoBehaviour
 {
-   //int contador = 0;
    public Rigidbody rb;
 
      void OnTriggerEnter(Collider other){

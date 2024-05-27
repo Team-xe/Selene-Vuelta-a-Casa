@@ -10,6 +10,7 @@ public class JugadorColision : MonoBehaviour
 
     public bool poder2 = false;
     public GameObject fuegoFatuo;
+    
     void OnTriggerEnter(Collider other){
         if (other.gameObject.CompareTag("Moneda")) {
             puntaje.Sumar(1);

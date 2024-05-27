@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    public void SaltarIntro(){
+        Invoke("Volver",1f);
+        print("Saltando Intro...");
+    }
 
     //* Partida
     public void Jugar(){

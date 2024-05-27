@@ -13,6 +13,13 @@ public class Puntaje : MonoBehaviour
     public MenuDerrota puntajeMenu;
 
 
+    /**
+    ** Variable par guardar puntaje
+    **/
+    private int PuntajeTotal = 0;
+    private GuardadoManager guardarPuntaje;
+
+
     void Start()
     {
         textMesh = GetComponent<TextMeshProUGUI>(); //inicializa el contador
@@ -40,5 +47,10 @@ public class Puntaje : MonoBehaviour
     public float asignarPuntaje(float asignar){
         asignar = puntos;
         return asignar;
+    }
+
+    public void GuardarPuntaje(){
+        guardarPuntaje.aniadirMoneda(PuntajeTotal);
+        PuntajeTotal = 0;
     }
 }
