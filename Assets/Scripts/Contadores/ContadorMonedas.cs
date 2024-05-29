@@ -7,32 +7,48 @@ public class ContadorMonedas : MonoBehaviour
 {
     
    public TextMeshProUGUI textoContador;
+   public TextMeshProUGUI textMonedasDerrota;
    
    public int contador = 0;
 
-   /**
+   private GuardadoManager guardadoManager;
+
+   /**S
     ** Variables para guardar moneda
     **/
-   private int monedaTotal = 0;
-   private GuardadoManager guardarMoneda;
+   //private int monedaTotal = 0;
 
     void Start(){
+        guardadoManager = FindObjectOfType<GuardadoManager>();
         textoContador = GetComponent<TextMeshProUGUI>();
+        contador = 0;
+        ActualizarTexto();
     }
 
     public void Sumar(int cantidad){
         contador = contador + cantidad;
-        monedaTotal += contador;
+        ActualizarTexto();
+        guardadoManager.agregarMoneda(cantidad);
+
+        
+    }
+
+    public void ReiniciarContador(){
+        textMonedasDerrota.text = " " + contador.ToString();
+        contador = 0;
         ActualizarTexto();
     }
 
     public void ActualizarTexto(){
         // Actualizar el texto del contador de monedas
-        textoContador.text = contador.ToString();
+        textoContador.text = " " + contador.ToString();
     }
 
+    // No es necesario
+    /*
     public void GuardarMoneda(){
-        guardarMoneda.aniadirMoneda(monedaTotal);
-        monedaTotal = 0;
+        agregarMoneda(contador);
+        //monedaTotal = 0;
     }
+    */
 }

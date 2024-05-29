@@ -4,16 +4,24 @@ using UnityEngine;
 
 public class JugadorColision : MonoBehaviour
 {
-    public ContadorMonedas puntaje;
+    public ContadorMonedas contadorMonedas;
     public GameObject particulasPoder1;
     public GameObject particulasPoder2;
 
     public bool poder2 = false;
     public GameObject fuegoFatuo;
+    public GuardadoManager guardadoManager;
     
+
+    void Start()
+    {
+        // Buscar el GuardadoManager en la escena
+        //guardadoManager = FindObjectOfType<GuardadoManager>();
+    }
+
     void OnTriggerEnter(Collider other){
         if (other.gameObject.CompareTag("Moneda")) {
-            puntaje.Sumar(1);
+            contadorMonedas.Sumar(1);
         }
 
         if (other.gameObject.CompareTag("Poder1")) {

@@ -17,7 +17,7 @@ public class JugadorMovimiento : MonoBehaviour
 
     //* Variable para contador puntaje
     public Puntaje Ptsvivo;
-    public ContadorMonedas guardarMoneda;
+    //public ContadorMonedas contadorMoneda;
     
 
     //* Variables de movimiento adelante y salto
@@ -44,6 +44,8 @@ public class JugadorMovimiento : MonoBehaviour
     public int carrilIndexActual = 1; // index de Carriles 0, 1, 2
     public float velocidadHorizontal = 15f;
 
+    private ContadorMonedas contadorMonedas;
+
     public GameObject menuDerrota;
     void Start()
     {
@@ -52,6 +54,8 @@ public class JugadorMovimiento : MonoBehaviour
 
         animator.SetBool("Correr",true);
         menuDerrota.SetActive(false);
+
+        contadorMonedas = FindObjectOfType<ContadorMonedas>();
 
         // Asigno cada transform (posicion) que tengan los Hijos del Padre "carrilesPadre" en una posicion (carrilesPos[])
         carrilesPos = new Transform[carrilesPadre.childCount];
@@ -267,8 +271,8 @@ public class JugadorMovimiento : MonoBehaviour
             vivo = false;
             menuDerrota.SetActive(true);
             Ptsvivo.JugadorMuerto(); //reinicia el puntaje del jugador
-            guardarMoneda.GuardarMoneda();
-            
+
+            contadorMonedas.ReiniciarContador();
             
         }
     }

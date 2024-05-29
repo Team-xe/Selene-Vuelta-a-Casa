@@ -8,6 +8,7 @@ public class Puntaje : MonoBehaviour
 {
     private float puntos;
     private TextMeshProUGUI textMesh;
+    public TextMeshProUGUI textPuntajeDerrota;
     private bool jugadorVivo = true; //indica si el jugador está vivo
 
     public MenuDerrota puntajeMenu;
@@ -33,12 +34,16 @@ public class Puntaje : MonoBehaviour
             puntos += Time.deltaTime * 2;
             textMesh.text = " " + puntos.ToString("0");
         }
+        if (!jugadorVivo){
+            textPuntajeDerrota.text = " " + puntos.ToString("0");
+        }
 
     }
 
     // Método que se llamar cuando el jugador muere
     public void JugadorMuerto()
     {
+
         jugadorVivo = false; //  false cuando el jugador muere
         //puntajeMenu.MostrarPuntaje();
        
@@ -49,8 +54,11 @@ public class Puntaje : MonoBehaviour
         return asignar;
     }
 
+    //! NO IMPLEMENTADO AÚN
+    /*
     public void GuardarPuntaje(){
-        guardarPuntaje.aniadirMoneda(PuntajeTotal);
+        guardarPuntaje.agregarPuntaje(PuntajeTotal);
         PuntajeTotal = 0;
     }
+    */
 }

@@ -5621,7 +5621,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\xA1Descansa y sigue ayudando a Selene a llegar a casa!"
+  m_text: "\xA1Sigue ayudando a Selene a llegar a casa!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6288,7 +6288,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 478035888}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 536}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6757,7 +6757,7 @@ GameObject:
   - component: {fileID: 601641000}
   - component: {fileID: 601640998}
   m_Layer: 5
-  m_Name: Contador
+  m_Name: ContadorDerrota
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6911,6 +6911,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1221536667}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &731491303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 731491304}
+  - component: {fileID: 731491305}
+  m_Layer: 0
+  m_Name: GuardadoManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &731491304
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731491303}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 794349023}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &731491305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731491303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae58f3901249424eb137fd91ff775c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &737873706
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7150,6 +7194,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 495179747}
+  - {fileID: 731491304}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &794791296
@@ -7618,11 +7663,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1048520787}
+  - component: {fileID: 1048520796}
   - component: {fileID: 1048520795}
   - component: {fileID: 1048520794}
   - component: {fileID: 1048520793}
   - component: {fileID: 1048520790}
-  - component: {fileID: 1048520789}
   m_Layer: 0
   m_Name: Jugador
   m_TagString: Jugador
@@ -7652,23 +7697,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 1}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1048520789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1048520786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24aa92441ebb14a46957b2522e697001, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  puntaje: {fileID: 1517297870}
-  particulasPoder1: {fileID: 1301301045}
-  particulasPoder2: {fileID: 1323506981}
-  poder2: 0
-  fuegoFatuo: {fileID: 105975296}
 --- !u!222 &1048520790
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7740,7 +7768,6 @@ MonoBehaviour:
   fuegoFatuo: {fileID: 105975296}
   animator: {fileID: 8812538531906213645}
   Ptsvivo: {fileID: 2044685344}
-  guardarMoneda: {fileID: 0}
   rb: {fileID: 1048520794}
   velocidad: 15
   fuerzaSalto: 40
@@ -7753,6 +7780,24 @@ MonoBehaviour:
   carrilIndexActual: 1
   velocidadHorizontal: 33
   menuDerrota: {fileID: 1671883750}
+--- !u!114 &1048520796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048520786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24aa92441ebb14a46957b2522e697001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contadorMonedas: {fileID: 1517297870}
+  particulasPoder1: {fileID: 1301301045}
+  particulasPoder2: {fileID: 1323506981}
+  poder2: 0
+  fuegoFatuo: {fileID: 105975296}
+  guardadoManager: {fileID: 731491305}
 --- !u!1001 &1063120057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19116,6 +19161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textoContador: {fileID: 1517297868}
+  textMonedasDerrota: {fileID: 601640998}
   contador: 0
 --- !u!1 &1573855773
 GameObject:
@@ -19233,7 +19279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1671883751
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19778,7 +19824,7 @@ GameObject:
   - component: {fileID: 1824354621}
   - component: {fileID: 1824354620}
   m_Layer: 5
-  m_Name: Puntaje
+  m_Name: PuntajeDerrota
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19792,7 +19838,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1824354617}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -536}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -25207,6 +25253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa48dd0f9ebce30448ba4fdaaa8a57cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textPuntajeDerrota: {fileID: 1824354620}
   puntajeMenu: {fileID: 0}
 --- !u!114 &2044685345
 MonoBehaviour:

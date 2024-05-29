@@ -4,45 +4,57 @@ using UnityEngine;
 
 public class GuardadoManager : MonoBehaviour
 {
-    private const string MonedaKey = "TotalCoins";
+    private const string TotalMonedaKey = "TotalMonedaKey";
 
-    private const string PuntajeKey = "TotalPuntaje";
+    private const string TotalPuntajeKey = "TotalPuntaje";
+
     private int totalMoneda = 0;
     private int totalPuntaje = 0;
 
     void Start()
     {
         // Cargar el total de monedas desde PlayerPrefs
-        totalMoneda = PlayerPrefs.GetInt(MonedaKey, 0);
+        totalMoneda = PlayerPrefs.GetInt(TotalMonedaKey, 0); // El 0 devuelve el valor que tiene guardado TotalMonedaKey
 
         // Cargar el total de puntaje desde PlayerPrefs
-        totalPuntaje = PlayerPrefs.GetInt(PuntajeKey, 0);
+        totalPuntaje = PlayerPrefs.GetInt(TotalPuntajeKey, 0);
 
-        print("total cargado: " + totalMoneda);
+        print("total monedas cargado: " + totalMoneda);
     }
 
-    // Llama a esta función cuando quieras añadir monedas
-    public void aniadirMoneda(int coinsToAdd)
+    void Update(){
+        if(Input.GetKeyDown(KeyCode.R)){
+            ReiniciarMonedas();
+        }
+    }
+
+    //* Agregar Monedas al Total Monedas en PlayerPrefs
+    public void agregarMoneda(int monedasAgregar)
     {
-        print("se añade 1 moneda");
-        totalMoneda += coinsToAdd;
+        print("! Se añade 1 moneda");
+
+        totalMoneda += monedasAgregar;
+
         // Guardar el total de monedas actualizado en PlayerPrefs
-        PlayerPrefs.SetInt(MonedaKey, totalMoneda);
+        PlayerPrefs.SetInt(TotalMonedaKey, totalMoneda);
         PlayerPrefs.Save(); // Asegurarse de guardar los cambios
     }
 
-    public void aniadirPuntaje(int pointToAdd)
+    //* Agregar Puntaje al Total Puntaje en PlayerPrefs
+    public void aniadirPuntaje(int puntosAgregar)
     {
-        totalPuntaje += pointToAdd;
+        totalPuntaje += puntosAgregar;
         // Guardar el total de monedas actualizado en PlayerPrefs
-        PlayerPrefs.SetInt(PuntajeKey, totalPuntaje);
+
+        PlayerPrefs.SetInt(TotalPuntajeKey, totalPuntaje);
         PlayerPrefs.Save(); // Asegurarse de guardar los cambios
     }
 
 
-    // Función para recuperar el total de monedas
+    //* Recuperar el total de monedas
     public int GetTotalCoins()
     {
+        print("! Se obtiene Get Total Coins");
         return totalMoneda;
     }
 
@@ -51,14 +63,13 @@ public class GuardadoManager : MonoBehaviour
         return totalPuntaje;
     }
 
-/*
-    // Opcionalmente, puedes querer reiniciar el total de monedas (para propósitos de prueba)
-    public void ResetTotalCoins()
+
+    // Reiniciar el total de monedas (test unity)
+    public void ReiniciarMonedas()
     {
-        totalCoins = 0;
-        PlayerPrefs.SetInt(CoinKey, totalCoins);
+        totalMoneda = 0;
+        PlayerPrefs.SetInt(TotalMonedaKey, totalMoneda);
         PlayerPrefs.Save(); // Guardar los cambios
     }
-*/
 }
 
