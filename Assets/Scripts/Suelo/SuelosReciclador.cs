@@ -44,12 +44,16 @@ public class SuelosReciclador : MonoBehaviour
 
         // Obtener la posición de PuntoGenProximo del suelo más adelante
         Transform puntoGenProximo = suelos[sueloMasAdelante].transform.Find("PuntoGenProximo");
+        Vector3 puntoGenProximoFix = puntoGenProximo.position;
+        puntoGenProximoFix.y = 0f;
+        puntoGenProximo.position = puntoGenProximoFix;
 
         // Comprobar si se ha encontrado PuntoGenProximo
         if (puntoGenProximo != null)
         {
             // Mover el suelo actual a la posición de PuntoGenProximo del suelo más adelante
             suelos[sueloActual].transform.position = puntoGenProximo.position;
+            
             Debug.Log("Moviendo " + suelos[sueloActual].name + " a la posición de " + suelos[sueloMasAdelante].name);
         }
         else
