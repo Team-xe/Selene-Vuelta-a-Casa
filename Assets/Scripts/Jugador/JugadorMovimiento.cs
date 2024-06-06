@@ -17,14 +17,13 @@ public class JugadorMovimiento : MonoBehaviour
 
     //* Variable para contador puntaje
     public Puntaje Ptsvivo;
-    //public ContadorMonedas contadorMoneda;
     
 
     //* Variables de movimiento adelante y salto
 
     [SerializeField] Rigidbody rb; // Cuerpo sometido a fisicas
-
     public float velocidad = 15f; // Que tan rapido avanza el Jugador
+    public float velocidadHorizontal = 20f;
     [SerializeField] float fuerzaSalto = 37f; // fuerza con la que salta el jugador
 
 
@@ -38,19 +37,19 @@ public class JugadorMovimiento : MonoBehaviour
 
     public Transform carrilesPadre; // GameObject Padre donde estan los carriles como Hijos
     public Transform[] carrilesPos; // Lista de posiciones o transform de cada carril
-
     public Transform carrilPosActual; // Transform o Posicion del Carril Actual en el que esta el Jugador (buscado en carrilesPos[])
-
     public int carrilIndexActual = 1; // index de Carriles 0, 1, 2
-    public float velocidadHorizontal = 15f;
+
+    
 
     private ContadorMonedas contadorMonedas;
-
     public GameObject menuDerrota;
+
+
     void Start()
     {
         velocidad = 15f;
-        Invoke("AumentarVelocidadInicial",6f);
+        Invoke("AumentarVelocidadInicial",5f);
 
         animator.SetBool("Correr",true);
         menuDerrota.SetActive(false);
@@ -185,6 +184,7 @@ public class JugadorMovimiento : MonoBehaviour
 
     public void AumentarVelocidadInicial(){
         velocidad = 28f;
+        velocidadHorizontal = 33f;
     }
 
     /**
@@ -272,9 +272,8 @@ public class JugadorMovimiento : MonoBehaviour
             menuDerrota.SetActive(true);
             Ptsvivo.JugadorMuerto(); //reinicia el puntaje del jugador
 
-            contadorMonedas.ReiniciarContador();
-            
+            contadorMonedas.ActualizarTexto();
+            //menuDerrota.MostrarContadores();
         }
     }
-
 }

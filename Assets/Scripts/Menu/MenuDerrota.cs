@@ -8,44 +8,20 @@ using System;
 public class MenuDerrota : MonoBehaviour
 {
     public TextMeshProUGUI puntajetextMesh;
-    private Puntaje puntajePartida;
-    float puntaje;
+    public TextMeshProUGUI monedastextMesh;
+    public Puntaje puntajePartida;
+    public ContadorMonedas contadorMonedas;
+    public float puntaje;
+    public int monedas;
     
 
-    public void MostrarPuntaje()
+    void Start(){
+        monedas = contadorMonedas.GetContador();
+    }
+    public void MostrarContadores()
     {
         // Obtener el puntaje del controlador de juego y mostrarlo en el objeto de texto
-        puntajetextMesh.text = "" + puntajePartida.asignarPuntaje(puntaje).ToString();       
+        //puntajetextMesh.text = "" + puntajePartida.asignarPuntaje(puntaje).ToString()     ;  
+        //monedastextMesh.text = "" + monedas.ToString();         
     }
-
-    /**
-    * Metodo para el boton Menu
-    **/
-    public void MenuInicial(){
-        SceneManager.LoadScene("Menu Inicial");
-    }
-
-    /**
-    * Metodo para el boton reiniciar
-    **/
-    public void reiniciar(){
-        Invoke("Reiniciar",1);
-    }
-
-    /**
-    * Metodo para el boton reiniciar
-    **/
-    public void Tienda(){
-        SceneManager.LoadScene("Menu Tienda");
-    }
-
-
-    /**
-    * Metodo para reiniciar la escena actual
-    **/
-    void Reiniciar(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
-    }
-
 }

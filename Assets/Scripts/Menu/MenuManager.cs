@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+
     public void SaltarIntro(){
-        Invoke("Volver",1f);
+        Invoke("MenuInicial",1f);
         print("Saltando Intro...");
     }
 
@@ -26,8 +27,13 @@ public class MenuManager : MonoBehaviour
     }
 
     //* Menu Inicial
-    public void Volver(){
+    public void MenuInicial(){
         SceneManager.LoadScene("Menu Inicial");
+    }
+
+    //*Metodo para reiniciar la escena actual
+    public void Reiniciar(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     //* SALIR  

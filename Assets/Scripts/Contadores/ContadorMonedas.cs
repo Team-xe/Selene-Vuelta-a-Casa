@@ -9,7 +9,7 @@ public class ContadorMonedas : MonoBehaviour
    public TextMeshProUGUI textoContador;
    public TextMeshProUGUI textMonedasDerrota;
    
-   public int contador = 0;
+   public int contador;
 
    private GuardadoManager guardadoManager;
 
@@ -24,31 +24,20 @@ public class ContadorMonedas : MonoBehaviour
         contador = 0;
         ActualizarTexto();
     }
-
+    //* Suma Monedas actualizando el contador y agregando monedas en PlayerPrefs. Mostrando por Pantalla
     public void Sumar(int cantidad){
         contador = contador + cantidad;
         ActualizarTexto();
         guardadoManager.agregarMoneda(cantidad);
-
-        
-    }
-
-    public void ReiniciarContador(){
-        textMonedasDerrota.text = " " + contador.ToString();
-        contador = 0;
-        ActualizarTexto();
     }
 
     public void ActualizarTexto(){
         // Actualizar el texto del contador de monedas
         textoContador.text = " " + contador.ToString();
+        textMonedasDerrota.text = " " + contador.ToString();
     }
 
-    // No es necesario
-    /*
-    public void GuardarMoneda(){
-        agregarMoneda(contador);
-        //monedaTotal = 0;
+    public int GetContador(){
+        return contador;
     }
-    */
 }

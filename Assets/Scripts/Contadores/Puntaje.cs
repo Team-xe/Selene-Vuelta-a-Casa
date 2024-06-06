@@ -15,7 +15,7 @@ public class Puntaje : MonoBehaviour
 
 
     /**
-    ** Variable par guardar puntaje
+    ** Variable para guardar puntaje
     **/
     private int PuntajeTotal = 0;
     private GuardadoManager guardarPuntaje;
@@ -26,7 +26,7 @@ public class Puntaje : MonoBehaviour
         textMesh = GetComponent<TextMeshProUGUI>(); //inicializa el contador
     }
 
-    // Update is called once per frame
+    //* Se actualiza el texto de Puntos y el texto Puntos de la pantalla Derrota
     void Update()
     {
         if (jugadorVivo)
@@ -34,31 +34,18 @@ public class Puntaje : MonoBehaviour
             puntos += Time.deltaTime * 2;
             textMesh.text = " " + puntos.ToString("0");
         }
-        if (!jugadorVivo){
-            textPuntajeDerrota.text = " " + puntos.ToString("0");
-        }
 
     }
 
-    // Método que se llamar cuando el jugador muere
+    // Método que se llama cuando el jugador muere
     public void JugadorMuerto()
     {
-
-        jugadorVivo = false; //  false cuando el jugador muere
-        //puntajeMenu.MostrarPuntaje();
-       
+        jugadorVivo = false; //  false cuando el jugador muere  
+        textPuntajeDerrota.text = " " + puntos.ToString("0");
     }
     
     public float asignarPuntaje(float asignar){
         asignar = puntos;
         return asignar;
     }
-
-    //! NO IMPLEMENTADO AÚN
-    /*
-    public void GuardarPuntaje(){
-        guardarPuntaje.agregarPuntaje(PuntajeTotal);
-        PuntajeTotal = 0;
-    }
-    */
 }
