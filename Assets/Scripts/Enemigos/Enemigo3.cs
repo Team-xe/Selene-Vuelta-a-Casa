@@ -6,6 +6,7 @@ public class Enemigo3 : MonoBehaviour
 {
 
     public GameObject proyectilPrefab;
+    public AudioSource audioSource;
 
     public float distanciaLanzamiento = -2.2f;
     public float fuerzaLanzamiento = -5f;
@@ -29,5 +30,6 @@ public class Enemigo3 : MonoBehaviour
 
         Rigidbody rb = proyectil.GetComponent<Rigidbody>();
         rb.velocity = new Vector3(0f,0f,fuerzaLanzamiento);
+        audioSource.Play();
     }
 }

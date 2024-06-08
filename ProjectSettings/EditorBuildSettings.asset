@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Escenas/Partida.unity
     guid: 5f6ad15674259d544bbd69fed3b954d2
+  - enabled: 1
+    path: Assets/Escenas/Multijugador.unity
+    guid: 46a88ea1a8113a846a49cf0c778dffdd
   m_configObjects: {}

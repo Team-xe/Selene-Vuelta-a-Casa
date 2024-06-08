@@ -6,10 +6,6 @@ public class JugadorColision : MonoBehaviour
 {
     public ContadorMonedas contadorMonedas;
     public GameObject particulasPoder1;
-    public GameObject particulasPoder2;
-
-    public bool poder2 = false;
-    public GameObject fuegoFatuo;
     public GuardadoManager guardadoManager;
     
 
@@ -29,29 +25,20 @@ public class JugadorColision : MonoBehaviour
             Invoke("ParticulasPoder1",3);
         }
 
-        if (other.gameObject.CompareTag("Poder2")){
-            poder2 = true;
-            Invoke("Poder2Desactivar",10);
-        }
-
-        if (other.gameObject.CompareTag("Enemigo") && poder2 == true) {
-            particulasPoder2.SetActive(true);
-            Invoke("ParticulasPoder2",3);
-        }
         /*if (other.gameObject.CompareTag("Diamante")){
             puntaje.Sumar(10);
         }
         */
-    }
 
-    private void Poder2Desactivar(){
-        poder2 = false;
+        if (other.gameObject.CompareTag("SueloCascada"))
+        {
+            AudioManager.instance.ReproducirEfectos("Cascada");
+        }
+        
     }
 
     private void ParticulasPoder1(){
         particulasPoder1.SetActive(false);
     }
-    private void ParticulasPoder2(){
-        particulasPoder2.SetActive(false);
-    }
+    
 }

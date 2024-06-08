@@ -5673,6 +5673,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d6082ffd0bdc9d47aa199bc084b8d88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fuegoFatuo: {fileID: 0}
+  particulasPoder2: {fileID: 0}
 --- !u!1 &8820637477535890853
 GameObject:
   m_ObjectHideFlags: 0

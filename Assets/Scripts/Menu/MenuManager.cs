@@ -36,6 +36,11 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    public void Multijugador()
+    {
+        SceneManager.LoadScene("Multijugador");
+    }
+
     //* SALIR  
     public void Salir(){
         Debug.Log("Saliendo..");

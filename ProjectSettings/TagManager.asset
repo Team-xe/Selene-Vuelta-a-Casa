@@ -11,6 +11,9 @@ TagManager:
   - Enemigo
   - Poder2
   - Poder1
+  - SueloCascada
+  - Jugador1
+  - Jugador2
   layers:
   - Default
   - TransparentFX
@@ -18,8 +21,8 @@ TagManager:
   - Suelo
   - Water
   - UI
-  - 
-  - 
+  - Jugador1
+  - Jugador2
   - 
   - 
   - 

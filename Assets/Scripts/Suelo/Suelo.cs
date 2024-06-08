@@ -19,6 +19,7 @@ public class Suelo : MonoBehaviour
         GenerarMoneda(); // Suelo nace con 1 Moneda
         GenerarEnemigo(); //
         GenerarPoder();
+        AudioManager.instance.ReproducirMenu("MusicaFondo");
     }
 
     public void MoverSueloRetrasado(){
@@ -33,7 +34,7 @@ public class Suelo : MonoBehaviour
     **/
     private void OnTriggerExit(Collider other){
         if (other.gameObject.CompareTag("Jugador")){{
-            Invoke("MoverSueloRetrasado",2f);
+            Invoke("MoverSueloRetrasado",5f);
             //gameObject.SetActive(false);
             //sueloGenerador.GenerarSuelo(); // Accede al Script SuelosGenerador y Genera otro Suelo en alguna posicion
             //Destroy(gameObject,2); // Destruye 1 Suelo despues de 2 segundos
@@ -161,13 +162,11 @@ public class Suelo : MonoBehaviour
     
     void GenerarPoder()
     {
-
-        //* Escoger un punto random (1,2,3) para generar la Moneda
-
         // Numero random de posicion en carril (1,2,3)
         poderGenIndex = Random.Range(2, 5);
 
         // La posicion debe ser distinta a los obstaculos
+        //TODO: No probar dando todos los index se crashea
         while (poderGenIndex == obstaculoGenIndex || poderGenIndex == monedaGenIndex)
         {
             poderGenIndex = Random.Range(2, 5);
@@ -177,18 +176,20 @@ public class Suelo : MonoBehaviour
         Transform puntoGen = transform.GetChild(poderGenIndex).transform;
 
         // Probabilidad para generar (opcinal con un if (probabildiad < 0.3) por ejemplo)
-        float probabilidad = Random.Range(0f,1f);
+        float probabilidad = Random.Range(0f, 1f);
 
         // Generar Enemigo 10% [0.1 a 0.0]
-        if(probabilidad <= 0.02) {
+        if (probabilidad <= 0.01)
+        {
             Instantiate(poder1Prefab, puntoGen.position, poder1Prefab.transform.rotation, poder1Prefab.transform);
         }
 
-        if (probabilidad > 0.5f && probabilidad <= 0.54)
+        if (probabilidad > 0.5f && probabilidad <= 0.51)
         {
 
             Instantiate(poder2Prefab, puntoGen.position, poder2Prefab.transform.rotation, poder2Prefab.transform);
         }
+
 
     }
     

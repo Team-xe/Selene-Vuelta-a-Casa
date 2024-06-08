@@ -9,12 +9,11 @@ using UnityEngine.SceneManagement;
 public class JugadorMovimiento : MonoBehaviour
 {
     public GameObject fuegoFatuo;
-
     public Animator animator;
     //* Variables bool
     bool vivo = true;
     bool enSuelo = true;
-
+    private bool invulnerable = false;
     //* Variable para contador puntaje
     public Puntaje Ptsvivo;
     
@@ -64,8 +63,9 @@ public class JugadorMovimiento : MonoBehaviour
         }
 
         // El transform actual de carrilesPos[] es el de la posicion Index (parte en 1)
-        carrilPosActual = carrilesPos[carrilIndexActual]; 
+        carrilPosActual = carrilesPos[carrilIndexActual];
 
+        
     }
 
 
@@ -84,6 +84,8 @@ public class JugadorMovimiento : MonoBehaviour
         carrilPosActual = carrilesPos[carrilIndexActual];
         // Modifica la posicion a una donde en X //Posicion inicial, Posicion objetivo, delta X (velocidad)
         transform.position = Vector3.MoveTowards(transform.position, carrilPosActual.position, velocidadHorizontal*Time.deltaTime);
+
+
     }
 
     public void SistemaTouch(){
@@ -144,42 +146,27 @@ public class JugadorMovimiento : MonoBehaviour
 
     private void Update()
     {
-        // Detectar Touch continuamente
         SistemaTouch();
-
-        //* Movimiento Horizontal por Carriles
-
-        if (Input.GetKeyDown(KeyCode.A)){
+        if (Input.GetKeyDown(KeyCode.A))
+        {
             MoverIzquierda();
         }
-
-        if (Input.GetKeyDown(KeyCode.D)){
+        if (Input.GetKeyDown(KeyCode.D))
+        {
             MoverDerecha();
         }
-
-        //* Mata al jugador cuando se cae del mapa (cuando esta en la altura y < -5)
-        if (transform.position.y < -2){
+        if (transform.position.y < -2)
+        {
             Morir();
         }
-
-        //* Saltar con la W y solo 1 vez
-        if (Input.GetKeyDown(KeyCode.W)){
+        if (Input.GetKeyDown(KeyCode.W))
+        {
             Saltar();
         }
-
-        //* Bajar rapido con la S
-        if (Input.GetKeyDown(KeyCode.S)){
+        if (Input.GetKeyDown(KeyCode.S))
+        {
             Bajar();
         }
-
-
-        if(Poder2.invulnerable)
-        {
-            fuegoFatuo.SetActive(true);
-            Invoke("DesactivarInvulnerable", 10f);
-            Invoke("DesactivarFuegofatuo", 10f);
-        }
-        
     }
 
     public void AumentarVelocidadInicial(){
@@ -214,6 +201,7 @@ public class JugadorMovimiento : MonoBehaviour
             animator.SetBool("Saltar",true);
             animator.SetBool("Correr",false);
             Debug.Log("Saltaste");
+            AudioManager.instance.ReproducirEfectos("Salto");
         }
     }
 
@@ -236,44 +224,64 @@ public class JugadorMovimiento : MonoBehaviour
             animator.SetBool("Bajar",false);
             
         }
-        
+        /*
+        else if (collision.gameObject.CompareTag("Enemigo"))
+        {
+            Morir();
+        }
+        */
+
     }
 
-
-    private void DesactivarInvulnerable()
+    public void ActivarInvulnerabilidad()
     {
-        Poder2.invulnerable = false;
-
+        if (invulnerable)
+        {
+            StopCoroutine("DesactivarInvulnerabilidadCoroutine");
+        }
+        invulnerable = true;
+        fuegoFatuo.SetActive(true);
+        Invoke("DesactivarInvulnerabilidad", 5f);
+        StartCoroutine(Coroutine());
     }
-    private void DesactivarFuegofatuo()
+
+    private IEnumerator Coroutine()
     {
+        yield return new WaitForSeconds(5f);
+        DesactivarInvulnerabilidad();
+    }
+    private void DesactivarInvulnerabilidad()
+    {
+        invulnerable = false;
         fuegoFatuo.SetActive(false);
-
     }
 
     /**
     ** Metodo para matar al Jugador reiniciando la escena actual
     **/
     public void Morir(){
-        if (Poder2.invulnerable == true)
-        {
-            GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemigo");
+        AudioManager.instance.ReproducirEfectos("Muerte");
+        vivo = false;
+        menuDerrota.SetActive(true);
+        Ptsvivo.JugadorMuerto();
+        contadorMonedas.ActualizarTexto();
+        gameObject.SetActive(false);
+    }
 
-            foreach (GameObject enemigo in enemigos)
-            {
-                Destroy(enemigo);
-                
-            }
-        } 
-        else if (Poder2.invulnerable == false)  
-        {
-            
-            vivo = false;
-            menuDerrota.SetActive(true);
-            Ptsvivo.JugadorMuerto(); //reinicia el puntaje del jugador
+    public bool EsInvulnerable()
+    {
+        return invulnerable;
+    }
 
-            contadorMonedas.ActualizarTexto();
-            //menuDerrota.MostrarContadores();
+    public void DestruirEnemigos()
+    {
+        GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemigo");
+        AudioManager.instance.ReproducirEfectos("Poder2");
+        foreach (GameObject enemigo in enemigos)
+        {
+            Destroy(enemigo);
         }
+        DesactivarInvulnerabilidad();
     }
 }
+

@@ -10,16 +10,13 @@ public class Poder2 : MonoBehaviour
     {
         if (other.gameObject.name == "Jugador")
         {
-            invulnerable = true;
+            JugadorMovimiento jugadorMovimiento = other.GetComponent<JugadorMovimiento>();
+            if (jugadorMovimiento != null)
+            {
+                jugadorMovimiento.ActivarInvulnerabilidad();
+            }
             Destroy(gameObject);
-
-            Invoke("DesactivarInvulnerable", 10f);
         }
-    }
-
-    private void DesactivarInvulnerable()
-    {
-        invulnerable = false;
     }
 }
 

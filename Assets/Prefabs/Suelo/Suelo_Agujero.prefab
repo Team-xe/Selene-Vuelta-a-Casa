@@ -630,7 +630,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10, y: 0.1, z: 10.000002}
+  m_Size: {x: 10, y: 0.00001, z: 10.000002}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2009342350791622466
 GameObject:
@@ -2384,7 +2384,7 @@ GameObject:
   - component: {fileID: 5903526396752454125}
   m_Layer: 3
   m_Name: Suelo_Agujero
-  m_TagString: Untagged
+  m_TagString: SueloCascada
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

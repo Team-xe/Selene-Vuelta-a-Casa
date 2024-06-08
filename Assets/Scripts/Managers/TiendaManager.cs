@@ -95,6 +95,7 @@ public class TiendaManager : MonoBehaviour
 
     public void Cobrar(int precio){
         if (cantmonedas >= precio){
+            AudioManager.instance.ReproducirEfectos("Compra");
             guardadoManager.agregarMoneda(-precio);
 
             cantmonedas = cantmonedas - precio;
