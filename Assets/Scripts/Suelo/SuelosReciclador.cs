@@ -10,16 +10,6 @@ public class SuelosReciclador : MonoBehaviour
 
     public GameObject[] suelos; // Array que contiene todas las plataformas
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        // Asegurarse de que las plataformas comiencen en las posiciones correctas (en caso de ser necesario)
-        for (int i = 0; i < poolCantidad; i++)
-        {
-            // Inicialización o cualquier otro setup si es necesario
-        }
-    }
-
     public void MoverSuelo()
     {
         // Obtener la posición Z del suelo actual
@@ -45,21 +35,15 @@ public class SuelosReciclador : MonoBehaviour
         // Obtener la posición de PuntoGenProximo del suelo más adelante
         Transform puntoGenProximo = suelos[sueloMasAdelante].transform.Find("PuntoGenProximo");
         Vector3 puntoGenProximoFix = puntoGenProximo.position;
+        
         puntoGenProximoFix.y = 0f;
         puntoGenProximo.position = puntoGenProximoFix;
 
-        // Comprobar si se ha encontrado PuntoGenProximo
-        if (puntoGenProximo != null)
-        {
-            // Mover el suelo actual a la posición de PuntoGenProximo del suelo más adelante
-            suelos[sueloActual].transform.position = puntoGenProximo.position;
+        
+        // Mover el suelo actual a la posición de PuntoGenProximo del suelo más adelante
+        suelos[sueloActual].transform.position = puntoGenProximo.position;
             
-            Debug.Log("Moviendo " + suelos[sueloActual].name + " a la posición de " + suelos[sueloMasAdelante].name);
-        }
-        else
-        {
-            Debug.LogError("No se encontró 'PuntoGenProximo' en el suelo: " + suelos[sueloMasAdelante].name);
-        }
+        Debug.Log("Moviendo " + suelos[sueloActual].name + " a la posición de " + suelos[sueloMasAdelante].name);
 
         // Actualizar el índice del suelo actual
         sueloActual = (sueloActual + 1) % poolCantidad;

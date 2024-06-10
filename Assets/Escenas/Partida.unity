@@ -9402,7 +9402,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fuegoFatuo: {fileID: 105975296}
   animator: {fileID: 8812538531906213645}
-  Ptsvivo: {fileID: 2044685344}
   rb: {fileID: 1048520794}
   velocidad: 15
   velocidadHorizontal: 20
@@ -9414,7 +9413,9 @@ MonoBehaviour:
   - {fileID: 547443783}
   carrilPosActual: {fileID: 1232779159}
   carrilIndexActual: 1
+  Ptsvivo: {fileID: 2044685344}
   menuDerrota: {fileID: 1671883750}
+  poder1Morado: {fileID: 4297454711153147529, guid: d2a42581a171e0c40b996d42a2601c1f, type: 3}
 --- !u!114 &1048520796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16772,7 +16773,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1671883751
 RectTransform:
   m_ObjectHideFlags: 0

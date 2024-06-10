@@ -41,6 +41,8 @@ public class Jugador2 : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1f;
+        
         velocidad = 15f;
         Invoke("AumentarVelocidadInicial", 0.5f);
 
@@ -94,13 +96,13 @@ public class Jugador2 : MonoBehaviour
 
                 if (touch.position.y >= Screen.height / 2)
                 {
-                    // Guardar la posición inicial del toque
+                    // Guardar la posiciï¿½n inicial del toque
                     if (touch.phase == TouchPhase.Began)
                     {
                         puntoInicio = touch.position;
                     }
 
-                    // Guardar la posición final del toque y calcular la distancia
+                    // Guardar la posiciï¿½n final del toque y calcular la distancia
                     if (touch.phase == TouchPhase.Ended)
                     {
                         puntoFinal = touch.position;
@@ -109,7 +111,7 @@ public class Jugador2 : MonoBehaviour
                         // Verificar si el usuario arrastra la distancia suficiente
                         if (distanciaPuntos > distanciaMin)
                         {
-                            // Calcular la dirección del desplazamiento del dedo
+                            // Calcular la direcciï¿½n del desplazamiento del dedo
                             Vector2 direccionDesplazamiento = puntoFinal - puntoInicio;
                             direccionDesplazamiento.Normalize();
 
@@ -268,6 +270,8 @@ public class Jugador2 : MonoBehaviour
         AudioManager.instance.ReproducirEfectos("Muerte");
         vivo = false;
         menuDerrota.SetActive(true);
+        Time.timeScale = 0f; // Detiene la partida
+
         //tsvivo.JugadorMuerto();
         //contadorMonedas.ActualizarTexto();
         gameObject.SetActive(false);

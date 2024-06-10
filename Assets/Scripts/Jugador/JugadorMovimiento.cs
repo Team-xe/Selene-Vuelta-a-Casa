@@ -10,12 +10,11 @@ public class JugadorMovimiento : MonoBehaviour
 {
     public GameObject fuegoFatuo;
     public Animator animator;
+
     //* Variables bool
     bool vivo = true;
     bool enSuelo = true;
     private bool invulnerable = false;
-    //* Variable para contador puntaje
-    public Puntaje Ptsvivo;
     
 
     //* Variables de movimiento adelante y salto
@@ -39,14 +38,17 @@ public class JugadorMovimiento : MonoBehaviour
     public Transform carrilPosActual; // Transform o Posicion del Carril Actual en el que esta el Jugador (buscado en carrilesPos[])
     public int carrilIndexActual = 1; // index de Carriles 0, 1, 2
 
-    
-
+    //* Variables para Referenciar Scripts
+    public Puntaje Ptsvivo;
     private ContadorMonedas contadorMonedas;
     public GameObject menuDerrota;
+    public Poder1 poder1Morado;
 
 
     void Start()
     {
+        Time.timeScale = 1f;
+        
         velocidad = 15f;
         Invoke("AumentarVelocidadInicial",5f);
 
@@ -146,7 +148,10 @@ public class JugadorMovimiento : MonoBehaviour
 
     private void Update()
     {
+        //* Inputs en Dispositivos Moviles
         SistemaTouch();
+
+        // Movimientos horizontales PC
         if (Input.GetKeyDown(KeyCode.A))
         {
             MoverIzquierda();
@@ -155,10 +160,8 @@ public class JugadorMovimiento : MonoBehaviour
         {
             MoverDerecha();
         }
-        if (transform.position.y < -2)
-        {
-            Morir();
-        }
+
+        // Movimientos Verticales PC
         if (Input.GetKeyDown(KeyCode.W))
         {
             Saltar();
@@ -166,6 +169,17 @@ public class JugadorMovimiento : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S))
         {
             Bajar();
+        }
+
+        // Morir si se cae
+        if (transform.position.y < -2)
+        {
+            Morir();
+        }
+
+        // Invocar Poder 1 con la E (Gravedad - Morado)
+        if (Input.GetKeyDown(KeyCode.E)){
+            poder1Morado.ElevarEnemigos();
         }
     }
 
@@ -266,6 +280,7 @@ public class JugadorMovimiento : MonoBehaviour
         Ptsvivo.JugadorMuerto();
         contadorMonedas.ActualizarTexto();
         gameObject.SetActive(false);
+        Time.timeScale = 0f; // Detiene la partida
     }
 
     public bool EsInvulnerable()

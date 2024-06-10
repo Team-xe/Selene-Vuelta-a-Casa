@@ -60,6 +60,8 @@ public class Suelo : MonoBehaviour
     int enemigoGenIndex;
     int poderGenIndex;
 
+    public bool enemigoGenerado;
+
     /**
     ** Metodo para generar 1 o mas Obstaculos en un punto random entre los 3 gameobjects que marcan posiciones izq, medio, der de un Suelo
     **/
@@ -83,25 +85,26 @@ public class Suelo : MonoBehaviour
         // Obstaculo 1  30% (0.5 a 0.2) // Antes era 0.7 a 0.2 50% //* MURO
         if (probabilidad < 0.5f && probabilidad > 0.2){
             
-            Instantiate(obstaculo1Prefab,puntoGen.position,obstaculo1Prefab.transform.rotation,obstaculo1Prefab.transform);
+            Instantiate(obstaculo1Prefab, puntoGen.position, obstaculo1Prefab.transform.rotation, obstaculo1Prefab.transform);
         }
 
         // Obstaculo 3 (En el aire) 20% [0.3 a 0.1) //* PAJARO 0.1 0.2 0.3
         if (probabilidad <= 0.3f && probabilidad > 0.1f){
             Transform puntoAire = puntoGen;
-            puntoAire.position = new Vector3(puntoGen.position.x,puntoGen.position.y + 2.5f,puntoGen.position.z);
-            Instantiate(obstaculo3Prefab,puntoAire.position,obstaculo3Prefab.transform.rotation,obstaculo3Prefab.transform);
+            puntoAire.position = new Vector3(puntoGen.position.x, puntoGen.position.y + 2.5f, puntoGen.position.z);
+
+            Instantiate(obstaculo3Prefab, puntoAire.position, obstaculo3Prefab.transform.rotation, obstaculo3Prefab.transform);
         }
         // Obstaculo 2 (Alto) 30% [1.0 a 0.7] //* TRONCO
         if (probabilidad >= 0.7){
             Transform puntoAlto = puntoGen;
-            puntoAlto.position = new Vector3(puntoGen.position.x, puntoGen.position.y + 1.5f,puntoGen.position.z);
-            Instantiate(obstaculo2Prefab,puntoAlto.position,obstaculo2Prefab.transform.rotation,obstaculo2Prefab.transform);
+            puntoAlto.position = new Vector3(puntoGen.position.x, puntoGen.position.y + 1f,puntoGen.position.z);
+            Instantiate(obstaculo2Prefab, puntoAlto.position, obstaculo2Prefab.transform.rotation, obstaculo2Prefab.transform);
         }
         // Obstaculo 4 (Rebote) 10% [0.1 a 0.0] //* SETA
         if (probabilidad <= 0.1f && probabilidad >= 0.0f){
 
-            Instantiate(obstaculo4Prefab,puntoGen.position,obstaculo4Prefab.transform.rotation,obstaculo4Prefab.transform);
+            Instantiate(obstaculo4Prefab, puntoGen.position, obstaculo4Prefab.transform.rotation, obstaculo4Prefab.transform);
         }
         
     }
@@ -124,7 +127,7 @@ public class Suelo : MonoBehaviour
         //float probabilidad = Random.Range(0f,1f);
 
         // Generar Moneda
-        Instantiate(monedaPrefab,puntoGen.position,monedaPrefab.transform.rotation,monedaPrefab.transform);
+        Instantiate(monedaPrefab, puntoGen.position, monedaPrefab.transform.rotation, monedaPrefab.transform);
     }
 
     void GenerarEnemigo(){
@@ -140,28 +143,36 @@ public class Suelo : MonoBehaviour
         Transform puntoGen = transform.GetChild(enemigoGenIndex).transform;
 
         Transform puntoAlto = puntoGen;
-        puntoAlto.position = new Vector3(puntoGen.position.x,puntoGen.position.y + 1f,puntoGen.position.z);
+        puntoAlto.position = new Vector3(puntoGen.position.x, puntoGen.position.y, puntoGen.position.z);
 
 
         // Probabilidad para generar (opcional con un if (probabildiad < 0.3) por ejemplo)
         float probabilidad = Random.Range(0f,1f);
 
-        // Generar Enemigo 10% [0.1 a 0.0]
-        if(probabilidad <= 0.1) {
+        // Generar Enemigo 15% [0.1 a 0.0]
+        if(probabilidad <= 0.15) {
             Instantiate(Enemigo1Prefab,puntoAlto.position,Enemigo1Prefab.transform.rotation,Enemigo1Prefab.transform);
+            enemigoGenerado = true;
         }
 
         //* Generar Obstaculo si no se genera enemigo (20%) [0.3 a 0.1)
         if (probabilidad <= 0.3 && probabilidad > 0.1 ){
             // Instantiate(obstaculo1Prefab,puntoGen.position,obstaculo1Prefab.transform.rotation,obstaculo1Prefab.transform);
 
-            puntoAlto.position = new Vector3(puntoGen.position.x, puntoGen.position.y - 1.0f,puntoGen.position.z);
-            Instantiate(obstaculo1Prefab,puntoAlto.position,obstaculo1Prefab.transform.rotation,obstaculo1Prefab.transform);
+            puntoAlto.position = new Vector3(puntoGen.position.x, puntoGen.position.y, puntoGen.position.z);
+
+            Instantiate(obstaculo1Prefab, puntoAlto.position, obstaculo1Prefab. transform.rotation, obstaculo1Prefab.transform);
         }
     }
     
     void GenerarPoder()
     {
+        // Si se genera un Enemigo, no se puede generar Poder
+
+        if (enemigoGenerado == true){
+            return;
+        }
+
         // Numero random de posicion en carril (1,2,3)
         poderGenIndex = Random.Range(2, 5);
 
@@ -178,13 +189,14 @@ public class Suelo : MonoBehaviour
         // Probabilidad para generar (opcinal con un if (probabildiad < 0.3) por ejemplo)
         float probabilidad = Random.Range(0f, 1f);
 
-        // Generar Enemigo 10% [0.1 a 0.0]
-        if (probabilidad <= 0.01)
+        // Generar Poder 1 (MORADO)
+        if (probabilidad <= 0.15f)
         {
             Instantiate(poder1Prefab, puntoGen.position, poder1Prefab.transform.rotation, poder1Prefab.transform);
         }
 
-        if (probabilidad > 0.5f && probabilidad <= 0.51)
+        // Generar Poder 2 (AZUL)
+        if (probabilidad > 0.55f && probabilidad <= 0.6)
         {
 
             Instantiate(poder2Prefab, puntoGen.position, poder2Prefab.transform.rotation, poder2Prefab.transform);

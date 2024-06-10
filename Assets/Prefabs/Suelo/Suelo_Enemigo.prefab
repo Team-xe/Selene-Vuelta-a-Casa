@@ -725,8 +725,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6585749510012864909}
-  - {fileID: 5459143065547568165}
   - {fileID: 5017095304412085185}
   - {fileID: 1291835941586939255}
   - {fileID: 3953905046996168840}
@@ -734,6 +732,8 @@ Transform:
   - {fileID: 4468037446113275190}
   - {fileID: 8212960668246274000}
   - {fileID: 7527095808201555683}
+  - {fileID: 6585749510012864909}
+  - {fileID: 5459143065547568165}
   - {fileID: 5405914102386455350}
   - {fileID: 317872660821812129}
   - {fileID: 5597461532277226574}
@@ -780,7 +780,7 @@ MonoBehaviour:
   obstaculo3Prefab: {fileID: 0}
   obstaculo4Prefab: {fileID: 0}
   monedaPrefab: {fileID: 7731624958306471252, guid: 2dd111bd3eccf494f93cf8ed0cc46284, type: 3}
-  Enemigo1Prefab: {fileID: 6117742134059902487, guid: 4bc2876ca4ef94143a4690d920749e19, type: 3}
+  Enemigo1Prefab: {fileID: 0}
   poder1Prefab: {fileID: 0}
   poder2Prefab: {fileID: 0}
 --- !u!1 &6188455340680081353

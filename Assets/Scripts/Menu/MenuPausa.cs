@@ -30,7 +30,7 @@ public class MenuPausa : MonoBehaviour
     //* Reiniciar Partida
     public void Reiniciar(){
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Partida");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     //* Menu Inicial

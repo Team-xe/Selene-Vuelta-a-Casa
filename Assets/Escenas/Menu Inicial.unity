@@ -496,6 +496,18 @@ MonoBehaviour:
     BackgroundTexture: {fileID: 0}
     IsBackgroundRecursive: 0
     IsHidden: 0
+  - Type: 0
+    Name: 
+    GameObject: {fileID: 38243245}
+    Ordinal: 10
+    Priority: 0
+    IconType: 1600
+    IconTexture: {fileID: 0}
+    IsIconRecursive: 0
+    BackgroundType: 0
+    BackgroundTexture: {fileID: 0}
+    IsBackgroundRecursive: 0
+    IsHidden: 0
 --- !u!4 &84960345
 Transform:
   m_ObjectHideFlags: 0
@@ -739,9 +751,9 @@ RectTransform:
   - {fileID: 1134038920}
   m_Father: {fileID: 38243250}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 752, y: 175}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -226, y: 175}
   m_SizeDelta: {x: 400, y: 159.17676}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &241560760
@@ -10954,9 +10966,9 @@ RectTransform:
   - {fileID: 575563785}
   m_Father: {fileID: 38243250}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -533, y: -471}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 11, y: -481}
   m_SizeDelta: {x: 800, y: 169.817}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2124731052

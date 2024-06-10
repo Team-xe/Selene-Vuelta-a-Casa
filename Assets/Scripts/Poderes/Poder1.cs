@@ -5,10 +5,19 @@ using UnityEngine;
 public class Poder1 : MonoBehaviour
 {
     
-    public void Explotar(GameObject enemigo)
-    {
-        Rigidbody enemigoRb = enemigo.GetComponent<Rigidbody>();
-        enemigoRb.AddForce(Vector3.up * 200f, ForceMode.Impulse);
+    public void ElevarEnemigos(){
+        GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemigo");
+
+        foreach (GameObject enemigo in enemigos)
+        {
+            Rigidbody enemigoRb = enemigo.GetComponent<Rigidbody>();
+            enemigoRb.AddForce(Vector3.up * 200f, ForceMode.Impulse);
+            enemigoRb.constraints &= ~RigidbodyConstraints.FreezePositionY;
+            enemigoRb.useGravity = false; // Desactivar la gravedad
+            Destroy(enemigo,4);
+        }
+
+        Destroy(gameObject);
     }
 
     
@@ -16,14 +25,7 @@ public class Poder1 : MonoBehaviour
     {
         if (other.gameObject.name == "Jugador")
         {
-            Destroy(gameObject);
-            GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemigo");
-
-            foreach (GameObject enemigo in enemigos)
-            {
-                Explotar(enemigo);
-                Destroy(enemigo,4);
-            }
+            ElevarEnemigos();
         }
         
     }
