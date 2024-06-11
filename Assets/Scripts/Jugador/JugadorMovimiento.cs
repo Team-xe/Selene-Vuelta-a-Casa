@@ -22,7 +22,7 @@ public class JugadorMovimiento : MonoBehaviour
     [SerializeField] Rigidbody rb; // Cuerpo sometido a fisicas
     public float velocidad = 15f; // Que tan rapido avanza el Jugador
     public float velocidadHorizontal = 20f;
-    [SerializeField] float fuerzaSalto = 37f; // fuerza con la que salta el jugador
+    [SerializeField] float fuerzaSalto = 30f; // fuerza con la que salta el jugador
 
 
     //* Variables para Sistema Touch
@@ -43,6 +43,7 @@ public class JugadorMovimiento : MonoBehaviour
     private ContadorMonedas contadorMonedas;
     public GameObject menuDerrota;
     public Poder1 poder1Morado;
+    public Poder2 poder2Azul;
 
 
     void Start()
@@ -181,11 +182,15 @@ public class JugadorMovimiento : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E)){
             poder1Morado.ElevarEnemigos();
         }
+        if (Input.GetKeyDown(KeyCode.Q)){
+            poder2Azul.HacerInvulnerableJugador();
+        }
     }
 
     public void AumentarVelocidadInicial(){
         velocidad = 28f;
         velocidadHorizontal = 33f;
+        fuerzaSalto = 41f;
     }
 
     /**
@@ -255,6 +260,7 @@ public class JugadorMovimiento : MonoBehaviour
         }
         invulnerable = true;
         fuegoFatuo.SetActive(true);
+
         Invoke("DesactivarInvulnerabilidad", 5f);
         StartCoroutine(Coroutine());
     }
@@ -291,6 +297,7 @@ public class JugadorMovimiento : MonoBehaviour
     public void DestruirEnemigos()
     {
         GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemigo");
+
         AudioManager.instance.ReproducirEfectos("Poder2");
         foreach (GameObject enemigo in enemigos)
         {

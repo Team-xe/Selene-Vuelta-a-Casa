@@ -16,6 +16,8 @@ public class Proyectil : MonoBehaviour
         jugadorMovimiento = GameObject.FindObjectOfType<JugadorMovimiento>();
         jugador1 = GameObject.FindObjectOfType<Jugador1>();
         jugador2 = GameObject.FindObjectOfType<Jugador2>();
+
+        Destroy(gameObject,10f);
     }
 
     // Update is called once per frame

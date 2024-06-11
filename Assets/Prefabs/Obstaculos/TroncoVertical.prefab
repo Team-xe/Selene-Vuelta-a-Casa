@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 679113457252271129}
+  - component: {fileID: 995186822909731423}
   - component: {fileID: 3839465469769580508}
   - component: {fileID: 8137611307395992854}
   - component: {fileID: 8079383111268314466}
-  - component: {fileID: 995186822909731423}
-  - component: {fileID: 8678519308930034871}
   - component: {fileID: 1555736626418952575}
+  - component: {fileID: 8678519308930034871}
   - component: {fileID: -4520715529553533488}
   m_Layer: 0
   m_Name: TroncoVertical
@@ -47,6 +47,19 @@ Transform:
   - {fileID: 5173431918668483312}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &995186822909731423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931294252330337158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48d5e9083265f22428463986a4aa3194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jugadorMovimiento: {fileID: 0}
 --- !u!33 &3839465469769580508
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -118,7 +131,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.9929215, z: 1}
   m_Center: {x: 0, y: 0.0023532868, z: 0}
---- !u!114 &995186822909731423
+--- !u!114 &1555736626418952575
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,10 +140,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 931294252330337158}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48d5e9083265f22428463986a4aa3194, type: 3}
+  m_Script: {fileID: 11500000, guid: 436e63260f8eee04d86b615648e506bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jugadorMovimiento: {fileID: 0}
+  proyectilPrefab: {fileID: 3726876853497965985, guid: fa67a30ca5535bb4ab12d503f5a17061, type: 3}
+  audioSource: {fileID: -4520715529553533488}
+  distanciaLanzamiento: -2.2
+  fuerzaLanzamiento: -5
+  intervaloLanzamiento: 5
 --- !u!54 &8678519308930034871
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -158,23 +175,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &1555736626418952575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 931294252330337158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 436e63260f8eee04d86b615648e506bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  proyectilPrefab: {fileID: 3726876853497965985, guid: fa67a30ca5535bb4ab12d503f5a17061, type: 3}
-  audioSource: {fileID: -4520715529553533488}
-  distanciaLanzamiento: -2.2
-  fuerzaLanzamiento: -5
-  intervaloLanzamiento: 5
 --- !u!82 &-4520715529553533488
 AudioSource:
   m_ObjectHideFlags: 0

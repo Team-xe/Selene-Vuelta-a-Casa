@@ -13,6 +13,12 @@ public class Enemigo3 : MonoBehaviour
     public float intervaloLanzamiento = 5f;
     private float tiempo = 0f;
 
+    void Start(){
+        Vector3 nuevaPos = transform.position;
+        nuevaPos.y = 2f;
+        transform.position = nuevaPos;
+    }
+
     void Update()
     {
         tiempo += Time.deltaTime;

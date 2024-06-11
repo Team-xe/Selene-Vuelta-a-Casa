@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2128280733}
-  m_IndirectSpecularColor: {r: 0.012424182, g: 0.35834667, b: 1.6118507, a: 1}
+  m_IndirectSpecularColor: {r: 0.012425101, g: 0.3583616, b: 1.6118208, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6699,6 +6699,7 @@ Transform:
   - {fileID: 1357805605}
   - {fileID: 947787338}
   - {fileID: 1948380765}
+  - {fileID: 1270057413}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &384586338
@@ -7032,6 +7033,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 378608277}
     m_Modifications:
+    - target: {fileID: 460820036567845167, guid: 00e489cd44ea215459de0f03c16c75fb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 11.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011144831171393706, guid: 00e489cd44ea215459de0f03c16c75fb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 11.4
+      objectReference: {fileID: 0}
     - target: {fileID: 6158993026639862537, guid: 00e489cd44ea215459de0f03c16c75fb, type: 3}
       propertyPath: m_Name
       value: Suelo_Vacio1
@@ -9403,9 +9412,9 @@ MonoBehaviour:
   fuegoFatuo: {fileID: 105975296}
   animator: {fileID: 8812538531906213645}
   rb: {fileID: 1048520794}
-  velocidad: 15
+  velocidad: 28
   velocidadHorizontal: 20
-  fuerzaSalto: 40
+  fuerzaSalto: 30
   carrilesPadre: {fileID: 1221536667}
   carrilesPos:
   - {fileID: 670703728}
@@ -9416,6 +9425,7 @@ MonoBehaviour:
   Ptsvivo: {fileID: 2044685344}
   menuDerrota: {fileID: 1671883750}
   poder1Morado: {fileID: 4297454711153147529, guid: d2a42581a171e0c40b996d42a2601c1f, type: 3}
+  poder2Azul: {fileID: 6544960791421048314, guid: 6324f64379a1efc4da5e7cb04adb5ca3, type: 3}
 --- !u!114 &1048520796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10338,8 +10348,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: PERDISTE
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10370,8 +10380,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -10651,6 +10661,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266966795}
   m_CullTransparentMesh: 1
+--- !u!1 &1270057412
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1270057413}
+  m_Layer: 0
+  m_Name: ObstaculosPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1270057413
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270057412}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 378608277}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1283119192
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22751,8 +22792,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3.853691, y: -303}
-  m_SizeDelta: {x: 895.09, y: 274.477}
+  m_AnchoredPosition: {x: -3.8548, y: -215.4852}
+  m_SizeDelta: {x: 895.09, y: 99.4474}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1915611118
 MonoBehaviour:
@@ -22776,8 +22817,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Resultado
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

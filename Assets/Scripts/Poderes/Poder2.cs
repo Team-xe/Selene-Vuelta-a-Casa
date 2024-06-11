@@ -6,17 +6,21 @@ public class Poder2 : MonoBehaviour
 {
     public static bool invulnerable;
 
+    public JugadorMovimiento jugadorMovimiento;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Jugador")
         {
-            JugadorMovimiento jugadorMovimiento = other.GetComponent<JugadorMovimiento>();
-            if (jugadorMovimiento != null)
-            {
-                jugadorMovimiento.ActivarInvulnerabilidad();
-            }
-            Destroy(gameObject);
+            
+            HacerInvulnerableJugador();
         }
+    }
+
+    public void HacerInvulnerableJugador(){
+        jugadorMovimiento = FindObjectOfType<JugadorMovimiento>();
+        jugadorMovimiento.ActivarInvulnerabilidad();
+        Destroy(gameObject);
     }
 }
 

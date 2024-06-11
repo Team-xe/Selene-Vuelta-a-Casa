@@ -14,17 +14,29 @@ public class SueloMultijugador : MonoBehaviour
 
         GenerarObstaculo(); // Suelo nace con 1 Obstaculo
         GenerarEnemigo(); //
-        
         AudioManager.instance.ReproducirMenu("MusicaFondo");
     }
 
     public void MoverSueloRetrasado()
     {
         suelos.MoverSuelo();
+        LimpiarObjetosGenerados();
+
         GenerarObstaculo(); // Suelo nace con 1 Obstaculo
         GenerarEnemigo(); //
+
         
     }
+
+    public void LimpiarObjetosGenerados(){
+        foreach (Transform child in transform){
+            if (child.CompareTag("Enemigo") || child.CompareTag("Moneda") || child.CompareTag("Poder1") || child.CompareTag("Poder2")){
+                Destroy(child.gameObject);
+            }
+        }
+    }
+
+
     /**
     ** Metodo que mueve este Suelo actual de este Script al salir de la Colision con algo 
     **/
@@ -33,7 +45,7 @@ public class SueloMultijugador : MonoBehaviour
         if (other.gameObject.CompareTag("Jugador1"))
         {
             {
-                Invoke("MoverSueloRetrasado", 13f);
+                Invoke("MoverSueloRetrasado", 5f);
                 //gameObject.SetActive(false);
                 //sueloGenerador.GenerarSuelo(); // Accede al Script SuelosGenerador y Genera otro Suelo en alguna posicion
                 //Destroy(gameObject,2); // Destruye 1 Suelo despues de 2 segundos
@@ -79,8 +91,8 @@ public class SueloMultijugador : MonoBehaviour
         // Obstaculo 1  30% (0.5 a 0.2) // Antes era 0.7 a 0.2 50% //* MURO
         if (probabilidad < 0.5f && probabilidad > 0.2)
         {
-
-            Instantiate(obstaculo1Prefab, puntoGen.position, obstaculo1Prefab.transform.rotation, obstaculo1Prefab.transform);
+            GameObject obstaculo = Instantiate(obstaculo1Prefab, puntoGen.position, obstaculo1Prefab.transform.rotation, obstaculo1Prefab.transform);
+            obstaculo.transform.SetParent(transform);
         }
 
         // Obstaculo 3 (En el aire) 20% [0.3 a 0.1) //* PAJARO 0.1 0.2 0.3
@@ -88,20 +100,24 @@ public class SueloMultijugador : MonoBehaviour
         {
             Transform puntoAire = puntoGen;
             puntoAire.position = new Vector3(puntoGen.position.x, puntoGen.position.y + 2.5f, puntoGen.position.z);
-            Instantiate(obstaculo3Prefab, puntoAire.position, obstaculo3Prefab.transform.rotation, obstaculo3Prefab.transform);
+            
+            GameObject obstaculo = Instantiate(obstaculo3Prefab, puntoAire.position, obstaculo3Prefab.transform.rotation, obstaculo3Prefab.transform);
+            obstaculo.transform.SetParent(transform);
         }
         // Obstaculo 2 (Alto) 30% [1.0 a 0.7] //* TRONCO
         if (probabilidad >= 0.7)
         {
             Transform puntoAlto = puntoGen;
-            puntoAlto.position = new Vector3(puntoGen.position.x, puntoGen.position.y + 1.5f, puntoGen.position.z);
-            Instantiate(obstaculo2Prefab, puntoAlto.position, obstaculo2Prefab.transform.rotation, obstaculo2Prefab.transform);
+            puntoAlto.position = new Vector3(puntoGen.position.x, puntoGen.position.y + 1f, puntoGen.position.z);
+            
+            GameObject obstaculo = Instantiate(obstaculo2Prefab, puntoAlto.position, obstaculo2Prefab.transform.rotation, obstaculo2Prefab.transform);
+            obstaculo.transform.SetParent(transform);
         }
         // Obstaculo 4 (Rebote) 10% [0.1 a 0.0] //* SETA
         if (probabilidad <= 0.1f && probabilidad >= 0.0f)
         {
-
-            Instantiate(obstaculo4Prefab, puntoGen.position, obstaculo4Prefab.transform.rotation, obstaculo4Prefab.transform);
+            GameObject obstaculo = Instantiate(obstaculo4Prefab, puntoGen.position, obstaculo4Prefab.transform.rotation, obstaculo4Prefab.transform);
+            obstaculo.transform.SetParent(transform);
         }
 
     }
@@ -122,16 +138,17 @@ public class SueloMultijugador : MonoBehaviour
         Transform puntoGen = transform.GetChild(enemigoGenIndex).transform;
 
         Transform puntoAlto = puntoGen;
-        puntoAlto.position = new Vector3(puntoGen.position.x, puntoGen.position.y + 1f, puntoGen.position.z);
+        puntoAlto.position = new Vector3(puntoGen.position.x, puntoGen.position.y, puntoGen.position.z);
 
 
         // Probabilidad para generar (opcional con un if (probabildiad < 0.3) por ejemplo)
         float probabilidad = Random.Range(0f, 1f);
 
         // Generar Enemigo 10% [0.1 a 0.0]
-        if (probabilidad <= 0.2)
+        if (probabilidad <= 0.15)
         {
-            Instantiate(Enemigo1Prefab, puntoAlto.position, Enemigo1Prefab.transform.rotation, Enemigo1Prefab.transform);
+            GameObject enemigo = Instantiate(Enemigo1Prefab, puntoAlto.position, Enemigo1Prefab.transform.rotation, Enemigo1Prefab.transform);
+            enemigo.transform.SetParent(transform);
         }
 
         //* Generar Obstaculo si no se genera enemigo (20%) [0.3 a 0.1)
@@ -139,8 +156,9 @@ public class SueloMultijugador : MonoBehaviour
         {
             // Instantiate(obstaculo1Prefab,puntoGen.position,obstaculo1Prefab.transform.rotation,obstaculo1Prefab.transform);
 
-            puntoAlto.position = new Vector3(puntoGen.position.x, puntoGen.position.y - 1.0f, puntoGen.position.z);
-            Instantiate(obstaculo1Prefab, puntoAlto.position, obstaculo1Prefab.transform.rotation, obstaculo1Prefab.transform);
+            puntoAlto.position = new Vector3(puntoGen.position.x, puntoGen.position.y, puntoGen.position.z);
+            GameObject enemigo = Instantiate(obstaculo1Prefab, puntoAlto.position, obstaculo1Prefab.transform.rotation, obstaculo1Prefab.transform);
+            enemigo.transform.SetParent(transform);
         }
     }
 

@@ -6,7 +6,9 @@ using TMPro;
 public class Moneda : MonoBehaviour
 {
    public Rigidbody rb;
-
+    void Start(){
+        Destroy(gameObject,40f);
+    }
      void OnTriggerEnter(Collider other){
         if (other.gameObject.CompareTag("Jugador")) {            
             rb.AddForce(Vector3.up * 30f, ForceMode.Impulse);

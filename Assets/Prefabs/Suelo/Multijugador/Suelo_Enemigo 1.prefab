@@ -726,8 +726,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6585749510012864909}
-  - {fileID: 5459143065547568165}
   - {fileID: 5017095304412085185}
   - {fileID: 1291835941586939255}
   - {fileID: 3953905046996168840}
@@ -741,6 +739,8 @@ Transform:
   - {fileID: 7864359809197380428}
   - {fileID: 1459269850463849082}
   - {fileID: 5500671878902024357}
+  - {fileID: 6585749510012864909}
+  - {fileID: 5459143065547568165}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &4485047515202875502
@@ -784,6 +784,7 @@ MonoBehaviour:
   Enemigo1Prefab: {fileID: 6117742134059902487, guid: 4bc2876ca4ef94143a4690d920749e19, type: 3}
   poder1Prefab: {fileID: 0}
   poder2Prefab: {fileID: 0}
+  enemigoGenerado: 0
 --- !u!114 &-858097514277384451
 MonoBehaviour:
   m_ObjectHideFlags: 0
