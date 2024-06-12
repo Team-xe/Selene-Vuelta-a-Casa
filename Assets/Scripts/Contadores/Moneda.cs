@@ -10,8 +10,10 @@ public class Moneda : MonoBehaviour
         Destroy(gameObject,40f);
     }
      void OnTriggerEnter(Collider other){
-        if (other.gameObject.CompareTag("Jugador")) {            
+        if (other.gameObject.CompareTag("Jugador")) { 
+                       
             rb.AddForce(Vector3.up * 30f, ForceMode.Impulse);
+            
             AudioManager.instance.ReproducirEfectos("Moneda");
             Destroy(gameObject,0.2f);
         }

@@ -20,21 +20,31 @@ public class GuardadoManager : MonoBehaviour
     private const string ModeloCapaCeleste = "ModeloCapaCeleste";
     private const string ModeloCapaVerde = "ModeloCapaVerde";
     private const string ModeloCapaMago = "ModeloCapaMago";
+
     private const string ModeloPielBlanca = "ModeloPielBlanca";
     private const string ModeloPielNaranja = "ModeloPielNaranja";
     private const string ModeloPielNegra = "ModeloPielNegra";
     
     private const string CapaActual = "CapaActual";
 
+    private const string CapaVerdeComprada = "CapaVerdeComprada";
+    private const string CapaCelesteComprada = "CapaCelesteComprada";
+    private const string CapaMagoComprada = "CapaMagoComprada";
+    private const string PielNaranjaComprada = "PielNaranjaComprada";
+    private const string PielNegraComprada = "PielNegraComprada";
+
     private int capaActual = 0;
+
+    private int modeloPielBlanca = 1;
+    private int modeloPielNaranja = 0;
+    private int modeloPielNegra = 0;
 
     private int modeloCapaRoja = 1;
     private int modeloCapaCeleste = 0;
     private int modeloCapaVerde = 0;
     private int modeloCapaMago = 0;
-    private int modeloPielBlanca = 1;
-    private int modeloPielNaranja = 0;
-    private int modeloPielNegra = 0;
+
+
 
     private int totalMoneda = 0;
     private int totalPuntaje = 0;
@@ -44,6 +54,12 @@ public class GuardadoManager : MonoBehaviour
     private int totalPescado = 0;
     private int totalSushi = 0;
     private int totalHamburguesa = 0;
+
+    private int cv_comprada = 0;
+    private int cc_comprada = 0;
+    private int cm_comprada = 0;
+    private int pna_comprada = 0;
+    private int pne_comprada = 0;
 
     void Start()
     {
@@ -62,6 +78,13 @@ public class GuardadoManager : MonoBehaviour
         modeloCapaMago = PlayerPrefs.GetInt(ModeloCapaMago, 0);
 
         modeloPielBlanca = PlayerPrefs.GetInt(ModeloPielBlanca, 0);
+
+        cv_comprada = PlayerPrefs.GetInt(CapaVerdeComprada, 0);
+        cc_comprada = PlayerPrefs.GetInt(CapaCelesteComprada, 0);
+        cm_comprada = PlayerPrefs.GetInt(CapaMagoComprada, 0);
+
+        pna_comprada = PlayerPrefs.GetInt(PielNaranjaComprada, 0);
+        pne_comprada = PlayerPrefs.GetInt(PielNegraComprada, 0);
 
         print("--- PLAYER PREFS ---");
         print("monedas: "+totalMoneda.ToString()+", pescado: "+totalPescado.ToString()+", sushi: "+totalSushi.ToString()+", hamburg: "+totalHamburguesa.ToString());
@@ -120,23 +143,35 @@ public class GuardadoManager : MonoBehaviour
         PlayerPrefs.Save(); // Asegurarse de guardar los cambios
     }
 
-    
+    public void GuardarMaterial(int modeloPielBlanca, int modeloPielNaranja, int modeloPielNegra,
+        int modeloCapaRoja, int modeloCapaCeleste, int modeloCapaVerde, int modeloCapaMago){
+        PlayerPrefs.SetInt(ModeloPielBlanca, modeloPielBlanca);
+        PlayerPrefs.SetInt(ModeloPielNaranja, modeloPielNaranja);
+        PlayerPrefs.SetInt(ModeloPielNegra, modeloPielNegra);
 
+        PlayerPrefs.SetInt(ModeloCapaRoja, modeloCapaRoja);
+        PlayerPrefs.SetInt(ModeloCapaCeleste, modeloCapaCeleste);
+        PlayerPrefs.SetInt(ModeloCapaVerde, modeloCapaVerde);
+        PlayerPrefs.SetInt(ModeloCapaMago, modeloCapaMago);
 
+        PlayerPrefs.Save();
 
-    //! Borrar probablemente
-    /*
-    //* Agregar Puntaje al Total Puntaje en PlayerPrefs
-    public void aniadirPuntaje(int puntosAgregar)
-    {
-        totalPuntaje += puntosAgregar;
-        // Guardar el total de monedas actualizado en PlayerPrefs
-
-        PlayerPrefs.SetInt(TotalPuntajeKey, totalPuntaje);
-        PlayerPrefs.Save(); // Asegurarse de guardar los cambios
     }
-    */
 
+    public void GuardarCompras(int cv_comprada, int cc_comprada, int cm_comprada,
+        int pna_comprada, int pne_comprada /*int g_comprado, int m_comprada*/ ){
+
+        PlayerPrefs.SetInt(CapaVerdeComprada, cv_comprada);
+        PlayerPrefs.SetInt(CapaCelesteComprada, cc_comprada);
+        PlayerPrefs.SetInt(CapaMagoComprada, cm_comprada);
+
+        PlayerPrefs.SetInt(PielNaranjaComprada, pna_comprada);
+        PlayerPrefs.SetInt(PielNegraComprada, pne_comprada);
+
+        PlayerPrefs.Save();
+    }
+
+    
     // Reiniciar el total de monedas (test unity)
     public void ReiniciarDatos()
     {
@@ -146,6 +181,13 @@ public class GuardadoManager : MonoBehaviour
         totalPescado = 0;
         totalSushi = 0;
         totalHamburguesa = 0;
+
+        cv_comprada = 0;
+        cc_comprada = 0;
+        cm_comprada = 0;
+
+        pna_comprada = 0;
+        pne_comprada = 0;
         
         PlayerPrefs.SetInt(TotalMonedaKey, totalMoneda);
         PlayerPrefs.SetInt(TotalComidaKey, totalComida);
@@ -153,7 +195,20 @@ public class GuardadoManager : MonoBehaviour
         PlayerPrefs.SetInt(TotalPescadoKey, totalPescado);
         PlayerPrefs.SetInt(TotalSushiKey, totalPescado);
         PlayerPrefs.SetInt(TotalHamburguesaKey, totalPescado);
+
+
+        PlayerPrefs.SetInt(CapaVerdeComprada, cv_comprada);
+        PlayerPrefs.SetInt(CapaCelesteComprada, cc_comprada);
+        PlayerPrefs.SetInt(CapaMagoComprada, cm_comprada);
+
+        PlayerPrefs.SetInt(PielNaranjaComprada, pna_comprada);
+        PlayerPrefs.SetInt(PielNegraComprada, pne_comprada);
+
+
+
         PlayerPrefs.Save(); // Guardar los cambios
+
+
 
         print("--- REINICIO DATOS PLAYER PREFS ---");
         print("monedas: "+totalMoneda.ToString()+", pescado: "+totalPescado.ToString()+", sushi: "+totalSushi.ToString()+", hamburg: "+totalHamburguesa.ToString());

@@ -2461,7 +2461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8cccc356a746c44be5df1dc0ec161d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstaculo1Prefab: {fileID: 7731624958306471252, guid: 2dd111bd3eccf494f93cf8ed0cc46284, type: 3}
+  obstaculo1Prefab: {fileID: 0}
   obstaculo2Prefab: {fileID: 0}
   obstaculo3Prefab: {fileID: 0}
   obstaculo4Prefab: {fileID: 0}
@@ -2469,6 +2469,7 @@ MonoBehaviour:
   Enemigo1Prefab: {fileID: 0}
   poder1Prefab: {fileID: 0}
   poder2Prefab: {fileID: 0}
+  enemigoGenerado: 0
 --- !u!1 &6188455340680081353
 GameObject:
   m_ObjectHideFlags: 0

@@ -46,12 +46,14 @@ public class Obstaculo : MonoBehaviour
             
             if (jugadorMovimiento.EsInvulnerable())
             {
+                print("Destruir Enemigos ! (Poder azul)");
                 jugadorMovimiento.DestruirEnemigos();
                 Destroy(gameObject);
             }
 
             else
             {
+                print("Morir por colisionar, bruh");
                 jugadorMovimiento.Morir();
                 AudioManager.instance.ReproducirEfectos("Caja");
             }

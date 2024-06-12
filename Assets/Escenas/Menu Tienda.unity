@@ -478,7 +478,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 662690293}
         m_TargetAssemblyTypeName: TiendaManager, Assembly-CSharp
-        m_MethodName: ComprarPiel
+        m_MethodName: ComprarPielNegra
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1723,6 +1723,13 @@ MonoBehaviour:
   textMeshPescados: {fileID: 581445450}
   textMeshSushis: {fileID: 1138212548}
   textMeshHamburguesas: {fileID: 1516910690}
+  cv_comprada: 0
+  cc_comprada: 0
+  cm_comprada: 0
+  pna_comprada: 0
+  pne_comprada: 0
+  g_comprado: 0
+  m_comprada: 0
 --- !u!4 &662690294
 Transform:
   m_ObjectHideFlags: 0
@@ -1917,7 +1924,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 662690293}
         m_TargetAssemblyTypeName: TiendaManager, Assembly-CSharp
-        m_MethodName: ComprarCapa
+        m_MethodName: ComprarCapaVerde
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4712,7 +4719,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 662690293}
         m_TargetAssemblyTypeName: TiendaManager, Assembly-CSharp
-        m_MethodName: ComprarPiel
+        m_MethodName: ComprarPielNaranja
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5031,7 +5038,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 662690293}
         m_TargetAssemblyTypeName: TiendaManager, Assembly-CSharp
-        m_MethodName: ComprarCapa
+        m_MethodName: ComprarCapaCeleste
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

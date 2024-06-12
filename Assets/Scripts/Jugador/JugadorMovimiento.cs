@@ -14,7 +14,7 @@ public class JugadorMovimiento : MonoBehaviour
     //* Variables bool
     bool vivo = true;
     bool enSuelo = true;
-    private bool invulnerable = false;
+    public bool invulnerable = false;
     
 
     //* Variables de movimiento adelante y salto
@@ -254,20 +254,23 @@ public class JugadorMovimiento : MonoBehaviour
 
     public void ActivarInvulnerabilidad()
     {
+        /*
+        // Para que?
         if (invulnerable)
         {
             StopCoroutine("DesactivarInvulnerabilidadCoroutine");
         }
+        */
         invulnerable = true;
         fuegoFatuo.SetActive(true);
 
-        Invoke("DesactivarInvulnerabilidad", 5f);
+        Invoke("DesactivarInvulnerabilidad", 8f);
         StartCoroutine(Coroutine());
     }
 
     private IEnumerator Coroutine()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(8f);
         DesactivarInvulnerabilidad();
     }
     private void DesactivarInvulnerabilidad()

@@ -30,6 +30,14 @@ public class TiendaManager : MonoBehaviour
         cantSushis = PlayerPrefs.GetInt("TotalSushiKey");
         cantHamburguesas = PlayerPrefs.GetInt("TotalHamburguesasKey");
 
+        cv_comprada = PlayerPrefs.GetInt("CapaVerdeComprada");
+        cc_comprada = PlayerPrefs.GetInt("CapaCelesteComprada");
+        cm_comprada = PlayerPrefs.GetInt("CapaMagoComprada");
+        pna_comprada = PlayerPrefs.GetInt("PielNaranjaComprada");
+        pne_comprada = PlayerPrefs.GetInt("PielNegraComprada");
+        //TODO: g_comprado, m_comprada aqui y en el GuardadoManager
+
+
         textMeshMonedas.text = " "+ cantmonedas.ToString();
 
         textMeshPescados.text = "x"+ cantPescados.ToString();
@@ -72,21 +80,68 @@ public class TiendaManager : MonoBehaviour
         ActualizarTextoHamburguesa();
     }
 
-    public void ComprarCapa(){
-        Cobrar(50);
+
+    public int cv_comprada = 0; // capa verde
+    public int cc_comprada = 0; // capa celeste
+    public int cm_comprada = 0; // capa mago
+    public int pna_comprada = 0; // piel naranja
+    public int pne_comprada = 0; // piel negra
+    public int g_comprado = 0; // gorro
+    public int m_comprada = 0; // mejora
+    
+    public void ComprarCapaVerde(){
+        if (cv_comprada == 0){
+            Cobrar(50);
+            cv_comprada = 1;
+            guardadoManager.GuardarCompras(cv_comprada, cc_comprada, cm_comprada, pna_comprada, pne_comprada);
+        }
+    }
+    public void ComprarCapaCeleste(){
+        if (cc_comprada == 0){
+            Cobrar(50);
+            cc_comprada = 1;
+            guardadoManager.GuardarCompras(cv_comprada, cc_comprada, cm_comprada, pna_comprada, pne_comprada);
+        }
     }
     public void ComprarCapaMagica(){
-        Cobrar(80);
+        if (cm_comprada == 0){
+            Cobrar(80);
+            cm_comprada = 1;
+            guardadoManager.GuardarCompras(cv_comprada, cc_comprada, cm_comprada, pna_comprada, pne_comprada);
+        }
     }
-    public void ComprarPiel(){
-        Cobrar(50);
+    
+    public void ComprarPielNaranja(){
+        if (pna_comprada == 0){
+            Cobrar(50);
+            pna_comprada = 1;
+            guardadoManager.GuardarCompras(cv_comprada, cc_comprada, cm_comprada, pna_comprada, pne_comprada);
+        }
     }
+    
+    public void ComprarPielNegra(){
+        if (pne_comprada == 0){
+            Cobrar(50);
+            pne_comprada = 1;
+            guardadoManager.GuardarCompras(cv_comprada, cc_comprada, cm_comprada, pna_comprada, pne_comprada);
+        }
+    }
+    
     public void ComprarGorro(){
-        Cobrar(50);
+        if (g_comprado == 0){
+            Cobrar(50);
+            g_comprado = 1;
+            guardadoManager.GuardarCompras(cv_comprada, cc_comprada, cm_comprada, pna_comprada, pne_comprada);
+        }
     }
 
+    
     public void ComprarMejora(){
-        Cobrar(50);
+        if (m_comprada == 0){
+            Cobrar(50);
+            m_comprada = 1;
+            guardadoManager.GuardarCompras(cv_comprada, cc_comprada, cm_comprada, pna_comprada, pne_comprada);
+        }
     }
 
     public void GanarDinero(){

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.012425101, g: 0.3583616, b: 1.6118208, a: 1}
+  m_IndirectSpecularColor: {r: 0.012424182, g: 0.35834667, b: 1.6118507, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1016,18 +1016,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1bd92c4378c19844917b5b68d6a7556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blancoCapaRoja: {fileID: 2800000, guid: 509081ba46466e243a74dfe00f655730, type: 3}
-  blancoCapaCeleste: {fileID: 2800000, guid: e1b7a213043a41541b9803534e76cce3, type: 3}
-  blancoCapaVerde: {fileID: 2800000, guid: 87bf71e3a7883b844b76371bcce40ea9, type: 3}
-  blancoCapaMago: {fileID: 2800000, guid: 738ae8a9e116365469b36d92e02acaf0, type: 3}
-  naranjaCapaRoja: {fileID: 2800000, guid: 1d8ed9ebc5309a14ea105791863c26f2, type: 3}
-  naranjaCapaCeleste: {fileID: 2800000, guid: cba64a3c2795dd24698022194256a189, type: 3}
-  naranjaCapaVerde: {fileID: 2800000, guid: a047911ede27ddf44a77e5bd9b5abfb9, type: 3}
-  naranjaCapaMago: {fileID: 2800000, guid: 308b9f05d830dda479325f984c754bec, type: 3}
-  negroCapaRoja: {fileID: 2800000, guid: 40107b73c02d6954497e277c6ad5afaf, type: 3}
-  negroCapaCeleste: {fileID: 2800000, guid: a2ad9cb1d63ea284a86fab9bdc370390, type: 3}
-  negroCapaVerde: {fileID: 2800000, guid: 33ef40d50aa592244b7aa458a428c4d3, type: 3}
-  negroCapaMago: {fileID: 2800000, guid: fa81efb99e8868b47b97a6de0f334b09, type: 3}
+  blancoCapaRoja: {fileID: 2100000, guid: 280dbf039600f5647b730071e0eb1f70, type: 2}
+  blancoCapaCeleste: {fileID: 2100000, guid: f6962fa5d7349b947a017c5f436693eb, type: 2}
+  blancoCapaVerde: {fileID: 2100000, guid: 3706e5242bea5894ea8960199ca7ebd7, type: 2}
+  blancoCapaMago: {fileID: 2100000, guid: 53f6e6b4cdcfd7549921c250840607a8, type: 2}
+  naranjaCapaRoja: {fileID: 2100000, guid: f8e9748704f361940906517b2dcea5f0, type: 2}
+  naranjaCapaCeleste: {fileID: 2100000, guid: 6958b0d2523c8cc4798ea96eca5076da, type: 2}
+  naranjaCapaVerde: {fileID: 2100000, guid: 9912200f6d018ca468e80b084b1c7cde, type: 2}
+  naranjaCapaMago: {fileID: 2100000, guid: 6925502f31721e941a9f5e040e0fa0eb, type: 2}
+  negroCapaRoja: {fileID: 2100000, guid: 757daea3ca8eab847b867f09af17bf9c, type: 2}
+  negroCapaCeleste: {fileID: 2100000, guid: 7652053e04129ab41ad8bad2db5e8cc2, type: 2}
+  negroCapaVerde: {fileID: 2100000, guid: c5c498e17444456459fc204182d0d50f, type: 2}
+  negroCapaMago: {fileID: 2100000, guid: 008d4f14206e016499461fa27d874953, type: 2}
   capas:
   - {fileID: 0}
   - {fileID: 0}
@@ -1041,7 +1041,7 @@ MonoBehaviour:
   capaVerde: 0
   capaMago: 0
   capaActual: 0
-  materialSelene: {fileID: 2100000, guid: 280dbf039600f5647b730071e0eb1f70, type: 2}
+  JugadorModelo: {fileID: 6772336364094099722}
 --- !u!4 &356527967
 Transform:
   m_ObjectHideFlags: 0

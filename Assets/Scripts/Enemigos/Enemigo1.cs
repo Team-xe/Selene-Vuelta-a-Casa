@@ -88,10 +88,12 @@ public class Enemigo1 : MonoBehaviour
         {
             if (jugadorMovimiento.EsInvulnerable())
             {
+                print("Destruir Enemigos ! (Poder azul)");
                 jugadorMovimiento.DestruirEnemigos();
             }
             else
             {
+                print("Morir por colisionar, bruh");
                 AudioManager.instance.ReproducirEfectos("Zorro");
                 jugadorMovimiento.Morir();
             }
@@ -101,6 +103,7 @@ public class Enemigo1 : MonoBehaviour
         if (collision.gameObject.CompareTag("Jugador1"))
         {
             // Matar al jugador
+            
             AudioManager.instance.ReproducirEfectos("Zorro");
             jugador1.Morir();
         }
