@@ -14,6 +14,7 @@ TagManager:
   - SueloCascada
   - Jugador1
   - Jugador2
+  - MonedaEspecial
   layers:
   - Default
   - TransparentFX

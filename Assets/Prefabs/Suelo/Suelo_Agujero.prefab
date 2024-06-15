@@ -117,7 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2357773087199391442}
   m_Layer: 3
-  m_Name: Plano
+  m_Name: PlanoAgujero
   m_TagString: Suelo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

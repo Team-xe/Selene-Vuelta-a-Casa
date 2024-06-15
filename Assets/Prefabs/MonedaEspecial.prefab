@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 4950380529911038084}
   - component: {fileID: 1190897875924265074}
   m_Layer: 0
-  m_Name: MonedaPlata
-  m_TagString: Moneda
+  m_Name: MonedaEspecial
+  m_TagString: MonedaEspecial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2128280733}
-  m_IndirectSpecularColor: {r: 0.012424182, g: 0.35834667, b: 1.6118507, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0.39361525, b: 1.6118507, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5684,6 +5684,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211474312}
   m_CullTransparentMesh: 1
+--- !u!1 &218397584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 218397586}
+  - component: {fileID: 218397585}
+  m_Layer: 0
+  m_Name: PortalManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &218397585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218397584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2fcc9010471a15408c46fdae91d2e28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Suelos: {fileID: 1948380764}
+  ArbolMaterial: {fileID: 2100000, guid: d1eaf3c4e5f13604ba395252e9e9ca5f, type: 2}
+  SueloMaterial: {fileID: 2100000, guid: e8c8b18a59e9d704f803e916627fb804, type: 2}
+  ArbolReset: {fileID: 2100000, guid: 79d64bb1114d4da419299f07f350331a, type: 2}
+  SueloReset: {fileID: 2100000, guid: 13cff38d4c9d87043b0e308bf63fcb45, type: 2}
+  ArenaReset: {fileID: 2100000, guid: b5268c5a6d05ec048a6fbeb5ddebba89, type: 2}
+  SkyboxMaterial: {fileID: 2100000, guid: 6bfab16f387f95e4bb60f866299be241, type: 2}
+  fondoColor: {r: 0.20392157, g: 0, b: 0.49019608, a: 0}
+  fondoReset: {r: 0, g: 0.6039216, b: 1, a: 0}
+  fogReset: {r: 0, g: 0.73333335, b: 1, a: 0}
+  fogColor: {r: 0.15686275, g: 0, b: 0.6784314, a: 0}
+  monedaEspecialPrefab: {fileID: 7731624958306471252, guid: a0a1efbb34d262a48a0105661921b48b, type: 3}
+--- !u!4 &218397586
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218397584}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 794349023}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &219646211
 GameObject:
   m_ObjectHideFlags: 0
@@ -7515,6 +7571,71 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1221536667}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &557536453
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2103513034}
+    m_Modifications:
+    - target: {fileID: 4901427106149610991, guid: 8fad1359115b49c49be4b9c0013d14b2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901427106149610991, guid: 8fad1359115b49c49be4b9c0013d14b2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901427106149610991, guid: 8fad1359115b49c49be4b9c0013d14b2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901427106149610991, guid: 8fad1359115b49c49be4b9c0013d14b2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 385.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901427106149610991, guid: 8fad1359115b49c49be4b9c0013d14b2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901427106149610991, guid: 8fad1359115b49c49be4b9c0013d14b2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901427106149610991, guid: 8fad1359115b49c49be4b9c0013d14b2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901427106149610991, guid: 8fad1359115b49c49be4b9c0013d14b2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901427106149610991, guid: 8fad1359115b49c49be4b9c0013d14b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901427106149610991, guid: 8fad1359115b49c49be4b9c0013d14b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901427106149610991, guid: 8fad1359115b49c49be4b9c0013d14b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787850625202920488, guid: 8fad1359115b49c49be4b9c0013d14b2, type: 3}
+      propertyPath: m_Name
+      value: Portal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108191806796235303, guid: 8fad1359115b49c49be4b9c0013d14b2, type: 3}
+      propertyPath: portalManager
+      value: 
+      objectReference: {fileID: 218397585}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8fad1359115b49c49be4b9c0013d14b2, type: 3}
 --- !u!1 &567505462
 GameObject:
   m_ObjectHideFlags: 0
@@ -8385,6 +8506,7 @@ Transform:
   - {fileID: 942886386}
   - {fileID: 731491304}
   - {fileID: 296772250}
+  - {fileID: 218397586}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &794791296
@@ -8993,11 +9115,6 @@ MonoBehaviour:
   negroCapaCeleste: {fileID: 2100000, guid: 7652053e04129ab41ad8bad2db5e8cc2, type: 2}
   negroCapaVerde: {fileID: 2100000, guid: c5c498e17444456459fc204182d0d50f, type: 2}
   negroCapaMago: {fileID: 2100000, guid: 008d4f14206e016499461fa27d874953, type: 2}
-  capas:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   pielBlanca: 0
   pielNaranja: 0
   pielNegra: 0
@@ -9005,8 +9122,17 @@ MonoBehaviour:
   capaCeleste: 0
   capaVerde: 0
   capaMago: 0
-  capaActual: 0
+  cv_comprada: 0
+  cc_comprada: 0
+  cm_comprada: 0
+  pna_comprada: 0
+  pne_comprada: 0
   JugadorModelo: {fileID: 8812538531906213644}
+  cv_bloqueo: {fileID: 0}
+  cc_bloqueo: {fileID: 0}
+  cm_bloqueo: {fileID: 0}
+  pna_bloqueo: {fileID: 0}
+  pne_bloqueo: {fileID: 0}
 --- !u!1001 &947787337
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10013,6 +10139,18 @@ MonoBehaviour:
     Name: 
     GameObject: {fileID: 296772249}
     Ordinal: 14
+    Priority: 0
+    IconType: 1030
+    IconTexture: {fileID: 0}
+    IsIconRecursive: 0
+    BackgroundType: 0
+    BackgroundTexture: {fileID: 0}
+    IsBackgroundRecursive: 0
+    IsHidden: 0
+  - Type: 0
+    Name: 
+    GameObject: {fileID: 218397584}
+    Ordinal: 15
     Priority: 0
     IconType: 1030
     IconTexture: {fileID: 0}
@@ -17354,6 +17492,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1948380765}
     m_Modifications:
+    - target: {fileID: 4896070167194197808, guid: e62e0253af497614f8639e8ab000c592, type: 3}
+      propertyPath: m_Name
+      value: Plano
+      objectReference: {fileID: 0}
     - target: {fileID: 6158993026639862537, guid: e62e0253af497614f8639e8ab000c592, type: 3}
       propertyPath: m_Name
       value: Suelo11_Enemigo
@@ -17651,6 +17793,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1824354617}
   m_CullTransparentMesh: 1
+--- !u!4 &1841903648 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4901427106149610991, guid: 8fad1359115b49c49be4b9c0013d14b2, type: 3}
+  m_PrefabInstance: {fileID: 557536453}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1845661433
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23270,7 +23417,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1841903648}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2116881559

@@ -44,6 +44,6 @@ Material:
     - _GlossyReflections: 1
     - _SpecularHighlights: 1
     m_Colors:
-    - _Color: {r: 0.8792453, g: 0.8792453, b: 0.8792453, a: 1}
-    - _EmissionColor: {r: 0.645283, g: 0.61241007, b: 0.61241007, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0.36037737, g: 0.7670939, b: 1, a: 1}
   m_BuildTextureStacks: []

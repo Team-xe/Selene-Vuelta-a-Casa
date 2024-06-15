@@ -21,6 +21,11 @@ public class JugadorColision : MonoBehaviour
             AudioManager.instance.ReproducirEfectos("Moneda");
         }
 
+        if (other.gameObject.CompareTag("MonedaEspecial")) {
+            contadorMonedas.Sumar(5);
+            AudioManager.instance.ReproducirEfectos("Moneda");
+        }
+
         if (other.gameObject.CompareTag("Poder1")) {
             particulasPoder1.SetActive(true);
             Invoke("ParticulasPoder1",3);
