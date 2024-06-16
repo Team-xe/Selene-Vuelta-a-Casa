@@ -40,6 +40,7 @@ public class JugadorColision : MonoBehaviour
         {
             AudioManager.instance.ReproducirEfectos("Cascada");
         }
+
         
     }
 

@@ -11,6 +11,7 @@ public class Portal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("Jugador")){
+            AudioManager.instance.ReproducirEfectos("Portal");
             print("PORTAL ACTIVADO");
             portalManager.CambiarMaterial(0);
             print("MATERIAL CAMBIADO");

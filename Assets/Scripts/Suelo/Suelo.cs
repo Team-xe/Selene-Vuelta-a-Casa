@@ -115,7 +115,7 @@ public class Suelo : MonoBehaviour
             obstaculo.transform.SetParent(transform);
         }
         // Obstaculo 4 (Rebote) 10% [0.1 a 0.0] //* SETA
-        if (probabilidad <= 0.1f && probabilidad >= 0.0f){
+        if (probabilidad <= 0.03f && probabilidad >= 0.0f){
 
             GameObject obstaculo = Instantiate(obstaculo4Prefab, puntoGen.position, obstaculo4Prefab.transform.rotation, obstaculo4Prefab.transform);
             obstaculo.transform.SetParent(transform);

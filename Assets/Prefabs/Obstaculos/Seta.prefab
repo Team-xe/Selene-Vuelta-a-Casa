@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 679113457252271129}
-  - component: {fileID: 995186822909731423}
   - component: {fileID: 3839465469769580508}
   - component: {fileID: 8137611307395992854}
   - component: {fileID: 8079383111268314466}
@@ -17,7 +16,7 @@ GameObject:
   - component: {fileID: 471638596817064106}
   m_Layer: 0
   m_Name: Seta
-  m_TagString: Enemigo
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,19 +37,6 @@ Transform:
   - {fileID: 8693989102947383875}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &995186822909731423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 931294252330337158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48d5e9083265f22428463986a4aa3194, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jugadorMovimiento: {fileID: 0}
 --- !u!33 &3839465469769580508
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -116,7 +102,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -161,6 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 997c5fea6c71b9644b501969885c80fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fuerzaImpulso: 65
+  jugadorMovimiento: {fileID: 0}
 --- !u!1 &6592767703245163188
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,10 +19,10 @@ public class JugadorMovimiento : MonoBehaviour
 
     //* Variables de movimiento adelante y salto
 
-    [SerializeField] Rigidbody rb; // Cuerpo sometido a fisicas
+    public Rigidbody rb; // Cuerpo sometido a fisicas
     public float velocidad = 15f; // Que tan rapido avanza el Jugador
     public float velocidadHorizontal = 20f;
-    [SerializeField] float fuerzaSalto = 30f; // fuerza con la que salta el jugador
+    public float fuerzaSalto = 30f; // fuerza con la que salta el jugador
 
 
     //* Variables para Sistema Touch
@@ -190,7 +190,7 @@ public class JugadorMovimiento : MonoBehaviour
     public void AumentarVelocidadInicial(){
         velocidad = 28f;
         velocidadHorizontal = 33f;
-        fuerzaSalto = 41f;
+        fuerzaSalto = 46f;
     }
 
     /**
