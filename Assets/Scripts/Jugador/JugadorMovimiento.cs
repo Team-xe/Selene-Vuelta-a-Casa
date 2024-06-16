@@ -190,7 +190,7 @@ public class JugadorMovimiento : MonoBehaviour
     public void AumentarVelocidadInicial(){
         velocidad = 28f;
         velocidadHorizontal = 33f;
-        fuerzaSalto = 46f;
+        fuerzaSalto = 44f;
     }
 
     /**
@@ -252,15 +252,38 @@ public class JugadorMovimiento : MonoBehaviour
 
     }
 
+    public void trampolinSalto()
+    {
+        float dobleFuerza = fuerzaSalto * 1.5f;
+        rb.AddForce(Vector3.up * fuerzaSalto * 1.5f, ForceMode.Impulse);
+        enSuelo = false;
+
+        animator.SetBool("Saltar", true);
+        animator.SetBool("Correr", false);
+        Debug.Log("Saltaste");
+        AudioManager.instance.ReproducirEfectos("Seta");
+
+        Invoke("IniciarAumentoVelocidad", 2f);
+    }
+
+    private void IniciarAumentoVelocidad()
+    {
+        StartCoroutine(AumentarVelocidadTemporalmente());
+    }
+
+    private IEnumerator AumentarVelocidadTemporalmente()
+    {
+        enSuelo = true;
+        float velocidadHorizontalOriginal = velocidadHorizontal;
+        velocidadHorizontal *= 1.3f;
+
+        yield return new WaitForSeconds(3f);
+
+        velocidadHorizontal = velocidadHorizontalOriginal;
+    }
+
     public void ActivarInvulnerabilidad()
     {
-        /*
-        // Para que?
-        if (invulnerable)
-        {
-            StopCoroutine("DesactivarInvulnerabilidadCoroutine");
-        }
-        */
         invulnerable = true;
         fuegoFatuo.SetActive(true);
 
@@ -288,7 +311,7 @@ public class JugadorMovimiento : MonoBehaviour
         menuDerrota.SetActive(true);
         Ptsvivo.JugadorMuerto();
         contadorMonedas.ActualizarTexto();
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
         Time.timeScale = 0f; // Detiene la partida
     }
 
@@ -307,6 +330,29 @@ public class JugadorMovimiento : MonoBehaviour
             Destroy(enemigo);
         }
         DesactivarInvulnerabilidad();
+    }
+
+    //FALTA ASIGNAR LO DEL PST VIVO, para que se vuelvan a activar
+    public void Revivir()
+    {
+        AudioManager.instance.ReproducirEfectos("Revivir1");
+        GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemigo");
+
+        foreach (GameObject enemigo in enemigos)
+        {
+            Destroy(enemigo);
+        }
+
+        vivo = true;
+        gameObject.SetActive(true);
+        menuDerrota.SetActive(false);
+        Time.timeScale = 1f;
+        rb.velocity = Vector3.zero;
+
+        animator.SetBool("Correr", true);
+        animator.SetBool("Saltar", false);
+        animator.SetBool("Bajar", false);
+
     }
 }
 

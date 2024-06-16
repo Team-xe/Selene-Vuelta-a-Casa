@@ -5,30 +5,37 @@ using TMPro;
 
 public class ContadorMonedas : MonoBehaviour
 {
-    
-   public TextMeshProUGUI textoContador;
-   public TextMeshProUGUI textMonedasDerrota;
-   
-   public int contador;
 
-   private GuardadoManager guardadoManager;
+    public TextMeshProUGUI textoContador;
+    public TextMeshProUGUI textMonedasDerrota;
 
-   /**S
-    ** Variables para guardar moneda
-    **/
-   //private int monedaTotal = 0;
+    public int contador;
 
-    void Start(){
+    private GuardadoManager guardadoManager;
+
+    /**S
+     ** Variables para guardar moneda
+     **/
+    //private int monedaTotal = 0;
+
+    void Start() {
         guardadoManager = FindObjectOfType<GuardadoManager>();
         textoContador = GetComponent<TextMeshProUGUI>();
         contador = 0;
         ActualizarTexto();
     }
     //* Suma Monedas actualizando el contador y agregando monedas en PlayerPrefs. Mostrando por Pantalla
-    public void Sumar(int cantidad){
+    public void Sumar(int cantidad) {
         contador = contador + cantidad;
         ActualizarTexto();
         guardadoManager.agregarMoneda(cantidad);
+    }
+
+    //POR el momento algo visual nada mas
+    public void Restar(int cantidad)
+    {
+        contador -= cantidad;
+        ActualizarTexto();
     }
 
     public void ActualizarTexto(){

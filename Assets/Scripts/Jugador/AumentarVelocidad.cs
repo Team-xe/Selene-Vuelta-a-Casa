@@ -10,11 +10,14 @@ public class AumentarVelocidad : MonoBehaviour
     public float intervaloMin = 5f;
     public float intervaloMax = 10f;
     public float incrementoVelocidad = 2f;
+    public float tiempoSalto = 30f;
+    public float aumentoFuerzaSalto = 1.06f;
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(AumentarVelocidadPeriodicamente());
+        StartCoroutine(AumentarFuerzaSaltoPeriodicamente());
     }
 
     IEnumerator AumentarVelocidadPeriodicamente()
@@ -29,6 +32,15 @@ public class AumentarVelocidad : MonoBehaviour
             jugadorMovimiento.velocidadHorizontal += incrementoVelocidad;
             carriles.velocidad += incrementoVelocidad;
 
+        }
+    }
+
+    IEnumerator AumentarFuerzaSaltoPeriodicamente()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(tiempoSalto);
+            jugadorMovimiento.fuerzaSalto *= aumentoFuerzaSalto;
         }
     }
 }

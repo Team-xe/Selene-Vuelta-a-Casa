@@ -15,6 +15,7 @@ TagManager:
   - Jugador1
   - Jugador2
   - MonedaEspecial
+  - Trampolin
   layers:
   - Default
   - TransparentFX

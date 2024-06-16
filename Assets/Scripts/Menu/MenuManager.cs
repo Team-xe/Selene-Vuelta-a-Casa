@@ -41,6 +41,9 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("Multijugador");
     }
 
+    //PARA PROBAR LUEGO SE PUEDE UTILIZAR OTRO CONTROLADOR O NOSE
+    
+
     //* SALIR  
     public void Salir(){
         Debug.Log("Saliendo..");

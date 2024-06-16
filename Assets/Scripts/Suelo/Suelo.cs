@@ -44,7 +44,7 @@ public class Suelo : MonoBehaviour
     **/
     private void OnTriggerExit(Collider other){
         if (other.gameObject.CompareTag("Jugador")){{
-            Invoke("MoverSueloRetrasado",5f);
+            Invoke("MoverSueloRetrasado",1.3f);
             //gameObject.SetActive(false);
             //sueloGenerador.GenerarSuelo(); // Accede al Script SuelosGenerador y Genera otro Suelo en alguna posicion
             //Destroy(gameObject,2); // Destruye 1 Suelo despues de 2 segundos
@@ -115,10 +115,11 @@ public class Suelo : MonoBehaviour
             obstaculo.transform.SetParent(transform);
         }
         // Obstaculo 4 (Rebote) 10% [0.1 a 0.0] //* SETA
-        if (probabilidad <= 0.03f && probabilidad >= 0.0f){
+        if (probabilidad <= 0.01f && probabilidad >= 0.0f){
 
             GameObject obstaculo = Instantiate(obstaculo4Prefab, puntoGen.position, obstaculo4Prefab.transform.rotation, obstaculo4Prefab.transform);
             obstaculo.transform.SetParent(transform);
+            GenerarMonedasEnParabola(new Vector3(puntoGen.position.x, puntoGen.position.y + 3f, puntoGen.position.z + 2f));
         }
         
     }
@@ -207,7 +208,7 @@ public class Suelo : MonoBehaviour
         float probabilidad = Random.Range(0f, 1f);
 
         // Generar Poder 1 (MORADO)
-        if (probabilidad <= 0.1f)
+        if (probabilidad <= 0.05f)
         {
             GameObject poder = Instantiate(poder1Prefab, puntoGen.position, poder1Prefab.transform.rotation, poder1Prefab.transform);
             poder.transform.SetParent(transform);
@@ -222,5 +223,22 @@ public class Suelo : MonoBehaviour
 
 
     }
-    
+
+    void GenerarMonedasEnParabola(Vector3 posicionInicial)
+    {
+        int cantidadMonedas = 5;
+        float alturaMaxima = 15f;
+        float distanciaEntreMonedas = 10f;
+
+        for (int i = 0; i < cantidadMonedas; i++)
+        {
+            float t = (float)i / (cantidadMonedas - 1);
+            float altura = 4 * alturaMaxima * (t - t * t);
+            Vector3 posicion = new Vector3(posicionInicial.x, posicionInicial.y + altura, posicionInicial.z + i * distanciaEntreMonedas);
+
+            Instantiate(monedaPrefab, posicion, Quaternion.identity, transform);
+            //Instantiate(monedaPrefab, posicion, monedaPrefab.transform.rotation, monedaPrefab.transform);
+        }
+    }
+
 }

@@ -13,7 +13,6 @@ public class Trampolin : MonoBehaviour
     {
     }
 
-    // Método que se llama cuando otro collider entra en el trigger
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Jugador")
@@ -25,10 +24,8 @@ public class Trampolin : MonoBehaviour
     public void AplicarImpulsoJugador()
     {
         jugadorMovimiento = FindObjectOfType<JugadorMovimiento>();
-        if (jugadorMovimiento != null && jugadorMovimiento.rb != null)
-        {
-            jugadorMovimiento.rb.AddForce(Vector3.up * fuerzaImpulso, ForceMode.Impulse);
-        }
-        Destroy(gameObject);
+        jugadorMovimiento.trampolinSalto();
     }
+
+
 }
