@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.012424182, g: 0.35834667, b: 1.6118507, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0.39361525, b: 1.6118507, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -737,6 +737,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef29793534b46bc43ae1e230446ce332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SkyboxMaterial: {fileID: 2100000, guid: 6bfab16f387f95e4bb60f866299be241, type: 2}
+  fondoReset: {r: 0, g: 0.6039216, b: 1, a: 0}
 --- !u!4 &229174623
 Transform:
   m_ObjectHideFlags: 0
@@ -1028,11 +1030,6 @@ MonoBehaviour:
   negroCapaCeleste: {fileID: 2100000, guid: 7652053e04129ab41ad8bad2db5e8cc2, type: 2}
   negroCapaVerde: {fileID: 2100000, guid: c5c498e17444456459fc204182d0d50f, type: 2}
   negroCapaMago: {fileID: 2100000, guid: 008d4f14206e016499461fa27d874953, type: 2}
-  capas:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   pielBlanca: 0
   pielNaranja: 0
   pielNegra: 0
@@ -1040,8 +1037,17 @@ MonoBehaviour:
   capaCeleste: 0
   capaVerde: 0
   capaMago: 0
-  capaActual: 0
+  cv_comprada: 0
+  cc_comprada: 0
+  cm_comprada: 0
+  pna_comprada: 0
+  pne_comprada: 0
   JugadorModelo: {fileID: 6772336364094099722}
+  cv_bloqueo: {fileID: 0}
+  cc_bloqueo: {fileID: 0}
+  cm_bloqueo: {fileID: 0}
+  pna_bloqueo: {fileID: 0}
+  pne_bloqueo: {fileID: 0}
 --- !u!4 &356527967
 Transform:
   m_ObjectHideFlags: 0

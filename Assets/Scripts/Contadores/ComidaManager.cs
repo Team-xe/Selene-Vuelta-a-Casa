@@ -18,12 +18,14 @@ public class ComidaManager : MonoBehaviour
 
     //* Barra de comida
     public int cantComida = 0;
+    public ParticleSystem corazones;
     
     void Start()
     {
         guardadoManager = FindObjectOfType<GuardadoManager>();
 
         cantComida = PlayerPrefs.GetInt("TotalComidaKey");
+
         cantPescados = PlayerPrefs.GetInt("TotalPescadoKey");
         cantSushis = PlayerPrefs.GetInt("TotalSushiKey");
         cantHamburguesas = PlayerPrefs.GetInt("TotalHamburguesaKey");
@@ -32,29 +34,36 @@ public class ComidaManager : MonoBehaviour
         textMeshPescados.text = "x"+ cantPescados.ToString();
         textMeshSushis.text = "x"+ cantSushis.ToString();
         textMeshHamburguesas.text = "x"+ cantHamburguesas.ToString();
+        ActualizarTextos();
     }
 
     public void ComerPescado(){
-        if (cantPescados > 0){
+        if (cantPescados > 0 && cantComida <= 99){
             cantPescados = cantPescados - 1;
             Comer(1);
             guardadoManager.agregarPescado(-1);
+            corazones.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            corazones.Play();
         }
     }
 
     public void ComerSushi(){
-        if (cantSushis > 0){
+        if (cantSushis > 0 && cantComida <= 95){
             cantSushis = cantSushis - 1;
             Comer(5);
             guardadoManager.agregarSushi(-1);
+            corazones.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            corazones.Play();
         }
     }
 
     public void ComerHamburguesa(){
-        if (cantHamburguesas > 0){
+        if (cantHamburguesas > 0 && cantComida <= 85){
             cantHamburguesas = cantHamburguesas - 1;
             Comer(15);
             guardadoManager.agregarHamburguesa(-1);
+            corazones.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            corazones.Play();
         }
     }
 

@@ -63,11 +63,15 @@ public class GuardadoManager : MonoBehaviour
 
     void Start()
     {
-        // Cargar el total desde PlayerPrefs
+        //* Cargar el total desde PlayerPrefs
+
+        // Contadores de monedas, puntaje y comida
         totalMoneda = PlayerPrefs.GetInt(TotalMonedaKey, 0); // El 0 devuelve el valor que tiene guardado TotalMonedaKey
         totalPuntaje = PlayerPrefs.GetInt(TotalPuntajeKey, 0);
-        totalPescado = PlayerPrefs.GetInt(TotalPescadoKey, 0);
+        
+        totalComida = PlayerPrefs.GetInt(TotalComidaKey, 0);
 
+        // Cantidad de alimentos
         totalSushi = PlayerPrefs.GetInt(TotalSushiKey, 0);
         totalPescado = PlayerPrefs.GetInt(TotalPescadoKey, 0);
         totalHamburguesa = PlayerPrefs.GetInt(TotalHamburguesaKey, 0);
@@ -87,7 +91,7 @@ public class GuardadoManager : MonoBehaviour
         pne_comprada = PlayerPrefs.GetInt(PielNegraComprada, 0);
 
         print("--- PLAYER PREFS ---");
-        print("monedas: "+totalMoneda.ToString()+", pescado: "+totalPescado.ToString()+", sushi: "+totalSushi.ToString()+", hamburg: "+totalHamburguesa.ToString());
+        print("monedas: "+totalMoneda.ToString()+", comida: "+totalComida.ToString());
     }
 
     void Update(){

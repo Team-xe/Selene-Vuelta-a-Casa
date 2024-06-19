@@ -113,7 +113,7 @@ public class PortalManager : MonoBehaviour
             RenderSettings.fogColor = fogReset;
         }
         if (reset == 0){
-            Invoke("ResetMaterial",18f);
+            Invoke("ResetMaterial",15f);
         }
     }
 }

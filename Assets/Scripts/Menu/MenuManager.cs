@@ -5,6 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    
+    public Material SkyboxMaterial;
+    public Color fondoReset;
+    private GuardadoManager guardadoManager;
+
+    public void Start(){
+        SkyboxMaterial.SetColor("_Tint", fondoReset);
+        RenderSettings.skybox = SkyboxMaterial;
+        guardadoManager = FindObjectOfType<GuardadoManager>();
+    }
 
     public void SaltarIntro(){
         Invoke("MenuInicial",1f);
@@ -13,6 +23,8 @@ public class MenuManager : MonoBehaviour
 
     //* Partida
     public void Jugar(){
+        //perder comida
+        guardadoManager.agregarComida(-1);
         SceneManager.LoadScene("Partida");
     }
 
@@ -38,6 +50,8 @@ public class MenuManager : MonoBehaviour
 
     public void Multijugador()
     {
+        //perder comida
+        guardadoManager.agregarComida(-1);
         SceneManager.LoadScene("Multijugador");
     }
 
