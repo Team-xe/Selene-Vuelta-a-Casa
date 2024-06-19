@@ -115,7 +115,7 @@ public class Suelo : MonoBehaviour
             obstaculo.transform.SetParent(transform);
         }
         // Obstaculo 4 (Rebote) 10% [0.1 a 0.0] //* SETA
-        if (probabilidad <= 0.01f && probabilidad >= 0.0f){
+        if (probabilidad <= 0.05f && probabilidad >= 0.0f){
 
             GameObject obstaculo = Instantiate(obstaculo4Prefab, puntoGen.position, obstaculo4Prefab.transform.rotation, obstaculo4Prefab.transform);
             obstaculo.transform.SetParent(transform);
@@ -236,8 +236,8 @@ public class Suelo : MonoBehaviour
             float altura = 4 * alturaMaxima * (t - t * t);
             Vector3 posicion = new Vector3(posicionInicial.x, posicionInicial.y + altura, posicionInicial.z + i * distanciaEntreMonedas);
 
-            Instantiate(monedaPrefab, posicion, Quaternion.identity, transform);
-            //Instantiate(monedaPrefab, posicion, monedaPrefab.transform.rotation, monedaPrefab.transform);
+            //Instantiate(monedaPrefab, posicion, Quaternion.identity, transform);
+            Instantiate(monedaPrefab, posicion, monedaPrefab.transform.rotation, monedaPrefab.transform);
         }
     }
 

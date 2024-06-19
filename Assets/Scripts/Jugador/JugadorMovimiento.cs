@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -24,6 +25,8 @@ public class JugadorMovimiento : MonoBehaviour
     public float velocidadHorizontal = 20f;
     public float fuerzaSalto = 30f; // fuerza con la que salta el jugador
 
+    public float alturaMaxima = 5.5f; // Techo o limite maximo de altura
+    public float umbralAltura = 5.0f; // Altura desde la que se comienza a reducir la velocidad
 
     //* Variables para Sistema Touch
     private float distanciaMin = 50f;
@@ -88,6 +91,17 @@ public class JugadorMovimiento : MonoBehaviour
         // Modifica la posicion a una donde en X //Posicion inicial, Posicion objetivo, delta X (velocidad)
         transform.position = Vector3.MoveTowards(transform.position, carrilPosActual.position, velocidadHorizontal*Time.deltaTime);
 
+        //* Controlar la velocidad de subida
+        // dentro del umbral
+        if (rb.position.y > umbralAltura && rb.position.y < alturaMaxima){
+            float reduccion = Mathf.Lerp(1f, 0f, (rb.position.y - umbralAltura) / (alturaMaxima - umbralAltura) );
+            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y * reduccion, rb.velocity.z);
+        }
+        // despues de la altura Maxima
+        else if (rb.position.y >= alturaMaxima){
+            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+            rb.position = new Vector3(rb.position.x, alturaMaxima, rb.position.z);
+        }
 
     }
 
@@ -191,6 +205,7 @@ public class JugadorMovimiento : MonoBehaviour
         velocidad = 28f;
         velocidadHorizontal = 33f;
         fuerzaSalto = 44f;
+        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z); //Reset de salto
     }
 
     /**
@@ -214,6 +229,7 @@ public class JugadorMovimiento : MonoBehaviour
     **/
     public void Saltar(){
         if (rb != null && enSuelo == true){
+            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z); //Reset de salto
             rb.AddForce(Vector3.up * fuerzaSalto, ForceMode.Impulse); // Aplica una fuerza Vertical hacia arriba para simular un Salto (en un espacio 3D)
             enSuelo = false;
 
@@ -228,7 +244,8 @@ public class JugadorMovimiento : MonoBehaviour
         if (rb != null && enSuelo == false){
             animator.SetBool("Bajar",true);
             animator.SetBool("Saltar",false);
-            
+
+            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z); //Reset de salto
             rb.AddForce(Vector3.down * (fuerzaSalto-2f), ForceMode.Impulse);
         }
     }
@@ -241,6 +258,7 @@ public class JugadorMovimiento : MonoBehaviour
             animator.SetBool("Saltar",false);
             animator.SetBool("Correr",true);
             animator.SetBool("Bajar",false);
+            alturaMaxima = 5.5f;
             
         }
         /*
@@ -254,7 +272,9 @@ public class JugadorMovimiento : MonoBehaviour
 
     public void trampolinSalto()
     {
+        alturaMaxima = 19f;
         float dobleFuerza = fuerzaSalto * 1.5f;
+        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z); //Reset de salto
         rb.AddForce(Vector3.up * fuerzaSalto * 1.5f, ForceMode.Impulse);
         enSuelo = false;
 

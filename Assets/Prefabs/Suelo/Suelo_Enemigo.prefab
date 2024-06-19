@@ -761,8 +761,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10, y: 20, z: 10}
-  m_Center: {x: 0, y: 0, z: 5}
+  m_Size: {x: 10, y: 60, z: 10}
+  m_Center: {x: 0, y: 20, z: 5}
 --- !u!114 &5903526396752454125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -783,6 +783,7 @@ MonoBehaviour:
   Enemigo1Prefab: {fileID: 0}
   poder1Prefab: {fileID: 0}
   poder2Prefab: {fileID: 0}
+  enemigoGenerado: 0
 --- !u!1 &6188455340680081353
 GameObject:
   m_ObjectHideFlags: 0
