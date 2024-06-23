@@ -18,6 +18,7 @@ public class SueloRecicladoMultijugador : MonoBehaviour
         {
             // Inicialización si es necesario
         }
+        AudioManager.instance.ReproducirMenu("MusicaFondo");
     }
 
     

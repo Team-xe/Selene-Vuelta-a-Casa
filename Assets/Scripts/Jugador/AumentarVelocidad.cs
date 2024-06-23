@@ -12,6 +12,7 @@ public class AumentarVelocidad : MonoBehaviour
     public float incrementoVelocidad = 2f;
     public float tiempoSalto = 30f;
     public float aumentoFuerzaSalto = 1.06f;
+    public float aumentoFuerzaUmbral = 1.2f;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +42,9 @@ public class AumentarVelocidad : MonoBehaviour
         {
             yield return new WaitForSeconds(tiempoSalto);
             jugadorMovimiento.fuerzaSalto *= aumentoFuerzaSalto;
+            jugadorMovimiento.velocidad += incrementoVelocidad;
+            jugadorMovimiento.velocidadHorizontal += incrementoVelocidad;
+            carriles.velocidad += incrementoVelocidad;
         }
     }
 }

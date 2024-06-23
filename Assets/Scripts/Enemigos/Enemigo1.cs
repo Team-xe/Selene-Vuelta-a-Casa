@@ -88,28 +88,34 @@ public class Enemigo1 : MonoBehaviour
         {
             if (jugadorMovimiento.EsInvulnerable())
             {
-                print("Destruir Enemigos ! (Poder azul)");
                 jugadorMovimiento.DestruirEnemigos();
             }
             else
             {
-                print("Morir por colisionar, bruh");
                 AudioManager.instance.ReproducirEfectos("Zorro");
                 jugadorMovimiento.Morir();
             }
             
             
         }
+
+        if (collision.gameObject.name == "Escudo")
+        {
+            jugadorMovimiento.DestruirEnemigos();
+            Destroy(gameObject);
+        }
+
         if (collision.gameObject.CompareTag("Jugador1"))
         {
             // Matar al jugador
-            
+            Debug.Log("Jugador muerto: " + collision.gameObject.name);
             AudioManager.instance.ReproducirEfectos("Zorro");
             jugador1.Morir();
         }
         if (collision.gameObject.CompareTag("Jugador2"))
         {
             // Matar al jugador
+            Debug.Log("Jugador muerto: " + collision.gameObject.name);
             AudioManager.instance.ReproducirEfectos("Zorro");
             jugador2.Morir();
         }

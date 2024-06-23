@@ -30,16 +30,21 @@ public class Proyectil : MonoBehaviour
         if (other.gameObject.name == "Jugador"){
             if(jugadorMovimiento.EsInvulnerable())
             {
-                print("Destruir Enemigos ! (Poder azul)");
                 jugadorMovimiento.DestruirEnemigos();
             }
             else
             {
-                print("Morir por colisionar, bruh");
                 jugadorMovimiento.Morir();
                 AudioManager.instance.ReproducirEfectos("Caja");
             }
         }
+
+        if (other.gameObject.name == "Escudo")
+        {
+            jugadorMovimiento.DestruirEnemigos();
+            Destroy(gameObject);
+        }
+
         if (other.gameObject.name == "Jugador1")
         {
             // Matar al jugador

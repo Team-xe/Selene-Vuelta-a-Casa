@@ -36,6 +36,7 @@ public class ContadorMonedas : MonoBehaviour
     {
         contador -= cantidad;
         ActualizarTexto();
+        guardadoManager.agregarMoneda(-cantidad);
     }
 
     public void ActualizarTexto(){

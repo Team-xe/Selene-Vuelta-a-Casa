@@ -8,6 +8,10 @@ public class Trampolin : MonoBehaviour
 
     public JugadorMovimiento jugadorMovimiento;
 
+    private Jugador1 jugador1;
+    private Jugador2 jugador2;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +23,16 @@ public class Trampolin : MonoBehaviour
         {
             AplicarImpulsoJugador();
         }
+
+        if (other.gameObject.name == "Jugador1")
+        {
+            AplicarImpulsoJugador1();
+        }
+
+        if (other.gameObject.name == "Jugador2")
+        {
+            AplicarImpulsoJugador2();
+        }
     }
 
     public void AplicarImpulsoJugador()
@@ -27,5 +41,15 @@ public class Trampolin : MonoBehaviour
         jugadorMovimiento.trampolinSalto();
     }
 
+    public void AplicarImpulsoJugador1()
+    {
+        jugador1 = GameObject.FindObjectOfType<Jugador1>();
+        jugador1.trampolinSalto();
+    }
 
+    public void AplicarImpulsoJugador2()
+    {
+        jugador2 = GameObject.FindObjectOfType<Jugador2>();
+        jugador2.trampolinSalto();
+    }
 }

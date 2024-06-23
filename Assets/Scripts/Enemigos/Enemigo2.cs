@@ -39,6 +39,13 @@ public class Enemigo2 : MonoBehaviour
                 jugadorMovimiento.Morir();
             }
         }
+
+        if (collision.gameObject.name == "Escudo")
+        {
+            jugadorMovimiento.DestruirEnemigos();
+            Destroy(gameObject);
+        }
+
         if (collision.gameObject.CompareTag("Jugador1"))
         {
             // Matar al jugador

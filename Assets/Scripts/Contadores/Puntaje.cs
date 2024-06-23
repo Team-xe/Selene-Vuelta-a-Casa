@@ -43,7 +43,13 @@ public class Puntaje : MonoBehaviour
         jugadorVivo = false; //  false cuando el jugador muere  
         textPuntajeDerrota.text = " " + puntos.ToString("0");
     }
-    
+
+    public void JugadorVivo()
+    {
+        jugadorVivo = true;
+    }
+
+
     public float asignarPuntaje(float asignar){
         asignar = puntos;
         return asignar;

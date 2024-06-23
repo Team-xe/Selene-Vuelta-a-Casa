@@ -53,14 +53,15 @@ public class MenuPausa : MonoBehaviour
     {
         JugadorMovimiento jugador = FindObjectOfType<JugadorMovimiento>();
         ContadorMonedas contadorMonedas = FindObjectOfType<ContadorMonedas>();
-        AudioManager.instance.ReproducirEfectos("Revivir2");
-        if (contadorMonedas.GetContador() >= 0)
+        
+        if (contadorMonedas.GetContador() >= 100)
         {
-            contadorMonedas.Restar(0);
+            AudioManager.instance.ReproducirEfectos("Revivir2");
+            contadorMonedas.Restar(100);
             jugador.Revivir();
         } else
         {
-            // TODO : Desplegar mensaje buscar la manera de obtener el boton y desativarlo
+            AudioManager.instance.ReproducirEfectos("mep");
         }
         Time.timeScale = 1f;
     }

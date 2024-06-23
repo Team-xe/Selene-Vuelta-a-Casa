@@ -46,29 +46,34 @@ public class Obstaculo : MonoBehaviour
             
             if (jugadorMovimiento.EsInvulnerable())
             {
-                print("Destruir Enemigos ! (Poder azul)");
                 jugadorMovimiento.DestruirEnemigos();
                 Destroy(gameObject);
             }
 
             else
             {
-                print("Morir por colisionar, bruh");
                 jugadorMovimiento.Morir();
                 AudioManager.instance.ReproducirEfectos("Caja");
             }
+        }
+        if (collision.gameObject.name == "Escudo")
+        {
+            jugadorMovimiento.DestruirEnemigos();
+            Destroy(gameObject);
         }
 
 
         if (collision.gameObject.CompareTag("Jugador1"))
         {
             // Matar al jugador
+            Debug.Log("Jugador muerto: " + collision.gameObject.name);
             AudioManager.instance.ReproducirEfectos("Caja");
             jugador1.Morir();
         }
         if (collision.gameObject.CompareTag("Jugador2"))
         {
             // Matar al jugador
+            Debug.Log("Jugador muerto: " + collision.gameObject.name);
             AudioManager.instance.ReproducirEfectos("Caja");
             jugador2.Morir();
         }

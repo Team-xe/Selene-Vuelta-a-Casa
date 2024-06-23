@@ -10,7 +10,7 @@ public class Jugador2 : MonoBehaviour
     bool enSuelo = true;
     //* Variable para contador puntaje
     public Puntaje Ptsvivo;
-
+    private bool trampolinEnProgreso = false;
 
     //* Variables de movimiento adelante y salto
 
@@ -19,6 +19,9 @@ public class Jugador2 : MonoBehaviour
     public float velocidadHorizontal = 20f;
     [SerializeField] float fuerzaSalto = 37f; // fuerza con la que salta el jugador
 
+
+    public float alturaMaxima = 5.5f; // Techo o limite maximo de altura
+    public float umbralAltura = 5.0f;
 
     //* Variables para Sistema Touch
     private float distanciaMin = 50f;
@@ -83,7 +86,19 @@ public class Jugador2 : MonoBehaviour
         // Modifica la posicion a una donde en X //Posicion inicial, Posicion objetivo, delta X (velocidad)
         transform.position = Vector3.MoveTowards(transform.position, carrilPosActual.position, velocidadHorizontal * Time.deltaTime);
 
-
+        //* Controlar la velocidad de subida
+        // dentro del umbral
+        if (rb.position.y > umbralAltura && rb.position.y < alturaMaxima)
+        {
+            float reduccion = Mathf.Lerp(1f, 0.5f, (rb.position.y - umbralAltura) / (alturaMaxima - umbralAltura));
+            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y * reduccion, rb.velocity.z);
+        }
+        // despues de la altura Maxima
+        else if (rb.position.y >= alturaMaxima)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+            rb.position = new Vector3(rb.position.x, alturaMaxima, rb.position.z);
+        }
     }
 
     public void SistemaTouch()
@@ -197,6 +212,8 @@ public class Jugador2 : MonoBehaviour
     {
         velocidad = 28f;
         velocidadHorizontal = 33f;
+        fuerzaSalto = 44f;
+        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z); //Reset de salto
     }
 
     /**
@@ -226,7 +243,10 @@ public class Jugador2 : MonoBehaviour
     {
         if (rb != null && enSuelo == true)
         {
+            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z); //Reset de salto
+
             rb.AddForce(Vector3.up * fuerzaSalto, ForceMode.Impulse); // Aplica una fuerza Vertical hacia arriba para simular un Salto (en un espacio 3D)
+            
             enSuelo = false;
 
             animator.SetBool("Saltar", true);
@@ -243,6 +263,8 @@ public class Jugador2 : MonoBehaviour
             animator.SetBool("Bajar", true);
             animator.SetBool("Saltar", false);
 
+            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z); //Reset de salto
+
             rb.AddForce(Vector3.down * (fuerzaSalto - 2f), ForceMode.Impulse);
         }
     }
@@ -256,6 +278,7 @@ public class Jugador2 : MonoBehaviour
             animator.SetBool("Saltar", false);
             animator.SetBool("Correr", true);
             animator.SetBool("Bajar", false);
+            alturaMaxima = 5.5f;
 
         }
 
@@ -277,4 +300,45 @@ public class Jugador2 : MonoBehaviour
         gameObject.SetActive(false);
 
     }
+
+    public void trampolinSalto()
+    {
+        if (!trampolinEnProgreso)
+        {
+            trampolinEnProgreso = true;
+            alturaMaxima = 140f;
+            umbralAltura = 12f;
+            float dobleFuerza = fuerzaSalto * 2.55f;
+            rb.AddForce(Vector3.up * dobleFuerza, ForceMode.Impulse);
+            enSuelo = false;
+            animator.SetBool("Saltar", true);
+            animator.SetBool("Correr", false);
+            AudioManager.instance.ReproducirEfectos("Seta");
+            Invoke("IniciarAumentoVelocidad", 1f);
+        }
+
+    }
+
+    private void IniciarAumentoVelocidad()
+    {
+        StartCoroutine(AumentarVelocidadTemporalmente());
+    }
+
+    private IEnumerator AumentarVelocidadTemporalmente()
+    {
+        float velocidadHorizontalOriginal = velocidadHorizontal;
+        float alturaMaximaOriginal = alturaMaxima;
+        float umbralAlturaOriginal = umbralAltura;
+        float fuerzaSaltoOriginal = fuerzaSalto;
+        velocidadHorizontal *= 1.25f;
+
+        yield return new WaitForSeconds(1.2f);
+        alturaMaxima = alturaMaximaOriginal;
+        umbralAltura = umbralAlturaOriginal;
+        fuerzaSalto = fuerzaSaltoOriginal;
+        enSuelo = true;
+        velocidadHorizontal = velocidadHorizontalOriginal;
+        trampolinEnProgreso = false;
+    }
+
 }

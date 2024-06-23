@@ -121,8 +121,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.04, y: 1, z: 1.6112298}
+  m_Center: {x: 0, y: 0, z: 0.14309421}
 --- !u!54 &8678519308930034871
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -251,12 +251,12 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5000001
-  m_Height: 1.0674264
+  m_Height: 0.36892185
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0.024303555}
+  m_Center: {x: 0, y: 0, z: 0.0066645443}
 --- !u!1 &2179059064123681270
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,7 +358,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5000001
   m_Height: 2
@@ -465,7 +465,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5000001
   m_Height: 2

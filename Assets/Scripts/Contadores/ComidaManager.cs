@@ -19,7 +19,8 @@ public class ComidaManager : MonoBehaviour
     //* Barra de comida
     public int cantComida = 0;
     public ParticleSystem corazones;
-    
+    public AudioSource audioSource;
+
     void Start()
     {
         guardadoManager = FindObjectOfType<GuardadoManager>();
@@ -44,6 +45,7 @@ public class ComidaManager : MonoBehaviour
             guardadoManager.agregarPescado(-1);
             corazones.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
             corazones.Play();
+            audioSource.Play();
         }
     }
 
@@ -54,6 +56,7 @@ public class ComidaManager : MonoBehaviour
             guardadoManager.agregarSushi(-1);
             corazones.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
             corazones.Play();
+            audioSource.Play();
         }
     }
 
@@ -64,6 +67,7 @@ public class ComidaManager : MonoBehaviour
             guardadoManager.agregarHamburguesa(-1);
             corazones.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
             corazones.Play();
+            audioSource.Play();
         }
     }
 

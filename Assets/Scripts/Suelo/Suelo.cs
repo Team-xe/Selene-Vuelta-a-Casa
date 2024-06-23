@@ -34,7 +34,7 @@ public class Suelo : MonoBehaviour
 
     public void LimpiarObjetosGenerados(){
         foreach (Transform child in transform){
-            if (child.CompareTag("Enemigo") || child.CompareTag("Moneda") || child.CompareTag("Poder1") || child.CompareTag("Poder2")){
+            if (child.CompareTag("Enemigo") || child.CompareTag("Moneda") || child.CompareTag("Poder1") || child.CompareTag("Poder2") || child.CompareTag("Trampolin")){
                 Destroy(child.gameObject);
             }
         }
@@ -115,11 +115,10 @@ public class Suelo : MonoBehaviour
             obstaculo.transform.SetParent(transform);
         }
         // Obstaculo 4 (Rebote) 10% [0.1 a 0.0] //* SETA
-        if (probabilidad <= 0.05f && probabilidad >= 0.0f){
-
-            GameObject obstaculo = Instantiate(obstaculo4Prefab, puntoGen.position, obstaculo4Prefab.transform.rotation, obstaculo4Prefab.transform);
-            obstaculo.transform.SetParent(transform);
-            GenerarMonedasEnParabola(new Vector3(puntoGen.position.x, puntoGen.position.y + 3f, puntoGen.position.z + 2f));
+        if (probabilidad <= 0.03f && probabilidad >= 0.0f){
+             GameObject obstaculo = Instantiate(obstaculo4Prefab, puntoGen.position, obstaculo4Prefab.transform.rotation, obstaculo4Prefab.transform);
+             obstaculo.transform.SetParent(transform);
+             GenerarMonedasEnParabola(new Vector3(puntoGen.position.x, puntoGen.position.y + 3f, puntoGen.position.z + 1f));
         }
         
     }
@@ -226,9 +225,9 @@ public class Suelo : MonoBehaviour
 
     void GenerarMonedasEnParabola(Vector3 posicionInicial)
     {
-        int cantidadMonedas = 5;
-        float alturaMaxima = 15f;
-        float distanciaEntreMonedas = 10f;
+        int cantidadMonedas = 6;
+        float alturaMaxima = 16f;
+        float distanciaEntreMonedas = 6f;
 
         for (int i = 0; i < cantidadMonedas; i++)
         {
@@ -240,5 +239,5 @@ public class Suelo : MonoBehaviour
             Instantiate(monedaPrefab, posicion, monedaPrefab.transform.rotation, monedaPrefab.transform);
         }
     }
-
+    
 }

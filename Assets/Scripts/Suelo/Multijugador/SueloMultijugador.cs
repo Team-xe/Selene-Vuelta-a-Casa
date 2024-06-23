@@ -14,7 +14,6 @@ public class SueloMultijugador : MonoBehaviour
 
         GenerarObstaculo(); // Suelo nace con 1 Obstaculo
         GenerarEnemigo(); //
-        AudioManager.instance.ReproducirMenu("MusicaFondo");
     }
 
     public void MoverSueloRetrasado()
