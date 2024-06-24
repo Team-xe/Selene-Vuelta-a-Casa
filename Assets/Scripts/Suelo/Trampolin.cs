@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Trampolin : MonoBehaviour
 {
-    public float fuerzaImpulso = 25;
+    public float fuerzaImpulso = 2;
 
     public JugadorMovimiento jugadorMovimiento;
 

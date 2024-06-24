@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 997c5fea6c71b9644b501969885c80fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fuerzaImpulso: 25
+  fuerzaImpulso: 2
   jugadorMovimiento: {fileID: 0}
 --- !u!1 &6592767703245163188
 GameObject:

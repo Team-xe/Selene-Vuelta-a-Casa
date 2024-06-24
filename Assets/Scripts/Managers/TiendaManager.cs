@@ -35,7 +35,8 @@ public class TiendaManager : MonoBehaviour
         cm_comprada = PlayerPrefs.GetInt("CapaMagoComprada");
         pna_comprada = PlayerPrefs.GetInt("PielNaranjaComprada");
         pne_comprada = PlayerPrefs.GetInt("PielNegraComprada");
-        //TODO: g_comprado, m_comprada aqui y en el GuardadoManager
+        poder_comprado = PlayerPrefs.GetInt("PoderComprado");
+        //TODO: g_comprado aqui y en el GuardadoManager
 
 
         textMeshMonedas.text = " "+ cantmonedas.ToString();
@@ -88,35 +89,35 @@ public class TiendaManager : MonoBehaviour
     }
 
 
-
+    
     //* Cosmeticos --------------------------------------
     public int cv_comprada = 0; // capa verde
     public int cc_comprada = 0; // capa celeste
     public int cm_comprada = 0; // capa mago
     public int pna_comprada = 0; // piel naranja
     public int pne_comprada = 0; // piel negra
-    public int g_comprado = 0; // gorro
-    public int m_comprada = 0; // mejora
+    public int g_comprado = 0; // TODO: Implementar  gorro
+    public int poder_comprado = 0; // mejora
     
     public void ComprarCapaVerde(){
         if (cv_comprada == 0 && cantmonedas >= 50){
             Cobrar(50);
             cv_comprada = 1;
-            guardadoManager.GuardarCompras(cv_comprada, cc_comprada, cm_comprada, pna_comprada, pne_comprada);
+            guardadoManager.GuardarCompras(cv_comprada, cc_comprada, cm_comprada, pna_comprada, pne_comprada, poder_comprado);
         }
     }
     public void ComprarCapaCeleste(){
         if (cc_comprada == 0 && cantmonedas >= 50){
             Cobrar(50);
             cc_comprada = 1;
-            guardadoManager.GuardarCompras(cv_comprada, cc_comprada, cm_comprada, pna_comprada, pne_comprada);
+            guardadoManager.GuardarCompras(cv_comprada, cc_comprada, cm_comprada, pna_comprada, pne_comprada, poder_comprado);
         }
     }
     public void ComprarCapaMagica(){
         if (cm_comprada == 0 && cantmonedas >= 80){
             Cobrar(80);
             cm_comprada = 1;
-            guardadoManager.GuardarCompras(cv_comprada, cc_comprada, cm_comprada, pna_comprada, pne_comprada);
+            guardadoManager.GuardarCompras(cv_comprada, cc_comprada, cm_comprada, pna_comprada, pne_comprada, poder_comprado);
         }
     }
     
@@ -124,7 +125,7 @@ public class TiendaManager : MonoBehaviour
         if (pna_comprada == 0 && cantmonedas >= 50){
             Cobrar(50);
             pna_comprada = 1;
-            guardadoManager.GuardarCompras(cv_comprada, cc_comprada, cm_comprada, pna_comprada, pne_comprada);
+            guardadoManager.GuardarCompras(cv_comprada, cc_comprada, cm_comprada, pna_comprada, pne_comprada, poder_comprado);
         }
     }
     
@@ -132,7 +133,7 @@ public class TiendaManager : MonoBehaviour
         if (pne_comprada == 0 && cantmonedas >= 50){
             Cobrar(50);
             pne_comprada = 1;
-            guardadoManager.GuardarCompras(cv_comprada, cc_comprada, cm_comprada, pna_comprada, pne_comprada);
+            guardadoManager.GuardarCompras(cv_comprada, cc_comprada, cm_comprada, pna_comprada, pne_comprada, poder_comprado);
         }
     }
     
@@ -140,16 +141,16 @@ public class TiendaManager : MonoBehaviour
         if (g_comprado == 0 && cantmonedas >= 50){
             Cobrar(50);
             g_comprado = 1;
-            guardadoManager.GuardarCompras(cv_comprada, cc_comprada, cm_comprada, pna_comprada, pne_comprada);
+            guardadoManager.GuardarCompras(cv_comprada, cc_comprada, cm_comprada, pna_comprada, pne_comprada, poder_comprado);
         }
     }
 
     
     public void ComprarMejora(){
-        if (m_comprada == 0 && cantmonedas >= 50){
+        if (poder_comprado == 0 && cantmonedas >= 50){
             Cobrar(50);
-            m_comprada = 1;
-            guardadoManager.GuardarCompras(cv_comprada, cc_comprada, cm_comprada, pna_comprada, pne_comprada);
+            poder_comprado = 1;
+            guardadoManager.GuardarCompras(cv_comprada, cc_comprada, cm_comprada, pna_comprada, pne_comprada, poder_comprado);
         }
     }
 

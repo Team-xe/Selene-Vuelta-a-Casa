@@ -33,6 +33,9 @@ public class GuardadoManager : MonoBehaviour
     private const string PielNaranjaComprada = "PielNaranjaComprada";
     private const string PielNegraComprada = "PielNegraComprada";
 
+
+    private const string PoderComprado = "PoderComprado";
+
     private int capaActual = 0;
 
     private int modeloPielBlanca = 1;
@@ -60,6 +63,8 @@ public class GuardadoManager : MonoBehaviour
     private int cm_comprada = 0;
     private int pna_comprada = 0;
     private int pne_comprada = 0;
+
+    private int poder_comprado = 0;
 
     void Start()
     {
@@ -89,6 +94,9 @@ public class GuardadoManager : MonoBehaviour
 
         pna_comprada = PlayerPrefs.GetInt(PielNaranjaComprada, 0);
         pne_comprada = PlayerPrefs.GetInt(PielNegraComprada, 0);
+
+        poder_comprado = PlayerPrefs.GetInt(PoderComprado, 0);
+
 
         print("--- PLAYER PREFS ---");
         print("monedas: "+totalMoneda.ToString()+", comida: "+totalComida.ToString());
@@ -163,7 +171,7 @@ public class GuardadoManager : MonoBehaviour
     }
 
     public void GuardarCompras(int cv_comprada, int cc_comprada, int cm_comprada,
-        int pna_comprada, int pne_comprada /*int g_comprado, int m_comprada*/ ){
+        int pna_comprada, int pne_comprada, int poder_comprado/*int g_comprado, */ ){
 
         PlayerPrefs.SetInt(CapaVerdeComprada, cv_comprada);
         PlayerPrefs.SetInt(CapaCelesteComprada, cc_comprada);
@@ -171,6 +179,8 @@ public class GuardadoManager : MonoBehaviour
 
         PlayerPrefs.SetInt(PielNaranjaComprada, pna_comprada);
         PlayerPrefs.SetInt(PielNegraComprada, pne_comprada);
+
+        PlayerPrefs.SetInt(PoderComprado, poder_comprado);
 
         PlayerPrefs.Save();
     }
@@ -192,6 +202,8 @@ public class GuardadoManager : MonoBehaviour
 
         pna_comprada = 0;
         pne_comprada = 0;
+
+        poder_comprado = 0;
         
         PlayerPrefs.SetInt(TotalMonedaKey, totalMoneda);
         PlayerPrefs.SetInt(TotalComidaKey, totalComida);
@@ -207,6 +219,8 @@ public class GuardadoManager : MonoBehaviour
 
         PlayerPrefs.SetInt(PielNaranjaComprada, pna_comprada);
         PlayerPrefs.SetInt(PielNegraComprada, pne_comprada);
+        
+        PlayerPrefs.SetInt(PoderComprado, poder_comprado);
 
 
 

@@ -442,6 +442,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0f21a7c4a37334e89c5363ece87c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 261341020}
+  audioSourceMusica: {fileID: 663747096}
   tiempoCambiar: 30.2
   nombreEscena: Menu Inicial
 --- !u!4 &261341019
@@ -469,9 +471,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b645b166f73d4f74b93c511890dd7c7e, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.28
+  m_audioClip: {fileID: 8300000, guid: 7a7700ae73715324b94752fce1cff13e, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
   m_Pitch: 0.8
   Loop: 1
   Mute: 0
@@ -480,7 +482,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 1000
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1106,7 +1108,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6b9521bb4ae81a04796a09e0dd2d1f94, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.6
+  m_Volume: 0.45
   m_Pitch: 1
   Loop: 1
   Mute: 0

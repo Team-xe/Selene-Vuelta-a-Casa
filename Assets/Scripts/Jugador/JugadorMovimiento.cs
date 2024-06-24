@@ -49,6 +49,10 @@ public class JugadorMovimiento : MonoBehaviour
     public Poder1 poder1Morado;
     public Poder2 poder2Azul;
 
+    public float tiempoPoderAzul = 7f;
+
+    public float poder_comprado = 0f;
+
 
     void Start()
     {
@@ -71,6 +75,12 @@ public class JugadorMovimiento : MonoBehaviour
 
         // El transform actual de carrilesPos[] es el de la posicion Index (parte en 1)
         carrilPosActual = carrilesPos[carrilIndexActual];
+
+        poder_comprado = PlayerPrefs.GetInt("PoderComprado");
+
+        if (poder_comprado == 1){
+            MejorarPoderAzul();
+        }
 
         
     }
@@ -209,6 +219,10 @@ public class JugadorMovimiento : MonoBehaviour
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z); //Reset de salto
     }
 
+
+    public void MejorarPoderAzul(){
+        tiempoPoderAzul = 12f; // antes era 7f, fue un +5f
+    }
     /**
     ** Metodo para que el Jugador se mueva entre los 3 carriles hacia la izquierda o derecha
     **/
@@ -278,7 +292,8 @@ public class JugadorMovimiento : MonoBehaviour
             trampolinEnProgreso = true;
             alturaMaxima = 140f;
             umbralAltura = 12f;
-            float dobleFuerza = fuerzaSalto * 2.55f;
+            
+            float dobleFuerza = fuerzaSalto * 1.5f;
             rb.AddForce(Vector3.up * dobleFuerza, ForceMode.Impulse);
             enSuelo = false;
             animator.SetBool("Saltar", true);
@@ -315,13 +330,13 @@ public class JugadorMovimiento : MonoBehaviour
         invulnerable = true;
         fuegoFatuo.SetActive(true);
 
-        Invoke("DesactivarInvulnerabilidad", 8f);
+        Invoke("DesactivarInvulnerabilidad", tiempoPoderAzul);
         StartCoroutine(Coroutine());
     }
 
     private IEnumerator Coroutine()
     {
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(tiempoPoderAzul);
         DesactivarInvulnerabilidad();
     }
     private void DesactivarInvulnerabilidad()

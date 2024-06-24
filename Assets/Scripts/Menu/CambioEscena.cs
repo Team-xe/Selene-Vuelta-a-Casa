@@ -5,14 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class CambioEscena : MonoBehaviour
 {
-    
+   public AudioSource audioSource;
+   public AudioSource audioSourceMusica;
    public float tiempoCambiar;
    public string nombreEscena; 
     private void Update()
     {
        tiempoCambiar -= Time.deltaTime;
+       if(tiempoCambiar < 16 && tiempoCambiar > 15){
+         //audioSourceMusica.Stop();
+         audioSource.Play();
+         print("Latido");
+       }
        if(tiempoCambiar <= 0) {
         SceneManager.LoadScene(nombreEscena);
-       } 
+       }
     }
 }

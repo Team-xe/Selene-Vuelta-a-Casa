@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// PODER MORADO
 public class Poder1 : MonoBehaviour
 {
     
@@ -26,6 +27,10 @@ public class Poder1 : MonoBehaviour
         if (other.gameObject.name == "Jugador")
         {
             ElevarEnemigos();
+        }
+
+        if (other.gameObject.CompareTag("Enemigo")){
+            Destroy(other.gameObject);
         }
         
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// PODER AZUL
 public class Poder2 : MonoBehaviour
 {
     public static bool invulnerable;
@@ -14,6 +15,10 @@ public class Poder2 : MonoBehaviour
         {
             
             HacerInvulnerableJugador();
+        }
+
+        if (other.gameObject.CompareTag("Enemigo")){
+            Destroy(other.gameObject);
         }
     }
 

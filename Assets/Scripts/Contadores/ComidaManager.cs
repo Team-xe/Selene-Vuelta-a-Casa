@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Playables;
 
 public class ComidaManager : MonoBehaviour
 {
@@ -20,6 +21,10 @@ public class ComidaManager : MonoBehaviour
     public int cantComida = 0;
     public ParticleSystem corazones;
     public AudioSource audioSource;
+    public AudioSource gatito;
+
+    public GameObject fondoDormir;
+    public PlayableDirector controladorLineaTiempo;
 
     void Start()
     {
@@ -85,6 +90,27 @@ public class ComidaManager : MonoBehaviour
         textMeshSushis.text = "x"+ cantSushis.ToString();
         textMeshHamburguesas.text = "x"+ cantHamburguesas.ToString();
     }
+
+    public void Dormir(){
+
+        //TODO: Pantalla en negro y sonido Zzz
+        fondoDormir.SetActive(true);
+        controladorLineaTiempo.Play();
+        gatito.Play();
+        
+        Invoke("Despertar",6f);
+
+    }
+
+    
+    public void Despertar(){
+        if (cantComida <= 0){
+            Comer(1);
+        }
+        gatito.Stop();
+        fondoDormir.SetActive(false);
+    }
+    
 
     void Update()
     {
