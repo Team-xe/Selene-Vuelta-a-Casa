@@ -316,7 +316,7 @@ public class JugadorMovimiento : MonoBehaviour
         float fuerzaSaltoOriginal = fuerzaSalto;
         velocidadHorizontal *= 1.25f;
 
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(0.8f);
         alturaMaxima = alturaMaximaOriginal;
         umbralAltura = umbralAlturaOriginal;
         fuerzaSalto = fuerzaSaltoOriginal;

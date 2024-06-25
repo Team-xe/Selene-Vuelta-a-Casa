@@ -18,12 +18,12 @@ public class JugadorColision : MonoBehaviour
     void OnTriggerEnter(Collider other){
         if (other.gameObject.CompareTag("Moneda")) {
             contadorMonedas.Sumar(1);
-            AudioManager.instance.ReproducirEfectos("Moneda");
+            //AudioManager.instance.ReproducirEfectos("Moneda");
         }
 
         if (other.gameObject.CompareTag("MonedaEspecial")) {
             contadorMonedas.Sumar(5);
-            AudioManager.instance.ReproducirEfectos("Moneda");
+            //AudioManager.instance.ReproducirEfectos("Moneda");
         }
 
         if (other.gameObject.CompareTag("Poder1")) {

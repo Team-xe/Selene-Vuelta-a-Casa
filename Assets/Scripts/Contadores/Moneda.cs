@@ -10,7 +10,7 @@ public class Moneda : MonoBehaviour
     public AudioSource audioSource;
 
     private static float tiempoUltimaMoneda;
-    private static float pitchOriginal;
+    private float pitchOriginal;
     private static float incrementoPitch = 0.1f; // Incremento del pitch
     private static float tiempoMaximoSinRecoger = 0.4f;
 
@@ -24,22 +24,21 @@ public class Moneda : MonoBehaviour
 
     }
      void OnTriggerEnter(Collider other){
-        if (other.gameObject.CompareTag("Jugador")) { 
-                       
+        if (other.gameObject.CompareTag("Jugador")) {
+
+            
             rb.AddForce(Vector3.up * 30f, ForceMode.Impulse);
             if (Time.time - tiempoUltimaMoneda <= tiempoMaximoSinRecoger)
             {
-                audioSource.pitch += incrementoPitch;
+                audioSource.pitch = pitchOriginal + incrementoPitch;
             }
             else
             {
                 audioSource.pitch = pitchOriginal;
             }
-
             audioSource.Play();
-
-            tiempoUltimaMoneda = Time.time; ;
-            Destroy(gameObject,0.2f);
+            tiempoUltimaMoneda = Time.time;
+            Destroy(gameObject,0.3f);
         }
     }
 
