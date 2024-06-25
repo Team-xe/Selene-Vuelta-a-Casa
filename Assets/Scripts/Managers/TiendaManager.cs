@@ -17,7 +17,7 @@ public class TiendaManager : MonoBehaviour
     int cantPescados = 0;
     int cantSushis = 0;
     int cantHamburguesas = 0;
-
+    public AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -161,11 +161,12 @@ public class TiendaManager : MonoBehaviour
     public void Cobrar(int precio){
         print(cantmonedas);
         if (cantmonedas >= precio){
-            AudioManager.instance.ReproducirEfectos("Compra");
+            
             guardadoManager.agregarMoneda(-precio);
             print(cantmonedas);
             cantmonedas = cantmonedas - precio;
             ActualizarTextoMonedas();
+            audioSource.Play();
         }
     }
 }
