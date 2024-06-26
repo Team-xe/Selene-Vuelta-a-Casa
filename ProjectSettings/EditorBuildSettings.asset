@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Escenas/Multijugador.unity
     guid: 46a88ea1a8113a846a49cf0c778dffdd
+  - enabled: 1
+    path: Assets/Escenas/Ganar.unity
+    guid: b159522a08d1123429972f56bbc1bbc2
   m_configObjects: {}

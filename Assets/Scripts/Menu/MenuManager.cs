@@ -55,6 +55,7 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("Multijugador");
     }
 
+
     //PARA PROBAR LUEGO SE PUEDE UTILIZAR OTRO CONTROLADOR O NOSE
     
 

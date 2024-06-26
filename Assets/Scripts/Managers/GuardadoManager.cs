@@ -13,7 +13,7 @@ public class GuardadoManager : MonoBehaviour
     private const string TotalPescadoKey = "TotalPescadoKey";
     private const string TotalSushiKey = "TotalSushiKey";
     private const string TotalHamburguesaKey = "TotalHamburguesaKey";
-
+    private const string FinalDesbloqueado = "FinalDesbloqueado";
 
     //* GUARDADO DE VARIABLES DE ASPECTO JUGADOR
     private const string ModeloCapaRoja = "ModeloCapaRoja";
@@ -63,7 +63,7 @@ public class GuardadoManager : MonoBehaviour
     private int cm_comprada = 0;
     private int pna_comprada = 0;
     private int pne_comprada = 0;
-
+    private int finalAlcanzado = 0;
     private int poder_comprado = 0;
 
     void Start()
@@ -96,6 +96,7 @@ public class GuardadoManager : MonoBehaviour
         pne_comprada = PlayerPrefs.GetInt(PielNegraComprada, 0);
 
         poder_comprado = PlayerPrefs.GetInt(PoderComprado, 0);
+        finalAlcanzado = PlayerPrefs.GetInt(FinalDesbloqueado, 0);
 
 
         print("--- PLAYER PREFS ---");
@@ -185,6 +186,12 @@ public class GuardadoManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public void GuardarFinal(int final)
+    {
+        PlayerPrefs.SetInt(FinalDesbloqueado, final);
+        PlayerPrefs.Save();
+    }
+
     
     // Reiniciar el total de monedas (test unity)
     public void ReiniciarDatos()
@@ -204,6 +211,7 @@ public class GuardadoManager : MonoBehaviour
         pne_comprada = 0;
 
         poder_comprado = 0;
+        finalAlcanzado = 0;
         
         PlayerPrefs.SetInt(TotalMonedaKey, totalMoneda);
         PlayerPrefs.SetInt(TotalComidaKey, totalComida);
@@ -222,7 +230,7 @@ public class GuardadoManager : MonoBehaviour
         
         PlayerPrefs.SetInt(PoderComprado, poder_comprado);
 
-
+        PlayerPrefs.SetInt(FinalDesbloqueado, finalAlcanzado);
 
         PlayerPrefs.Save(); // Guardar los cambios
 

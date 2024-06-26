@@ -61,28 +61,28 @@ public class TiendaManager : MonoBehaviour
     
 
     public void ComprarPescado(){
-        if (cantmonedas >= 1){
+        if (cantmonedas >= 15){
             guardadoManager.agregarPescado(1);
             cantPescados = cantPescados + 1;
-            Cobrar(1);
+            Cobrar(15);
             ActualizarTextoPescado();
         }
     }
 
     public void ComprarSushi(){
-        if (cantmonedas >= 5){
+        if (cantmonedas >= 30){
             guardadoManager.agregarSushi(1);
             cantSushis = cantSushis + 1;
-            Cobrar(5);
+            Cobrar(30);
             ActualizarTextoSushi();
         }
     }
 
     public void ComprarHamburguesa(){
-        if (cantmonedas >= 10){
+        if (cantmonedas >= 50){
             guardadoManager.agregarHamburguesa(1);
             cantHamburguesas = cantHamburguesas + 1;
-            Cobrar(10);
+            Cobrar(50);
             ActualizarTextoHamburguesa();
         }
         
@@ -100,46 +100,46 @@ public class TiendaManager : MonoBehaviour
     public int poder_comprado = 0; // mejora
     
     public void ComprarCapaVerde(){
-        if (cv_comprada == 0 && cantmonedas >= 50){
-            Cobrar(50);
+        if (cv_comprada == 0 && cantmonedas >= 500){
+            Cobrar(500);
             cv_comprada = 1;
             guardadoManager.GuardarCompras(cv_comprada, cc_comprada, cm_comprada, pna_comprada, pne_comprada, poder_comprado);
         }
     }
     public void ComprarCapaCeleste(){
-        if (cc_comprada == 0 && cantmonedas >= 50){
-            Cobrar(50);
+        if (cc_comprada == 0 && cantmonedas >= 500){
+            Cobrar(500);
             cc_comprada = 1;
             guardadoManager.GuardarCompras(cv_comprada, cc_comprada, cm_comprada, pna_comprada, pne_comprada, poder_comprado);
         }
     }
     public void ComprarCapaMagica(){
-        if (cm_comprada == 0 && cantmonedas >= 80){
-            Cobrar(80);
+        if (cm_comprada == 0 && cantmonedas >= 800){
+            Cobrar(800);
             cm_comprada = 1;
             guardadoManager.GuardarCompras(cv_comprada, cc_comprada, cm_comprada, pna_comprada, pne_comprada, poder_comprado);
         }
     }
     
     public void ComprarPielNaranja(){
-        if (pna_comprada == 0 && cantmonedas >= 50){
-            Cobrar(50);
+        if (pna_comprada == 0 && cantmonedas >= 1000){
+            Cobrar(1000);
             pna_comprada = 1;
             guardadoManager.GuardarCompras(cv_comprada, cc_comprada, cm_comprada, pna_comprada, pne_comprada, poder_comprado);
         }
     }
     
     public void ComprarPielNegra(){
-        if (pne_comprada == 0 && cantmonedas >= 50){
-            Cobrar(50);
+        if (pne_comprada == 0 && cantmonedas >= 1000){
+            Cobrar(1000);
             pne_comprada = 1;
             guardadoManager.GuardarCompras(cv_comprada, cc_comprada, cm_comprada, pna_comprada, pne_comprada, poder_comprado);
         }
     }
     
     public void ComprarGorro(){
-        if (g_comprado == 0 && cantmonedas >= 50){
-            Cobrar(50);
+        if (g_comprado == 0 && cantmonedas >= 1000){
+            Cobrar(1000);
             g_comprado = 1;
             guardadoManager.GuardarCompras(cv_comprada, cc_comprada, cm_comprada, pna_comprada, pne_comprada, poder_comprado);
         }
@@ -147,8 +147,8 @@ public class TiendaManager : MonoBehaviour
 
     
     public void ComprarMejora(){
-        if (poder_comprado == 0 && cantmonedas >= 50){
-            Cobrar(50);
+        if (poder_comprado == 0 && cantmonedas >= 400){
+            Cobrar(400);
             poder_comprado = 1;
             guardadoManager.GuardarCompras(cv_comprada, cc_comprada, cm_comprada, pna_comprada, pne_comprada, poder_comprado);
         }
