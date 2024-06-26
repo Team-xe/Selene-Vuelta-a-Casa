@@ -6640,6 +6640,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: a7d13d9f5e3cddf49b12bcf7c80fdce4, type: 3}
   - nombre: Compra
     clip: {fileID: 8300000, guid: fcaa3125911dd314c91dd74b9093c0c5, type: 3}
+  - nombre: MuerteTodo
+    clip: {fileID: 8300000, guid: a2fb2f9d4379d0245b834ecdc3613d93, type: 3}
   menuSource: {fileID: 1680382818}
   efectosSource: {fileID: 499847696}
 --- !u!1 &301515307

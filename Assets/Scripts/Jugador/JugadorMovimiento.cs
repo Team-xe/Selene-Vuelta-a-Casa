@@ -368,6 +368,7 @@ public class JugadorMovimiento : MonoBehaviour
         GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemigo");
 
         AudioManager.instance.ReproducirEfectos("Poder2");
+        AudioManager.instance.ReproducirEfectos("MuerteTodo");
         foreach (GameObject enemigo in enemigos)
         {
             Destroy(enemigo);
