@@ -51,7 +51,7 @@ public class GuardadoManager : MonoBehaviour
 
     private int totalMoneda = 0;
     private int totalPuntaje = 0;
-    private int totalComida = 0;
+    private int totalComida = 20;
 
 
     private int totalPescado = 0;
@@ -197,11 +197,11 @@ public class GuardadoManager : MonoBehaviour
     public void ReiniciarDatos()
     {
         totalMoneda = 0;
-        totalComida = 0;
+        totalComida = 20;
 
-        totalPescado = 0;
-        totalSushi = 0;
-        totalHamburguesa = 0;
+        totalPescado = 1;
+        totalSushi = 1;
+        totalHamburguesa = 1;
 
         cv_comprada = 0;
         cc_comprada = 0;

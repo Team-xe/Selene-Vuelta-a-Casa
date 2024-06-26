@@ -28,7 +28,8 @@ public class TiendaManager : MonoBehaviour
 
         cantPescados = PlayerPrefs.GetInt("TotalPescadoKey");
         cantSushis = PlayerPrefs.GetInt("TotalSushiKey");
-        cantHamburguesas = PlayerPrefs.GetInt("TotalHamburguesasKey");
+        cantHamburguesas = PlayerPrefs.GetInt("TotalHamburguesaKey");
+        
 
         cv_comprada = PlayerPrefs.GetInt("CapaVerdeComprada");
         cc_comprada = PlayerPrefs.GetInt("CapaCelesteComprada");
